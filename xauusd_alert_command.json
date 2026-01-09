@@ -1,0 +1,17 @@
+{
+  "tool": "moneybot.add_alert",
+  "arguments": {
+    "symbol": "XAUUSD",
+    "alert_type": "price",
+    "condition": "crosses_above",
+    "description": "XAUUSD crosses above 4248 for first partials - high volatility (VIX > 20)",
+    "parameters": {
+      "price_level": 4248.0,
+      "volatility_condition": "high",
+      "vix_threshold": 20.0,
+      "purpose": "first_partials"
+    },
+    "expires_hours": 24,
+    "one_time": true
+  }
+}

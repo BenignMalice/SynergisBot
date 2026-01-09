@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\advanced_vwap_calculator.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.2, 0.5, 2.0, 100.0, 150.0, 200.0, 50000.0, 50010.0, 50100.0, 50110.0, 50150.0, 50200.0, 50210.0, 100, 150, 200, 1640995200, 1640995260, 1640995320, '24/7', 'BTCUSDc', 'FX', 'US', '__main__', 'ask', 'bid', 'cumulative_volume', 'current_price', 'distance_pips', 'is_new_session', 'last_update_time', 'lower_band', 'reclaimed', 'session_age_minutes', 'session_anchor', 'sigma', 'symbol', 'threshold_met', 'timestamp_utc', 'upper_band', 'volume', 'vwap']

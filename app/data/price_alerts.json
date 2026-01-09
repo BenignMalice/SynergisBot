@@ -1,0 +1,25 @@
+{
+  "alerts": [
+    {
+      "alert_id": "XAUUSD_below_3950.0_1760037271",
+      "symbol": "XAUUSD",
+      "alert_type": "below",
+      "target_price": 3950.0,
+      "message": "\ud83d\udd34 Gold breakdown below $3,950 - Consider short entry",
+      "created_at": "2025-10-09T22:14:31.884407",
+      "triggered": false,
+      "triggered_at": null
+    },
+    {
+      "alert_id": "XAUUSD_above_3975.0_1760037273",
+      "symbol": "XAUUSD",
+      "alert_type": "above",
+      "target_price": 3975.0,
+      "message": "\ud83d\udfe2 Gold reversal above $3,975 - Consider long entry",
+      "created_at": "2025-10-09T22:14:33.914462",
+      "triggered": false,
+      "triggered_at": null
+    }
+  ],
+  "last_updated": "2025-10-09T22:14:33.914462"
+}

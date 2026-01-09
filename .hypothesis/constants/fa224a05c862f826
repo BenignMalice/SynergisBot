@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\domain\candle_stats.py
+# hypothesis_version: 6.142.1
+
+[-1.0, 0.0, 1e-09, 1.0, 'atr', 'bb_dist_lower_frac', 'bb_dist_upper_frac', 'body_frac', 'c', 'close', 'h', 'high', 'l', 'low', 'lw_frac', 'o', 'open', 'rng', 'rng_atr_mult', 'uw_frac']

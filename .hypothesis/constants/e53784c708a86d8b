@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\domain\market_structure.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.2, 'DOWN', 'H', 'HH', 'HL', 'L', 'LH', 'LL', 'NaT', 'RANGE', 'StructurePoint', 'UNKNOWN', 'UP', 'UTC', '_find_pivots failed', 'bars_since_bos', 'bos_bear', 'bos_bull', 'break', 'break_level', 'choch_bear', 'choch_bull', 'close', 'coerce', 'datetime64', 'detect_bos_choch', 'down', 'high', 'idx', 'inf', 'kind', 'label_structure', 'label_swings', 'last_high', 'last_low', 'legacy', 'low', 'micro_bias', 'mixed', 'prev_high', 'prev_low', 'price', 'range', 'shift_forward', 'structure_bias', 'symmetric', 'time', 'trend', 'ts', 'up']

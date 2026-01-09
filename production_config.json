@@ -1,0 +1,130 @@
+{
+  "monitoring": {
+    "update_interval": 5.0,
+    "retention_hours": 24,
+    "alert_thresholds": {
+      "cpu_usage": 80.0,
+      "memory_usage": 85.0,
+      "disk_usage": 90.0,
+      "network_latency": 1000.0,
+      "error_rate": 5.0,
+      "queue_depth": 1000
+    }
+  },
+  "components": {
+    "chatgpt_bot": {
+      "port": 8001,
+      "health_endpoint": "/health",
+      "restart_command": "python chatgpt_bot.py",
+      "stop_command": "pkill -f 'chatgpt_bot.py'",
+      "required": true
+    },
+    "desktop_agent": {
+      "port": 8002,
+      "health_endpoint": "/health",
+      "restart_command": "python desktop_agent.py",
+      "stop_command": "pkill -f 'desktop_agent.py'",
+      "required": true
+    },
+    "main_api": {
+      "port": 8000,
+      "health_endpoint": "/health",
+      "restart_command": "python -m uvicorn app.main_api:app --host 0.0.0.0 --port 8000",
+      "stop_command": "pkill -f 'uvicorn app.main_api'",
+      "required": true
+    },
+    "mt5_service": {
+      "check_interval": 10.0,
+      "restart_command": "python -c 'import MetaTrader5 as mt5; mt5.initialize()'",
+      "stop_command": "python -c 'import MetaTrader5 as mt5; mt5.shutdown()'",
+      "required": true
+    },
+    "binance_feeds": {
+      "check_interval": 5.0,
+      "restart_command": "python -c 'import asyncio; from infra.binance_feeds import start_binance_feeds; asyncio.run(start_binance_feeds())'",
+      "stop_command": "pkill -f 'binance_feeds'",
+      "required": false
+    },
+    "database": {
+      "check_interval": 15.0,
+      "restart_command": "python -c 'import sqlite3; conn = sqlite3.connect(\"data/unified_tick_pipeline.db\"); conn.close()'",
+      "stop_command": "echo 'Database shutdown'",
+      "required": true
+    }
+  },
+  "databases": {
+    "main_db": "data/unified_tick_pipeline.db",
+    "analysis_db": "data/analysis_data.db",
+    "logs_db": "data/system_logs.db",
+    "journal_db": "data/journal.sqlite"
+  },
+  "alerts": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "username": "alerts@company.com",
+      "password": "your_password",
+      "recipients": [
+        "admin@company.com",
+        "ops@company.com"
+      ]
+    },
+    "slack": {
+      "enabled": true,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+      "channel": "#alerts"
+    },
+    "pagerduty": {
+      "enabled": false,
+      "integration_key": "your_integration_key"
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "logs/production.log",
+    "max_size": "100MB",
+    "backup_count": 5,
+    "rotation": "daily"
+  },
+  "performance": {
+    "max_memory_usage": "2GB",
+    "max_cpu_usage": 80.0,
+    "max_disk_usage": 90.0,
+    "latency_threshold_ms": 200.0,
+    "throughput_threshold_ops_per_sec": 1000
+  },
+  "security": {
+    "encryption_key": "your_encryption_key_here",
+    "jwt_secret": "your_jwt_secret_here",
+    "api_rate_limit": 1000,
+    "session_timeout": 3600,
+    "password_policy": {
+      "min_length": 12,
+      "require_uppercase": true,
+      "require_lowercase": true,
+      "require_numbers": true,
+      "require_special_chars": true
+    }
+  },
+  "backup": {
+    "enabled": true,
+    "schedule": "0 2 * * *",
+    "retention_days": 30,
+    "compression": true,
+    "encryption": true,
+    "locations": [
+      "backups/local",
+      "backups/remote"
+    ]
+  },
+  "deployment": {
+    "environment": "production",
+    "version": "8.0.0",
+    "rollback_enabled": true,
+    "health_check_timeout": 300,
+    "deployment_timeout": 1800,
+    "max_rollback_attempts": 3
+  }
+}

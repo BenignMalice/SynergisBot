@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\session_profiles.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.02, 0.03, 0.2, 0.25, 0.3, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.5, 18.0, 20.0, 25.0, 'ASIA', 'ASIA_LONDON', 'BTCUSD', 'EURUSD', 'GBPUSD', 'LONDON', 'LONDON_NY', 'LONDON_NY_OVERLAP', 'NONE', 'NY', 'NY_ASIA', 'TRANSITION', 'UNKNOWN', 'XAUUSD', 'breakout', 'range_fade', 'trend_continuation', 'trend_pullback']

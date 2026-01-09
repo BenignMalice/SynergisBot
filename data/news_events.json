@@ -1,0 +1,857 @@
+[
+  {
+    "time": "2026-01-04T17:30:00Z",
+    "description": "FOMC Member Kashkari Speaks",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-05T00:30:00Z",
+    "description": "Final Manufacturing PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "JPY"
+    ]
+  },
+  {
+    "time": "2026-01-05T01:45:00Z",
+    "description": "RatingDog Services PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "CNY"
+    ]
+  },
+  {
+    "time": "2026-01-05T07:30:00Z",
+    "description": "Retail Sales y/y",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "CHF"
+    ]
+  },
+  {
+    "time": "2026-01-05T08:00:00Z",
+    "description": "Spanish Unemployment Change",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-05T08:30:00Z",
+    "description": "Manufacturing PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "CHF"
+    ]
+  },
+  {
+    "time": "2026-01-05T09:30:00Z",
+    "description": "M4 Money Supply m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "GBP"
+    ]
+  },
+  {
+    "time": "2026-01-05T09:30:00Z",
+    "description": "Mortgage Approvals",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "GBP"
+    ]
+  },
+  {
+    "time": "2026-01-05T09:30:00Z",
+    "description": "Net Lending to Individuals m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "GBP"
+    ]
+  },
+  {
+    "time": "2026-01-05T15:00:00Z",
+    "description": "ISM Manufacturing PMI",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-05T15:00:00Z",
+    "description": "ISM Manufacturing Prices",
+    "impact": "medium",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-05T15:15:00Z",
+    "description": "Wards Total Vehicle Sales",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-05T23:50:00Z",
+    "description": "Monetary Base y/y",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "JPY"
+    ]
+  },
+  {
+    "time": "2026-01-06T03:35:00Z",
+    "description": "10-y Bond Auction",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "JPY"
+    ]
+  },
+  {
+    "time": "2026-01-06T07:29:00Z",
+    "description": "German Prelim CPI m/m",
+    "impact": "medium",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-06T07:45:00Z",
+    "description": "French Prelim CPI m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-06T08:15:00Z",
+    "description": "Spanish Services PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-06T08:45:00Z",
+    "description": "Italian Services PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-06T08:50:00Z",
+    "description": "French Final Services PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-06T08:55:00Z",
+    "description": "German Final Services PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-06T09:00:00Z",
+    "description": "Final Services PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-06T09:30:00Z",
+    "description": "Final Services PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "GBP"
+    ]
+  },
+  {
+    "time": "2026-01-06T13:00:00Z",
+    "description": "FOMC Member Barkin Speaks",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-06T14:45:00Z",
+    "description": "Final Services PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-06T15:54:00Z",
+    "description": "GDT Price Index",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "NZD"
+    ]
+  },
+  {
+    "time": "2026-01-06T19:00:00Z",
+    "description": "President Trump Speaks",
+    "impact": "medium",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-06T21:30:00Z",
+    "description": "API Weekly Statistical Bulletin",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-07T00:30:00Z",
+    "description": "CPI m/m",
+    "impact": "ultra",
+    "category": "macro",
+    "symbols": [
+      "AUD"
+    ]
+  },
+  {
+    "time": "2026-01-07T00:30:00Z",
+    "description": "CPI y/y",
+    "impact": "ultra",
+    "category": "macro",
+    "symbols": [
+      "AUD"
+    ]
+  },
+  {
+    "time": "2026-01-07T00:30:00Z",
+    "description": "Trimmed Mean CPI m/m",
+    "impact": "ultra",
+    "category": "macro",
+    "symbols": [
+      "AUD"
+    ]
+  },
+  {
+    "time": "2026-01-07T00:30:00Z",
+    "description": "Building Approvals m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "AUD"
+    ]
+  },
+  {
+    "time": "2026-01-07T07:00:00Z",
+    "description": "German Retail Sales m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-07T08:55:00Z",
+    "description": "German Unemployment Change",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-07T09:30:00Z",
+    "description": "Construction PMI",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "GBP"
+    ]
+  },
+  {
+    "time": "2026-01-07T09:30:00Z",
+    "description": "Housing Equity Withdrawal q/q",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "GBP"
+    ]
+  },
+  {
+    "time": "2026-01-07T10:00:00Z",
+    "description": "Core CPI Flash Estimate y/y",
+    "impact": "medium",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-07T10:00:00Z",
+    "description": "CPI Flash Estimate y/y",
+    "impact": "medium",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-07T10:00:00Z",
+    "description": "Italian Prelim CPI m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-07T10:34:00Z",
+    "description": "German 10-y Bond Auction",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-07T13:15:00Z",
+    "description": "ADP Non-Farm Employment Change",
+    "impact": "ultra",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-07T15:00:00Z",
+    "description": "Ivey PMI",
+    "impact": "medium",
+    "category": "macro",
+    "symbols": [
+      "CAD"
+    ]
+  },
+  {
+    "time": "2026-01-07T15:00:00Z",
+    "description": "ISM Services PMI",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-07T15:00:00Z",
+    "description": "JOLTS Job Openings",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-07T15:00:00Z",
+    "description": "Factory Orders m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-07T15:30:00Z",
+    "description": "Crude Oil Inventories",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-07T21:10:00Z",
+    "description": "FOMC Member Bowman Speaks",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-07T23:30:00Z",
+    "description": "Average Cash Earnings y/y",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "JPY"
+    ]
+  },
+  {
+    "time": "2026-01-08T00:30:00Z",
+    "description": "Goods Trade Balance",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "AUD"
+    ]
+  },
+  {
+    "time": "2026-01-08T03:35:00Z",
+    "description": "30-y Bond Auction",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "JPY"
+    ]
+  },
+  {
+    "time": "2026-01-08T05:00:00Z",
+    "description": "Consumer Confidence",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "JPY"
+    ]
+  },
+  {
+    "time": "2026-01-08T07:00:00Z",
+    "description": "German Factory Orders m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-08T07:02:00Z",
+    "description": "Halifax HPI m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "GBP"
+    ]
+  },
+  {
+    "time": "2026-01-08T07:30:00Z",
+    "description": "CPI m/m",
+    "impact": "ultra",
+    "category": "macro",
+    "symbols": [
+      "CHF"
+    ]
+  },
+  {
+    "time": "2026-01-08T07:45:00Z",
+    "description": "French Trade Balance",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-08T08:30:00Z",
+    "description": "Summary of Monetary Policy Discussions",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "CHF"
+    ]
+  },
+  {
+    "time": "2026-01-08T09:00:00Z",
+    "description": "Italian Monthly Unemployment Rate",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-08T09:59:00Z",
+    "description": "French 10-y Bond Auction",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-08T10:00:00Z",
+    "description": "PPI m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-08T10:00:00Z",
+    "description": "Unemployment Rate",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-08T10:30:00Z",
+    "description": "Challenger Job Cuts y/y",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T13:00:00Z",
+    "description": "FOMC Member Miran Speaks",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T13:30:00Z",
+    "description": "Trade Balance",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "CAD"
+    ]
+  },
+  {
+    "time": "2026-01-08T13:30:00Z",
+    "description": "Unemployment Claims",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T13:30:00Z",
+    "description": "Goods Trade Balance",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T13:30:00Z",
+    "description": "Prelim Nonfarm Productivity q/q",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T13:30:00Z",
+    "description": "Prelim Unit Labor Costs q/q",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T13:30:00Z",
+    "description": "Trade Balance",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T15:00:00Z",
+    "description": "Final Wholesale Inventories m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T15:30:00Z",
+    "description": "Natural Gas Storage",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T20:00:00Z",
+    "description": "Consumer Credit m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-08T23:30:00Z",
+    "description": "Household Spending y/y",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "JPY"
+    ]
+  },
+  {
+    "time": "2026-01-09T01:30:00Z",
+    "description": "CPI y/y",
+    "impact": "medium",
+    "category": "macro",
+    "symbols": [
+      "CNY"
+    ]
+  },
+  {
+    "time": "2026-01-09T01:30:00Z",
+    "description": "PPI y/y",
+    "impact": "medium",
+    "category": "macro",
+    "symbols": [
+      "CNY"
+    ]
+  },
+  {
+    "time": "2026-01-09T05:00:00Z",
+    "description": "Leading Indicators",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "JPY"
+    ]
+  },
+  {
+    "time": "2026-01-09T07:00:00Z",
+    "description": "German Industrial Production m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-09T07:00:00Z",
+    "description": "German Trade Balance",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-09T07:45:00Z",
+    "description": "French Consumer Spending m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-09T07:45:00Z",
+    "description": "French Industrial Production m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-09T08:00:00Z",
+    "description": "Foreign Currency Reserves",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "CHF"
+    ]
+  },
+  {
+    "time": "2026-01-09T08:00:00Z",
+    "description": "Unemployment Rate",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "CHF"
+    ]
+  },
+  {
+    "time": "2026-01-09T09:00:00Z",
+    "description": "Italian Retail Sales m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-09T10:00:00Z",
+    "description": "Retail Sales m/m",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "EUR"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:29:00Z",
+    "description": "Building Permits",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:29:00Z",
+    "description": "Housing Starts",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:30:00Z",
+    "description": "Employment Change",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "CAD"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:30:00Z",
+    "description": "Unemployment Rate",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "CAD"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:30:00Z",
+    "description": "Average Hourly Earnings m/m",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:30:00Z",
+    "description": "Non-Farm Employment Change",
+    "impact": "ultra",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:30:00Z",
+    "description": "Unemployment Rate",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:30:00Z",
+    "description": "Building Permits",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T13:30:00Z",
+    "description": "Housing Starts",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T15:00:00Z",
+    "description": "Prelim UoM Consumer Sentiment",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T15:00:00Z",
+    "description": "Prelim UoM Inflation Expectations",
+    "impact": "high",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T15:00:00Z",
+    "description": "FOMC Member Kashkari Speaks",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  },
+  {
+    "time": "2026-01-09T18:35:00Z",
+    "description": "FOMC Member Barkin Speaks",
+    "impact": "low",
+    "category": "macro",
+    "symbols": [
+      "USD"
+    ]
+  }
+]

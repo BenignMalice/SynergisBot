@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\advanced_atr_ratio_system.py
+# hypothesis_version: 6.142.1
+
+[-0.1, 0.001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.8, 1.0, 1.2, 1.5, 1.8, 2.0, 2.5, 5.0, 10.0, 50.0, 100.0, 50000.0, -100, 100, 1000, 3600, 60000, 300000, 'BTCUSDc', 'H1', 'M1', 'M15', 'M5', '__main__', 'config', 'current_ratio', 'current_state', 'data_counts', 'decreasing', 'extreme_volatility', 'high', 'high_volatility', 'increasing', 'insufficient_data', 'invalid_signals', 'low', 'low_volatility', 'm1_atr', 'm1_atr_data', 'm1_atr_period', 'm5_atr', 'm5_atr_data', 'm5_atr_period', 'medium', 'no_data', 'normal', 'performance', 'ratio_history', 'ratio_multiplier', 'sideways', 'symbol', 'valid_signals', 'very_low', 'volatility_drop', 'volatility_spike']

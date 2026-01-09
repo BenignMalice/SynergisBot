@@ -1,0 +1,7 @@
+{
+  "tripped": false,
+  "reason": "",
+  "until_ts": 0,
+  "last_trip_ts": 0,
+  "last_reset_daykey": "20260105"
+}

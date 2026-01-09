@@ -1,0 +1,52 @@
+{
+  "cancellation_rules": {
+    "price_distance_thresholds": {
+      "BTCUSDc": 0.5,
+      "XAUUSDc": 0.3,
+      "EURUSD": 0.2,
+      "GBPUSD": 0.2,
+      "USDJPY": 0.2,
+      "default": 0.5
+    },
+    "price_distance_cancellation": {
+      "enabled": true,
+      "check_interval_minutes": 5,
+      "description": "Cancel plan if price moves beyond threshold percentage away from entry"
+    },
+    "time_based_cancellation": {
+      "enabled": true,
+      "max_age_hours": 24,
+      "price_distance_threshold": 0.3,
+      "description": "Cancel if plan is old (>max_age_hours) and price hasn't approached entry (>price_distance_threshold away)"
+    },
+    "structure_cancellation": {
+      "enabled": true,
+      "check_interval_minutes": 60,
+      "description": "Cancel if market structure invalidates setup (support/resistance broken)"
+    },
+    "condition_invalidation": {
+      "enabled": true,
+      "check_interval_minutes": 15,
+      "description": "Cancel if original conditions become impossible (order block invalidated, liquidity sweep occurred, etc.)"
+    },
+    "volatility_cancellation": {
+      "enabled": false,
+      "regime_change_threshold": 2.0,
+      "description": "Cancel if volatility regime changes significantly (future enhancement)"
+    }
+  },
+  "re_evaluation_rules": {
+    "enabled": true,
+    "check_interval_minutes": 30,
+    "price_movement_threshold": 0.2,
+    "description": "Re-evaluate plan conditions when price moves significantly",
+    "time_based_trigger_hours": 4,
+    "cooldown_minutes": 60,
+    "daily_limit": 6,
+    "structure_change_enabled": true,
+    "volatility_regime_enabled": false
+  },
+  "version": "1.0.0",
+  "last_updated": "2025-12-18"
+}
+

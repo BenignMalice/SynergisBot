@@ -1,0 +1,132 @@
+{
+  "enabled": true,
+  "min_confidence": 70,
+  "actionable_threshold": 80,
+  "symbols": ["BTCUSDc", "XAUUSDc"],
+  "symbol_overrides": {
+    "XAUUSDc": {
+      "min_confidence": 80,
+      "actionable_threshold": 80
+    },
+    "BTCUSDc": {
+      "min_confidence": 75,
+      "actionable_threshold": 80
+    },
+    "GBPUSDc": {
+      "min_confidence": 75,
+      "actionable_threshold": 80
+    },
+    "EURUSDc": {
+      "min_confidence": 70,
+      "actionable_threshold": 80
+    }
+  },
+  "confidence_decay": {
+    "enabled": true,
+    "validation_window_minutes": 5,
+    "decay_duration_minutes": 30,
+    "threshold_adjustment": 5,
+    "min_movement_atr": 0.1
+  },
+  "channel_routing": {
+    "BTCUSDc": "crypto",
+    "ETHUSDc": "crypto",
+    "XAUUSDc": "gold",
+    "XAGUSDc": "gold",
+    "GBPUSDc": "forex",
+    "EURUSDc": "forex",
+    "USDJPYc": "forex",
+    "default": "private"
+  },
+  "alerts": {
+    "liquidity_sweep": {
+      "enabled": true,
+      "timeframes": ["M5"],
+      "cooldown_minutes": 5
+    },
+    "order_block": {
+      "enabled": true,
+      "timeframes": ["M15"],
+      "cooldown_minutes": 10
+    },
+    "choch": {
+      "enabled": true,
+      "timeframes": ["M5"],
+      "cooldown_minutes": 5
+    },
+    "bos": {
+      "enabled": true,
+      "timeframes": ["M15"],
+      "cooldown_minutes": 10
+    },
+    "vwap_deviation": {
+      "enabled": true,
+      "timeframes": ["M15"],
+      "min_sigma": 2.0,
+      "cooldown_minutes": 15
+    },
+    "inside_bar": {
+      "enabled": true,
+      "timeframes": ["M15"],
+      "cooldown_minutes": 30
+    },
+    "bb_squeeze": {
+      "enabled": true,
+      "timeframes": ["M15"],
+      "max_bb_width": 1.5,
+      "cooldown_minutes": 15
+    },
+    "bb_expansion": {
+      "enabled": true,
+      "timeframes": ["M5", "M15"],
+      "min_bb_width": 2.0,
+      "cooldown_minutes": 15
+    },
+    "rsi_divergence": {
+      "enabled": true,
+      "timeframes": ["M15"],
+      "cooldown_minutes": 15
+    },
+    "equal_highs_lows": {
+      "enabled": true,
+      "timeframes": ["H1"],
+      "cooldown_minutes": 30
+    }
+  },
+  "cross_tf_confirmation": {
+    "enabled": true,
+    "required_for_critical": true,
+    "directional_consistency": true,
+    "rules": {
+      "choch": {
+        "confirmation_tf": "M15",
+        "require": "ob_or_sweep",
+        "lookback_candles": 5,
+        "direction_must_match": true
+      },
+      "sweep": {
+        "confirmation_tf": "M5",
+        "require": "choch",
+        "lookback_candles": 3,
+        "direction_must_match": true
+      },
+      "order_block": {
+        "confirmation_tf": "M5",
+        "require": "structure_alignment",
+        "lookback_candles": 5,
+        "direction_must_match": true
+      }
+    }
+  },
+  "sessions": {
+    "london_only": false,
+    "ny_only": false,
+    "overlap_priority": true
+  },
+  "quiet_hours": {
+    "enabled": true,
+    "start_utc": 22,
+    "end_utc": 6
+  }
+}
+

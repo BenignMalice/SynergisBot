@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\reconnect_strategy.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.1, 2.0, 1000.0, 1000, 5000, 10000, 30000, 60000, 'Sequence gap', '__main__', 'active_connections', 'binance_ws', 'circuit_open', 'closed', 'connected', 'connecting', 'disconnect', 'disconnected', 'error', 'expected_sequence', 'failed', 'failed_connections', 'gaps_detected', 'half_open', 'heartbeat_missed', 'initial', 'last_valid_sequence', 'manual', 'open', 'received_count', 'reconnecting', 'sequence_gap', 'success_rate', 'timeout', 'total_connections', 'total_strategies', 'window_size']

@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\prompt_templates.py
+# hypothesis_version: 6.142.1
+
+[1.0, 1.5, 1.8, 2.0, 2.5, 3.0, 4.0, 10.0, 'Breakout Template v1', 'Breakout Template v2', 'at\\s+least', 'breakout', 'breakout_v1', 'breakout_v2', 'buy_limit', 'buy_stop', 'confluence', 'created_at', 'cross_tf', 'execution_quality', 'max_adx', 'max_rr', 'min_adx', 'min_rr', 'minimum\\s+rr', 'name', 'news_blackout', 'order_types', 'range', 'range_fade', 'range_fade_v1', 'range_fade_v2', 'regime', 'regime_fit', 'require_breakout_bar', 'require_volume_spike', 'reward.*risk.*ratio', 'rr\\s*[≥>=]+', 'sell_limit', 'sell_stop', 'skip', 'spread_atr_pct', 'strategy', 'template', 'trend', 'trend_pullback', 'trend_pullback_v1', 'trend_pullback_v2', 'v1', 'v2', 'validation_rules', 'version', 'volatile', '{FEATURES_JSON}']

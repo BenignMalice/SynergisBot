@@ -1,0 +1,20 @@
+{
+    "mt5_m1_streaming": {
+        "enabled": true,
+        "symbols": ["BTCUSDc"],
+        "update_interval": 1,
+        "buffer_size": 100,
+        "enable_volatility_analysis": true,
+        "enable_structure_analysis": true
+    },
+    "binance": {
+        "enabled": false,
+        "symbols": []
+    },
+    "mt5_timeframes": {
+        "enabled": true,
+        "symbols": ["BTCUSDc"],
+        "timeframes": ["M1", "M5", "M15", "H1", "H4"],
+        "update_interval": 1000
+    }
+}

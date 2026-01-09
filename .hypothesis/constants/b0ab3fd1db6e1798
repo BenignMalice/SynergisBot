@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\scipy\stats\kde.py
+# hypothesis_version: 6.142.1
+
+['_kde', 'gaussian_kde', 'kde', 'stats']

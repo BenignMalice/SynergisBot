@@ -1,0 +1,127 @@
+{
+  "monitoring": {
+    "update_interval": 5.0,
+    "metrics_retention_hours": 24,
+    "alert_retention_days": 30
+  },
+  "alert_rules": {
+    "high_cpu_usage": {
+      "id": "high_cpu_usage",
+      "name": "High CPU Usage",
+      "description": "CPU usage exceeds threshold",
+      "metric": "cpu_usage",
+      "threshold": 80.0,
+      "operator": ">",
+      "level": "warning",
+      "channels": ["email", "slack"],
+      "enabled": true,
+      "cooldown_minutes": 5,
+      "escalation_minutes": 30
+    },
+    "high_memory_usage": {
+      "id": "high_memory_usage",
+      "name": "High Memory Usage",
+      "description": "Memory usage exceeds threshold",
+      "metric": "memory_usage",
+      "threshold": 85.0,
+      "operator": ">",
+      "level": "warning",
+      "channels": ["email", "slack"],
+      "enabled": true,
+      "cooldown_minutes": 5,
+      "escalation_minutes": 30
+    },
+    "critical_cpu_usage": {
+      "id": "critical_cpu_usage",
+      "name": "Critical CPU Usage",
+      "description": "CPU usage is critically high",
+      "metric": "cpu_usage",
+      "threshold": 95.0,
+      "operator": ">",
+      "level": "critical",
+      "channels": ["email", "slack", "pagerduty"],
+      "enabled": true,
+      "cooldown_minutes": 2,
+      "escalation_minutes": 15
+    },
+    "high_disk_usage": {
+      "id": "high_disk_usage",
+      "name": "High Disk Usage",
+      "description": "Disk usage exceeds threshold",
+      "metric": "disk_usage",
+      "threshold": 90.0,
+      "operator": ">",
+      "level": "critical",
+      "channels": ["email", "slack", "pagerduty"],
+      "enabled": true,
+      "cooldown_minutes": 2,
+      "escalation_minutes": 15
+    },
+    "service_down": {
+      "id": "service_down",
+      "name": "Service Down",
+      "description": "Critical service is not responding",
+      "metric": "service_health",
+      "threshold": 0.0,
+      "operator": "==",
+      "level": "emergency",
+      "channels": ["email", "slack", "pagerduty"],
+      "enabled": true,
+      "cooldown_minutes": 1,
+      "escalation_minutes": 5
+    },
+    "high_latency": {
+      "id": "high_latency",
+      "name": "High Latency",
+      "description": "System latency exceeds threshold",
+      "metric": "latency_p95",
+      "threshold": 1000.0,
+      "operator": ">",
+      "level": "warning",
+      "channels": ["email", "slack"],
+      "enabled": true,
+      "cooldown_minutes": 5,
+      "escalation_minutes": 30
+    },
+    "database_error": {
+      "id": "database_error",
+      "name": "Database Error",
+      "description": "Database operation failed",
+      "metric": "database_errors",
+      "threshold": 5.0,
+      "operator": ">",
+      "level": "critical",
+      "channels": ["email", "slack", "pagerduty"],
+      "enabled": true,
+      "cooldown_minutes": 2,
+      "escalation_minutes": 15
+    }
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "username": "alerts@company.com",
+      "password": "your_password",
+      "from_email": "alerts@company.com",
+      "to_emails": ["admin@company.com", "ops@company.com"]
+    },
+    "slack": {
+      "enabled": true,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+      "channel": "#alerts",
+      "username": "TelegramMoneyBot"
+    },
+    "pagerduty": {
+      "enabled": false,
+      "integration_key": "your_integration_key",
+      "service_key": "your_service_key"
+    },
+    "webhook": {
+      "enabled": false,
+      "url": "https://your-webhook-url.com/alerts",
+      "headers": {"Authorization": "Bearer your-token"}
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\structure_sl.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.1, 0.2, 0.4, 0.5, 0.75, 0.8, 0.85, 0.9, 1.0, 1.5, 20.0, 999, 'No anchors available', 'bars_ago', 'eq_high_bars_ago', 'eq_high_cluster', 'eq_high_price', 'eq_highs', 'eq_low_bars_ago', 'eq_low_cluster', 'eq_low_price', 'eq_lows', 'fallback', 'fvg_bars_ago', 'fvg_bear', 'fvg_bull', 'fvg_edge', 'fvg_zone_lower', 'fvg_zone_upper', 'long', 'price', 'sweep_bars_ago', 'sweep_bear', 'sweep_bull', 'sweep_level', 'sweep_price', 'swing_high', 'swing_highs', 'swing_low', 'swing_lows']

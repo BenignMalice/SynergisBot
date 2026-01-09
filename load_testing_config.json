@@ -1,0 +1,108 @@
+{
+  "load_tests": {
+    "stress_test": {
+      "test_id": "stress_test",
+      "test_type": "stress",
+      "duration_minutes": 30,
+      "concurrent_users": 100,
+      "ramp_up_minutes": 5,
+      "ramp_down_minutes": 5,
+      "target_endpoints": [
+        "http://localhost:8000/health",
+        "http://localhost:8000/api/trading/status",
+        "http://localhost:8000/api/analysis/btcusdc"
+      ],
+      "expected_latency_ms": 200.0,
+      "expected_throughput_rps": 100.0,
+      "max_cpu_usage": 80.0,
+      "max_memory_usage": 85.0,
+      "max_error_rate": 1.0
+    },
+    "spike_test": {
+      "test_id": "spike_test",
+      "test_type": "spike",
+      "duration_minutes": 15,
+      "concurrent_users": 500,
+      "ramp_up_minutes": 2,
+      "ramp_down_minutes": 2,
+      "target_endpoints": [
+        "http://localhost:8000/health",
+        "http://localhost:8000/api/trading/status"
+      ],
+      "expected_latency_ms": 500.0,
+      "expected_throughput_rps": 200.0,
+      "max_cpu_usage": 90.0,
+      "max_memory_usage": 90.0,
+      "max_error_rate": 5.0
+    },
+    "volume_test": {
+      "test_id": "volume_test",
+      "test_type": "volume",
+      "duration_minutes": 60,
+      "concurrent_users": 50,
+      "ramp_up_minutes": 10,
+      "ramp_down_minutes": 10,
+      "target_endpoints": [
+        "http://localhost:8000/api/trading/status",
+        "http://localhost:8000/api/analysis/btcusdc",
+        "http://localhost:8000/api/analysis/xauusdc"
+      ],
+      "expected_latency_ms": 150.0,
+      "expected_throughput_rps": 50.0,
+      "max_cpu_usage": 70.0,
+      "max_memory_usage": 75.0,
+      "max_error_rate": 0.5
+    },
+    "endurance_test": {
+      "test_id": "endurance_test",
+      "test_type": "endurance",
+      "duration_minutes": 480,
+      "concurrent_users": 25,
+      "ramp_up_minutes": 30,
+      "ramp_down_minutes": 30,
+      "target_endpoints": [
+        "http://localhost:8000/health",
+        "http://localhost:8000/api/trading/status"
+      ],
+      "expected_latency_ms": 200.0,
+      "expected_throughput_rps": 25.0,
+      "max_cpu_usage": 60.0,
+      "max_memory_usage": 70.0,
+      "max_error_rate": 0.1
+    },
+    "scalability_test": {
+      "test_id": "scalability_test",
+      "test_type": "scalability",
+      "duration_minutes": 45,
+      "concurrent_users": 200,
+      "ramp_up_minutes": 15,
+      "ramp_down_minutes": 15,
+      "target_endpoints": [
+        "http://localhost:8000/api/trading/status",
+        "http://localhost:8000/api/analysis/btcusdc"
+      ],
+      "expected_latency_ms": 300.0,
+      "expected_throughput_rps": 100.0,
+      "max_cpu_usage": 85.0,
+      "max_memory_usage": 80.0,
+      "max_error_rate": 2.0
+    }
+  },
+  "performance_thresholds": {
+    "latency_p95_ms": 200.0,
+    "latency_p99_ms": 500.0,
+    "max_latency_ms": 1000.0,
+    "min_throughput_rps": 10.0,
+    "max_cpu_usage_percent": 85.0,
+    "max_memory_usage_percent": 85.0,
+    "max_disk_usage_percent": 90.0,
+    "max_error_rate_percent": 1.0
+  },
+  "monitoring": {
+    "metrics_collection_interval": 1.0,
+    "system_monitoring_enabled": true,
+    "database_monitoring_enabled": true,
+    "network_monitoring_enabled": true,
+    "alert_on_threshold_breach": true
+  }
+}

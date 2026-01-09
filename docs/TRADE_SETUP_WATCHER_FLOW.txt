@@ -1,0 +1,294 @@
+TRADE SETUP WATCHER - SYSTEM FLOW
+==================================
+
+USER INTERACTION FLOW:
+----------------------
+
+1. Initial Analysis (via ChatGPT)
+   User: "Analyze XAUUSDc"
+   Bot: Multi-timeframe analysis
+        H4: BULLISH (85%)
+        H1: CONTINUATION (80%)
+        M30: BUY_SETUP (80%)
+        M15: NONE (50%)        <-- CONFLICT
+        M5: NO_TRADE (30%)     <-- CONFLICT
+        Recommendation: WAIT
+
+2. User Starts Watching
+   User: "/watch XAUUSDc BUY"
+   Bot: Checking current conditions...
+        Current Confidence: 65%
+        Required: 70%
+        2 conditions not met
+        Status: WATCHING
+
+3. Background Monitoring Loop (Every 30 seconds)
+   ┌─────────────────────────────────────────┐
+   │  check_trade_setups_async()             │
+   │  ├─ For each symbol (XAUUSDc, etc.)     │
+   │  │  ├─ Get multi-timeframe analysis     │
+   │  │  ├─ Check 15 conditions               │
+   │  │  ├─ Calculate confidence              │
+   │  │  └─ If all met → Send alert           │
+   │  └─ Sleep 30 seconds                     │
+   └─────────────────────────────────────────┘
+
+4. Conditions Update
+   Time: T+30s
+   M15 RSI: 43 → 52 (NOW MEETS BUY criteria)
+   M15 MACD: bearish → bullish
+   M15 Price: below → above EMA20
+   New Confidence: 85%
+
+5. Alert Sent
+   Bot: 🎯 BUY SETUP ALERT - XAUUSDc
+        Confidence: 85%
+        Entry: 2005.75
+        Stop Loss: 1985.75
+        Take Profit: 2035.75
+        Risk/Reward: 1:1.5
+        All conditions met!
+
+6. User Executes Trade
+   User reviews and executes with confidence
+
+
+SYSTEM ARCHITECTURE:
+--------------------
+
+┌────────────────────────────────────────────────────────────────┐
+│                         chatgpt_bot.py                         │
+│  ┌──────────────────────────────────────────────────────────┐ │
+│  │  Background Tasks (AsyncIOScheduler)                     │ │
+│  │  ├─ Position Monitor         (60s)                       │ │
+│  │  ├─ Signal Scanner            (5min)                     │ │
+│  │  ├─ Circuit Breaker           (2min)                     │ │
+│  │  ├─ Automated Loss-Cutting    (60s)                      │ │
+│  │  └─ Trade Setup Watcher       (30s) ← NEW!              │ │
+│  └──────────────────────────────────────────────────────────┘ │
+│  ┌──────────────────────────────────────────────────────────┐ │
+│  │  Command Handlers                                        │ │
+│  │  ├─ /start, /menu, /help                                 │ │
+│  │  ├─ /status, /journal, /circuit                          │ │
+│  │  ├─ /watch ← NEW!                                        │ │
+│  │  └─ /chatgpt, /endgpt                                    │ │
+│  └──────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌────────────────────────────────────────────────────────────────┐
+│              infra/trade_setup_watcher.py (NEW!)               │
+│  ┌──────────────────────────────────────────────────────────┐ │
+│  │  TradeSetupWatcher Class                                 │ │
+│  │  ├─ check_setup_conditions(symbol, action)               │ │
+│  │  │  ├─ Get multi-timeframe data                          │ │
+│  │  │  ├─ Check RSI, MACD, EMA, ADX, ATR                    │ │
+│  │  │  ├─ Calculate confidence score                        │ │
+│  │  │  └─ Return (all_met, conditions, confidence)          │ │
+│  │  │                                                        │ │
+│  │  ├─ generate_trade_alert(symbol, action, conditions)     │ │
+│  │  │  ├─ Get current price                                 │ │
+│  │  │  ├─ Calculate SL (entry ± 2 ATR)                      │ │
+│  │  │  ├─ Calculate TP (entry ± 3 ATR)                      │ │
+│  │  │  ├─ Calculate R/R ratio                               │ │
+│  │  │  └─ Format notification message                       │ │
+│  │  │                                                        │ │
+│  │  └─ watch_setup(symbol, action, min_confidence)          │ │
+│  │     ├─ Mark as being watched                             │ │
+│  │     ├─ Check conditions                                  │ │
+│  │     └─ Return alert if conditions met                    │ │
+│  └──────────────────────────────────────────────────────────┘ │
+└────────────────────────────────────────────────────────────────┘
+         │                    │                    │
+         ▼                    ▼                    ▼
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│ IndicatorBridge │  │   MT5Service    │  │ SessionAnalyzer │
+│                 │  │                 │  │                 │
+│ Multi-timeframe │  │ Current prices  │  │ Session data    │
+│ analysis        │  │ Get ATR         │  │ (optional)      │
+│ RSI, MACD, EMA  │  │ Symbol info     │  │                 │
+│ ADX, SAR, VWAP  │  │                 │  │                 │
+└─────────────────┘  └─────────────────┘  └─────────────────┘
+         │                    │                    │
+         └────────────────────┴────────────────────┘
+                              │
+                              ▼
+                    ┌─────────────────┐
+                    │   MetaTrader5   │
+                    │   (MT5 Platform)│
+                    └─────────────────┘
+
+
+DATA FLOW:
+----------
+
+1. Market Data Collection
+   MT5 → MT5Service → IndicatorBridge
+   ├─ H4 timeframe data
+   ├─ H1 timeframe data
+   ├─ M30 timeframe data
+   ├─ M15 timeframe data
+   └─ M5 timeframe data
+
+2. Indicator Calculation
+   IndicatorBridge processes:
+   ├─ RSI (14 period)
+   ├─ MACD (12, 26, 9)
+   ├─ EMA (20, 50, 200)
+   ├─ ADX (14 period)
+   ├─ ATR (14 period)
+   └─ Price vs EMA20
+
+3. Condition Evaluation
+   TradeSetupWatcher checks:
+   For BUY:
+   ├─ H4: RSI >= 50, EMA bullish, ADX >= 25
+   ├─ H1: RSI >= 50, MACD bullish, Price > EMA20
+   ├─ M30: RSI >= 50, EMA bullish, ATR >= 5
+   ├─ M15: RSI >= 50, MACD bullish, Price > EMA20
+   └─ M5: RSI >= 50, MACD bullish, Price > EMA20
+
+   For SELL:
+   ├─ H4: RSI <= 50, EMA bearish, ADX >= 25
+   ├─ H1: RSI <= 50, MACD bearish, Price < EMA20
+   ├─ M30: RSI <= 50, EMA bearish, ATR >= 5
+   ├─ M15: RSI <= 50, MACD bearish, Price < EMA20
+   └─ M5: RSI <= 50, MACD bearish, Price < EMA20
+
+4. Confidence Calculation
+   Score = (Conditions Met Points) / (Total Conditions)
+   
+   Points per condition:
+   ├─ RSI: 20 points
+   ├─ MACD: 15 points
+   ├─ Price vs EMA20: 15 points
+   ├─ EMA alignment: 10 points
+   ├─ ADX: 10 points
+   └─ ATR: 5 points
+   
+   Total possible: ~75 points
+   Typical good setup: 70-85%
+
+5. Alert Generation
+   If all conditions met AND confidence >= threshold:
+   ├─ Get current price (ask/bid)
+   ├─ Calculate SL (entry ± 2 ATR)
+   ├─ Calculate TP (entry ± 3 ATR)
+   ├─ Calculate R/R ratio
+   ├─ Format message with all conditions
+   └─ Send Telegram notification
+
+
+CONDITION MONITORING EXAMPLE:
+------------------------------
+
+Symbol: XAUUSDc
+Action: BUY
+Target Confidence: 70%
+
+T=0s (Initial check)
+┌────────────┬──────────┬──────────┬─────────┐
+│ Timeframe  │ Indicator│ Current  │ Required│ Status
+├────────────┼──────────┼──────────┼─────────┼────────
+│ H4         │ RSI      │ 75.0     │ >= 50   │ ✅
+│ H4         │ EMA      │ bullish  │ bullish │ ✅
+│ H4         │ ADX      │ 50.0     │ >= 25   │ ✅
+│ H1         │ RSI      │ 60.0     │ >= 50   │ ✅
+│ H1         │ MACD     │ bullish  │ bullish │ ✅
+│ H1         │ Price    │ above    │ above   │ ✅
+│ M30        │ RSI      │ 55.0     │ >= 50   │ ✅
+│ M30        │ EMA      │ bullish  │ bullish │ ✅
+│ M30        │ ATR      │ 8.0      │ >= 5.0  │ ✅
+│ M15        │ RSI      │ 43.0     │ >= 50   │ ❌
+│ M15        │ MACD     │ bearish  │ bullish │ ❌
+│ M15        │ Price    │ below    │ above   │ ❌
+│ M5         │ RSI      │ 45.0     │ >= 50   │ ❌
+│ M5         │ MACD     │ bearish  │ bullish │ ❌
+│ M5         │ Price    │ below    │ above   │ ❌
+└────────────┴──────────┴──────────┴─────────┴────────
+Conditions Met: 9/15 (60%)
+Status: WATCHING
+
+T=30s
+M15 RSI: 43 → 48 (still below 50)
+Conditions Met: 9/15 (60%)
+Status: WATCHING
+
+T=60s
+M15 RSI: 48 → 52 ✅
+M15 MACD: bearish → bullish ✅
+M15 Price: below → above ✅
+Conditions Met: 12/15 (80%)
+Status: WATCHING
+
+T=90s
+M5 RSI: 45 → 51 ✅
+M5 MACD: bearish → bullish ✅
+M5 Price: below → above ✅
+Conditions Met: 15/15 (100%)
+Status: ✅ ALERT SENT!
+
+
+CONFIGURATION CASCADE:
+----------------------
+
+Environment Variables (.env)
+           ↓
+      config.py (Settings class)
+           ↓
+ TradeSetupWatcher (uses config)
+           ↓
+    Background Task (every 30s)
+           ↓
+   User Telegram Notification
+
+
+TELEGRAM NOTIFICATION FLOW:
+---------------------------
+
+1. Condition Met
+   ↓
+2. generate_trade_alert()
+   ↓
+3. Format message:
+   🎯 BUY SETUP ALERT - XAUUSDc
+   Confidence: 85%
+   Entry: 2005.75
+   Stop Loss: 1985.75
+   Take Profit: 2035.75
+   Risk/Reward: 1:1.5
+   [All conditions listed]
+   ↓
+4. app.bot.send_message()
+   ↓
+5. User receives notification
+   ↓
+6. User reviews and executes
+
+
+INTEGRATION WITH EXISTING SYSTEMS:
+-----------------------------------
+
+Automated Loss-Cutting System    Trade Setup Watcher
+        (Closes losers)      &    (Finds new setups)
+              │                           │
+              └───────────────┬───────────┘
+                              │
+                    ┌─────────▼─────────┐
+                    │  Position Monitor  │
+                    │  (Master Monitor)  │
+                    └─────────┬─────────┘
+                              │
+                    ┌─────────▼─────────┐
+                    │   Telegram Bot    │
+                    │   (Notifications)  │
+                    └───────────────────┘
+                              │
+                              ▼
+                            USER
+
+Result: Complete trading automation!
+- Find setups automatically ✅
+- Monitor positions ✅
+- Cut losses automatically ✅
+- Get all notifications ✅

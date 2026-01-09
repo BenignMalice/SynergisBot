@@ -1,0 +1,11 @@
+rules:
+  - description: "Do not use Unicode characters in test files - always sanitize with .encode('ascii', 'replace').decode('ascii')"
+    priority: 100
+    selectors:
+      - file.matches(".*[Tt]est.*\\.py$")
+      - file.matches(".*tests?/.*\\.py$")
+    behaviors:
+      - forbid.characters("U+0080-U+10FFFF")
+      - require: "When printing output that may contain Unicode, use: text.encode('ascii', 'replace').decode('ascii')"
+  
+ 

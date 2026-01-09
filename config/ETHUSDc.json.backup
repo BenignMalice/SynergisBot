@@ -1,0 +1,11 @@
+{
+  "symbol": "ETHUSDc",
+  "asset_type": "crypto",
+  "enabled": true,
+  "vwap": {
+    "session_anchor": "crypto"
+  },
+  "atr": {
+    "period": 14
+  }
+}

@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_axis_nan_policy.py
+# hypothesis_version: 6.142.1
+
+['Notes', 'Parameters', 'axis', 'bool, default: False', 'ignore', 'keepdims', 'mask', 'nan_policy', 'nan_propagation', 'omit', 'propagate', 'vectorization']

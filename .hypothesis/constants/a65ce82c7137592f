@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\numba\core\runtime\nrtopt.py
+# hypothesis_version: 6.142.1
+
+['NRT_incref', '[0-9]+:', '^;\\s*<label>', '^define', 'define', 'i8* null', '|', '}']

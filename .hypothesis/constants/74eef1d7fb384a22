@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\indicator_bridge.py
+# hypothesis_version: 6.142.1
+
+[0.0, 2.0, 20.0, 50.0, 100, 200, 500, '%Y-%m-%d %H:%M:%S', 'H1', 'H4', 'M15', 'M30', 'M5', 'adx', 'atr14', 'bb_lower', 'bb_middle', 'bb_upper', 'close', 'closes', 'current_close', 'current_high', 'current_low', 'current_open', 'ema20', 'ema200', 'ema50', 'high', 'highs', 'low', 'lows', 'macd', 'macd_histogram', 'macd_signal', 'open', 'opens', 'rsi', 's', 'stoch_d', 'stoch_k', 'tick_volume', 'time', 'times', 'volume_sma', 'volumes']

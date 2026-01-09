@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\rollback_mechanism.py
+# hypothesis_version: 6.142.1
+
+[0.0, 100.0, 100, 500, 1000, 3600, 'Initial system state', '__main__', 'active', 'active_database.db', 'avg_rollback_time', 'backups', 'breaker_events', 'breaker_types', 'cache', 'completed', 'config', 'connections', 'cpu_usage', 'critical', 'data_corruption', 'data_quality', 'database', 'disabled', 'double_triggers', 'drawdown', 'emergency', 'error_rate', 'executing', 'failed', 'failed_rollbacks', 'high', 'inactive', 'latency', 'latency_ms', 'low', 'manual_initiation', 'max_connections', 'medium', 'memory_usage', 'performance', 'priority', 'queue_backpressure', 'retry_count', 'rollback_points', 'security_breach', 'state', 'status', 'successful_rollbacks', 'system_failure', 'system_health', 'timeout', 'timestamp', 'total_events', 'total_rollbacks', 'triggered', 'w', 'warm', 'window_days']

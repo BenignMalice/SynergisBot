@@ -1,0 +1,92 @@
+{
+  "log_sources": {
+    "chatgpt_bot": {
+      "enabled": true,
+      "log_file": "logs/chatgpt_bot.log",
+      "log_format": "json",
+      "rotation_size": "100MB",
+      "retention_days": 30
+    },
+    "desktop_agent": {
+      "enabled": true,
+      "log_file": "logs/desktop_agent.log",
+      "log_format": "json",
+      "rotation_size": "100MB",
+      "retention_days": 30
+    },
+    "main_api": {
+      "enabled": true,
+      "log_file": "logs/main_api.log",
+      "log_format": "json",
+      "rotation_size": "100MB",
+      "retention_days": 30
+    },
+    "database": {
+      "enabled": true,
+      "log_file": "logs/database.log",
+      "log_format": "json",
+      "rotation_size": "50MB",
+      "retention_days": 30
+    },
+    "mt5": {
+      "enabled": true,
+      "log_file": "logs/mt5.log",
+      "log_format": "json",
+      "rotation_size": "50MB",
+      "retention_days": 30
+    },
+    "binance": {
+      "enabled": true,
+      "log_file": "logs/binance.log",
+      "log_format": "json",
+      "rotation_size": "50MB",
+      "retention_days": 30
+    },
+    "system": {
+      "enabled": true,
+      "log_file": "logs/system.log",
+      "log_format": "json",
+      "rotation_size": "100MB",
+      "retention_days": 30
+    }
+  },
+  "analysis": {
+    "error_analysis": {
+      "enabled": true,
+      "analysis_interval": 300.0,
+      "error_threshold": 10,
+      "pattern_detection": true
+    },
+    "performance_analysis": {
+      "enabled": true,
+      "analysis_interval": 600.0,
+      "performance_threshold": 1000.0,
+      "trend_detection": true
+    },
+    "anomaly_detection": {
+      "enabled": true,
+      "analysis_interval": 1800.0,
+      "anomaly_threshold": 3.0,
+      "pattern_recognition": true
+    },
+    "trend_analysis": {
+      "enabled": true,
+      "analysis_interval": 3600.0,
+      "trend_window_hours": 24,
+      "trend_detection": true
+    }
+  },
+  "aggregation": {
+    "collection_interval": 10.0,
+    "batch_size": 1000,
+    "retention_days": 30,
+    "compression_enabled": true,
+    "indexing_enabled": true
+  },
+  "monitoring": {
+    "log_volume_threshold": 10000,
+    "error_rate_threshold": 5.0,
+    "critical_rate_threshold": 1.0,
+    "alert_on_anomalies": true
+  }
+}

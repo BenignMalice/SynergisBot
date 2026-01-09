@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\session_rules.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.3, 0.35, 0.5, 0.65, 0.7, 0.8, 1.0, 1.8, 2.0, 100, 'ASIA', 'ASIA_LONDON', 'LONDON', 'LONDON_NY_OVERLAP', 'NY', 'NY_ASIA', 'UNKNOWN', 'adx', 'adx_14', 'bb_width', 'bos_bear', 'bos_bull', 'breakout', 'confidence', 'donchian_breakout', 'eq_high_cluster', 'eq_low_cluster', 'is_overlap', 'is_transition', 'is_transition_period', 'max_spread_atr_pct', 'minutes_into_session', 'overlap_type', 'primary_session', 'range_fade', 'range_position', 'require_bos', 'require_volume', 'risk_multiplier', 'session_strength', 'spread_atr_pct', 'strategy', 'sweep_bear', 'sweep_bull', 'trend_continuation', 'trend_pullback', 'volume_zscore', 'wick_rejection_bear', 'wick_rejection_bull']

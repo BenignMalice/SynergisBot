@@ -1,0 +1,79 @@
+==================================================================
+          CRITICAL: RESTART INSTRUCTIONS
+==================================================================
+
+The bot has been STOPPED. DO NOT start it yet.
+
+Follow these steps EXACTLY:
+
+STEP 1: Verify Bot is Stopped
+------------------------------
+Open Task Manager → Check for python.exe processes
+If any exist: taskkill /F /IM python.exe
+
+STEP 2: Clear ALL Open Positions in MT5
+----------------------------------------
+Open MT5 Terminal → Trade tab
+Close EVERY open position manually
+Verify: 0 open positions
+
+STEP 3: Start Fresh Bot
+------------------------
+cd C:\mt5-gpt\TelegramMoneyBot.v7
+python trade_bot.py
+
+STEP 4: Verify Startup
+-----------------------
+Check logs for:
+- "Bot ready" message
+- NO "Dropping invalid SL" messages
+- NO rapid trade executions
+
+STEP 5: Test Safely
+--------------------
+In Telegram:
+1. Send: /status
+2. Send: /trade BTCUSD
+3. Check: Should see regular trade (NO OCO bracket)
+4. DO NOT execute yet - just verify OCO is not offered
+
+STEP 6: Monitor for 5 Minutes
+------------------------------
+Watch logs for any suspicious activity
+Should see:
+- Clean _pending_tick runs
+- NO spam executions
+- NO error messages about invalid SL/TP
+
+IF SPAM OCCURS AGAIN:
+1. STOP BOT IMMEDIATELY (Ctrl+C or taskkill)
+2. DO NOT restart
+3. Report issue
+
+==================================================================
+WHAT'S BEEN FIXED:
+==================================================================
+
+✓ Pre-execution validation catches wrong-side SL/TP
+✓ OCO brackets disabled (can't create new ones)
+✓ Auto-cleanup removes old orders
+✓ Five layers of protection active
+
+==================================================================
+WHAT TO EXPECT:
+==================================================================
+
+NORMAL OPERATION:
+- Regular trades work
+- No OCO brackets offered
+- Clean execution
+- No spam
+
+IF OLD OCO IN DATABASE:
+- Will be caught by pre-execution validation
+- Cancelled before execution
+- You'll receive Telegram alert
+- No spam
+
+==================================================================
+

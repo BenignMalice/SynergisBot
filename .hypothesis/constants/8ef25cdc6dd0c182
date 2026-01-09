@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\snapshot_resync.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.05, 0.1, 0.2, 0.3, 1000.0, 100, 101, 103, 104, 105, 1000, 5000, 10000, 30000, 'BTCUSDc', '__main__', 'cancelled', 'completed', 'connection_lost', 'critical', 'duplicate_sequence', 'failed', 'full_resync', 'gap', 'gap_rate', 'gaps_detected', 'high', 'ignore', 'in_progress', 'low', 'medium', 'missing_sequence', 'out_of_order', 'pending', 'request_partial', 'request_snapshot', 'restart_stream', 'sequence', 'symbol', 'timeout_gap', 'timestamp', 'total_sequences', 'window_size']

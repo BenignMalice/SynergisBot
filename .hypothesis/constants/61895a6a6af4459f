@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\PIL\ImageGrab.py
+# hypothesis_version: 6.142.1
+
+[b' not available', b'No selection', b'No suitable type of content copied', b'Nothing is copied', b'cannot convert ', b'xclip: Error: There is no owner for the ', '\x00', '-R', '-b', '-e', '-f', '-n', '-o', '-selection', '-t', '-x', '.png', 'BGR', 'BGRX', 'DIB', 'DISPLAY', 'I', 'RGB', 'WAYLAND_DISPLAY', 'clipboard', 'darwin', 'file', 'gnome-screenshot', 'grim', 'image', 'image/png', 'mbcs', 'osascript', 'png', 'raw', 'screencapture', 'spectacle', 'utf-16le', 'wayland', 'win32', 'wl-paste', 'x11', 'xclip']

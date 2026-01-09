@@ -1,0 +1,16 @@
+{
+  "point_id": "rb_1760874617_41f9760c",
+  "timestamp": 1760874617.965699,
+  "description": "Initial system state",
+  "system_state": {
+    "database": "active",
+    "cache": "warm"
+  },
+  "configuration_snapshot": {
+    "max_connections": 100,
+    "timeout": 30
+  },
+  "database_snapshot": null,
+  "file_backups": {},
+  "checksum": "525daaf33937e042d5978637c73f90acc34f64bd2dbdcc485fad3311b4607d06",
+  "priority": 

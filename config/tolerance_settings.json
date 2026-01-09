@@ -1,0 +1,29 @@
+{
+  "tolerance_settings": {
+    "enabled": true,
+    "base_atr_mult": 0.5,
+    "min_tolerance": 2.0,
+    "max_tolerance": 50.0,
+    "symbol_overrides": {
+      "BTCUSDc": {
+        "base_atr_mult": 0.6,
+        "min_tolerance": 10.0,
+        "max_tolerance": 100.0
+      },
+      "XAUUSDc": {
+        "base_atr_mult": 0.4,
+        "min_tolerance": 3.0,
+        "max_tolerance": 20.0
+      }
+    },
+    "timeframe_overrides": {
+      "M5": {
+        "base_atr_mult": 0.3
+      },
+      "H1": {
+        "base_atr_mult": 0.7
+      }
+    }
+  }
+}
+

@@ -1,0 +1,11 @@
+{
+  "symbol": "EURUSDc",
+  "asset_type": "forex",
+  "enabled": true,
+  "vwap": {
+    "session_anchor": "forex"
+  },
+  "atr": {
+    "period": 14
+  }
+}

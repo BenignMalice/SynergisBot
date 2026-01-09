@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\database\trade_management_db.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.01, 0.1, 0.5, 0.8, 1.0, 25.0, 50.0, 149.0, 150.0, 150.5, 151.0, 100, 1000, 'BUY', 'Closed trade', 'EURJPYc', 'Updated trade', '__main__', 'active', 'all', 'avg_pnl', 'breaker_type', 'close_trade', 'closed', 'confidence', 'context', 'current_price', 'details', 'direction', 'duration_ms', 'entry_price', 'entry_time', 'error_count', 'exit_price', 'exit_time', 'insert_active_trade', 'insert_risk_metric', 'losing_trades', 'max_loss', 'max_win', 'metric_name', 'metric_value', 'multi_timeframe', 'pnl', 'position_size', 'queue_size', 'read_count', 'reasoning', 'running', 'status', 'stop_loss', 'strategy', 'symbol', 'take_profit', 'threshold', 'timeframe', 'timestamp_ms', 'total_pnl', 'total_trades', 'trade_id', 'trigger_value', 'type', 'unrealized_pnl', 'update_active_trade', 'win_rate', 'winning_trades', 'write_count']

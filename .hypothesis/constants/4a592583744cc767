@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\scipy\interpolate\fitpack2.py
+# hypothesis_version: 6.142.1
+
+['BivariateSpline', 'LSQBivariateSpline', 'LSQUnivariateSpline', 'RectBivariateSpline', 'UnivariateSpline', '_fitpack2', 'fitpack2', 'interpolate']

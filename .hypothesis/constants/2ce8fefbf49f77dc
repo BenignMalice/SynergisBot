@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\schemas\trading_events.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.95, 500, 1000, 2000, 5000, 10000, 'ADJUSTMENT', 'ATR_Ratio', 'AdaptiveHedge', 'BOS', 'BUY', 'CHOCH', 'ENTRY', 'EXIT', 'IntelligentExit', 'Invalid ask format', 'Invalid bid format', 'Invalid direction', 'Invalid exit type', 'Invalid filter type', 'Liquidity', 'Micro_BOS', 'OrderBlock', 'SELL', 'Spread_Filter', 'StopLoss', 'TakeProfit', 'TrailingStop', 'VWAP_Reclaim', 'Volume_Delta_Spike', 'ask', 'bearish', 'bid', 'binance', 'binance_order_book', 'bullish', 'calculated', 'close', 'dtms_exit_signal', 'high', 'last', 'low', 'm1_filter_signal', 'market_structure', 'mt5', 'neutral', 'ohlcv_bar', 'open', 'performance_metric', 'sequence_id', 'source', 'spread', 'symbol', 'tick', 'tick_volume', 'timeframe', 'timestamp_ms', 'timestamp_open_ms', 'trade_decision', 'volume']

@@ -1,0 +1,48 @@
+{
+  "symbol": "BTCUSDc",
+  "asset_type": "crypto",
+  "binance_symbol": "BTCUSDT",
+  "pip_value": 0.0001,
+  "min_lot_size": 0.01,
+  "max_lot_size": 1.0,
+  "lot_step": 0.01,
+  "vwap": {
+    "session_anchor": "crypto_24_7",
+    "sigma_window_minutes": 60,
+    "min_volume_threshold": 0.01,
+    "price_precision": 5
+  },
+  "atr": {
+    "m1_period": 14,
+    "m5_period": 14,
+    "ratio_multiplier": 1.5,
+    "high_volatility_threshold": 3.0
+  },
+  "delta": {
+    "spike_threshold": 2.0,
+    "min_volume": 0.01,
+    "lookback_periods": 20
+  },
+  "micro_bos": {
+    "bar_lookback": 5,
+    "min_atr_displacement": 0.25,
+    "cooldown_period_ms": 300000
+  },
+  "spread_filter": {
+    "normal_spread_threshold": 2.0,
+    "elevated_spread_threshold": 5.0,
+    "high_spread_threshold": 10.0,
+    "extreme_spread_threshold": 20.0,
+    "window_size": 20,
+    "outlier_z_score": 2.0
+  },
+  "risk": {
+    "max_lot_size": 0.1,
+    "daily_lot_limit": 2.0,
+    "hourly_lot_limit": 1.0,
+    "max_drawdown_pct": 5.0,
+    "circuit_breaker_threshold": 0.02
+  },
+  "enabled": true,
+  "priority": 1
+}

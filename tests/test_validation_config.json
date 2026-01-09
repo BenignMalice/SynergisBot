@@ -1,0 +1,97 @@
+{
+  "test_suites": {
+    "unit_tests": {
+      "suite_id": "unit_tests",
+      "name": "Unit Tests",
+      "category": "unit",
+      "test_files": [
+        "tests/test_structure_validation.py",
+        "tests/test_m1_filter_validation.py",
+        "tests/test_latency_validation.py",
+        "tests/test_hot_path_validation.py",
+        "tests/test_binance_integration_validation.py",
+        "tests/test_shadow_mode_validation.py",
+        "tests/test_vwap_accuracy_validation.py",
+        "tests/test_delta_spike_validation.py",
+        "tests/test_false_signal_reduction_validation.py",
+        "tests/test_database_performance_validation.py",
+        "tests/test_binance_order_book_validation.py",
+        "tests/test_large_order_detection_validation.py",
+        "tests/test_exit_precision_validation.py",
+        "tests/test_rr_improvement_validation.py",
+        "tests/test_drawdown_control_validation.py",
+        "tests/test_database_operations_validation.py",
+        "tests/test_win_rate_validation.py",
+        "tests/test_sustained_latency_validation.py",
+        "tests/test_slos_validation.py",
+        "tests/test_database_optimization_validation.py",
+        "tests/test_backtesting_validation.py",
+        "tests/test_paper_trading_system.py"
+      ],
+      "timeout_seconds": 300,
+      "expected_duration_seconds": 180,
+      "critical": true
+    },
+    "integration_tests": {
+      "suite_id": "integration_tests",
+      "name": "Integration Tests",
+      "category": "integration",
+      "test_files": [
+        "tests/test_integration_comprehensive.py"
+      ],
+      "timeout_seconds": 600,
+      "expected_duration_seconds": 300,
+      "critical": true
+    },
+    "e2e_tests": {
+      "suite_id": "e2e_tests",
+      "name": "End-to-End Tests",
+      "category": "e2e",
+      "test_files": [
+        "tests/test_chatgpt_bot_e2e.py",
+        "tests/test_desktop_agent_e2e.py",
+        "tests/test_main_api_e2e.py"
+      ],
+      "timeout_seconds": 900,
+      "expected_duration_seconds": 450,
+      "critical": true
+    },
+    "performance_tests": {
+      "suite_id": "performance_tests",
+      "name": "Performance Tests",
+      "category": "performance",
+      "test_files": [
+        "tests/test_performance_validation.py"
+      ],
+      "timeout_seconds": 1200,
+      "expected_duration_seconds": 600,
+      "critical": false
+    },
+    "security_tests": {
+      "suite_id": "security_tests",
+      "name": "Security Tests",
+      "category": "security",
+      "test_files": [
+        "tests/test_security_validation.py"
+      ],
+      "timeout_seconds": 300,
+      "expected_duration_seconds": 120,
+      "critical": true
+    }
+  },
+  "validation_criteria": {
+    "minimum_pass_rate": 95.0,
+    "maximum_duration_minutes": 30,
+    "minimum_coverage_percent": 80.0,
+    "critical_test_timeout_minutes": 5,
+    "allow_warnings": true,
+    "require_all_critical": true
+  },
+  "performance_benchmarks": {
+    "max_latency_ms": 200,
+    "min_throughput_rps": 10,
+    "max_memory_usage_mb": 1000,
+    "max_cpu_usage_percent": 80,
+    "max_disk_usage_percent": 85
+  }
+}

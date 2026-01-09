@@ -1,0 +1,50 @@
+{
+  "monitoring_id": "MONITOR_1761070200",
+  "start_time": "2025-10-21T20:51:35.648880",
+  "current_time": "2025-10-21T21:10:00.504891",
+  "duration_minutes": 18.41426685,
+  "system_health": {
+    "timestamp": "2025-10-21T21:10:00.504891",
+    "overall_health": "DEGRADED",
+    "issues": [
+      "High disk usage: 91.9%"
+    ],
+    "metrics_status": "WARNING"
+  },
+  "performance_metrics": {
+    "timestamp": "2025-10-21T21:10:00.442450",
+    "cpu_usage_percent": 9.0,
+    "memory_usage_percent": 57.1,
+    "disk_usage_percent": 91.9238971284777,
+    "process_memory_mb": 51.93359375,
+    "network_bytes_sent": 5989219783,
+    "network_bytes_recv": 1070595240
+  },
+  "deployment_status": {
+    "timestamp": "2025-10-21T21:10:00.504891",
+    "processes": {
+      "trading_system": true,
+      "monitoring_dashboard": true,
+      "api_server": true
+    },
+    "database": {
+      "main_database": "HEALTHY",
+      "journal_database": "HEALTHY",
+      "table_count": 3,
+      "overall": "HEALTHY"
+    },
+    "mt5": {
+      "status": "CONNECTED",
+      "account": 161246309,
+      "symbols": 40,
+      "overall": "HEALTHY"
+    },
+    "telegram": {
+      "status": "NO_TOKEN",
+      "overall": "DEGRADED"
+    },
+    "overall_status": "HEALTHY"
+  },
+  "active_alerts": 0,
+  "overall_status": "HEALTHY"
+}

@@ -1,0 +1,126 @@
+{
+  "stress_tests": {
+    "price_spike_test": {
+      "test_id": "price_spike_test",
+      "test_type": "price_spike",
+      "duration_minutes": 10,
+      "volatility_level": "high",
+      "price_change_percent": 5.0,
+      "volume_multiplier": 3.0,
+      "spread_multiplier": 2.0,
+      "expected_system_response": "degraded"
+    },
+    "volume_surge_test": {
+      "test_id": "volume_surge_test",
+      "test_type": "volume_surge",
+      "duration_minutes": 15,
+      "volatility_level": "extreme",
+      "price_change_percent": 2.0,
+      "volume_multiplier": 10.0,
+      "spread_multiplier": 1.5,
+      "expected_system_response": "stressed"
+    },
+    "spread_widening_test": {
+      "test_id": "spread_widening_test",
+      "test_type": "spread_widening",
+      "duration_minutes": 8,
+      "volatility_level": "high",
+      "price_change_percent": 1.0,
+      "volume_multiplier": 2.0,
+      "spread_multiplier": 5.0,
+      "expected_system_response": "degraded"
+    },
+    "market_crash_test": {
+      "test_id": "market_crash_test",
+      "test_type": "market_crash",
+      "duration_minutes": 20,
+      "volatility_level": "critical",
+      "price_change_percent": -15.0,
+      "volume_multiplier": 20.0,
+      "spread_multiplier": 10.0,
+      "expected_system_response": "overloaded"
+    },
+    "flash_crash_test": {
+      "test_id": "flash_crash_test",
+      "test_type": "flash_crash",
+      "duration_minutes": 5,
+      "volatility_level": "critical",
+      "price_change_percent": -25.0,
+      "volume_multiplier": 50.0,
+      "spread_multiplier": 20.0,
+      "expected_system_response": "overloaded"
+    },
+    "news_event_test": {
+      "test_id": "news_event_test",
+      "test_type": "news_event",
+      "duration_minutes": 30,
+      "volatility_level": "extreme",
+      "price_change_percent": 8.0,
+      "volume_multiplier": 15.0,
+      "spread_multiplier": 3.0,
+      "expected_system_response": "stressed"
+    },
+    "liquidity_crisis_test": {
+      "test_id": "liquidity_crisis_test",
+      "test_type": "liquidity_crisis",
+      "duration_minutes": 25,
+      "volatility_level": "critical",
+      "price_change_percent": 12.0,
+      "volume_multiplier": 0.1,
+      "spread_multiplier": 15.0,
+      "expected_system_response": "overloaded"
+    }
+  },
+  "volatility_levels": {
+    "low": {
+      "volatility_threshold": 0.01,
+      "price_change_range": [-0.5, 0.5],
+      "volume_multiplier_range": [0.5, 1.5],
+      "spread_multiplier_range": [0.8, 1.2]
+    },
+    "medium": {
+      "volatility_threshold": 0.02,
+      "price_change_range": [-1.0, 1.0],
+      "volume_multiplier_range": [1.0, 2.0],
+      "spread_multiplier_range": [1.0, 1.5]
+    },
+    "high": {
+      "volatility_threshold": 0.05,
+      "price_change_range": [-3.0, 3.0],
+      "volume_multiplier_range": [2.0, 5.0],
+      "spread_multiplier_range": [1.5, 3.0]
+    },
+    "extreme": {
+      "volatility_threshold": 0.10,
+      "price_change_range": [-8.0, 8.0],
+      "volume_multiplier_range": [5.0, 15.0],
+      "spread_multiplier_range": [3.0, 8.0]
+    },
+    "critical": {
+      "volatility_threshold": 0.20,
+      "price_change_range": [-20.0, 20.0],
+      "volume_multiplier_range": [10.0, 50.0],
+      "spread_multiplier_range": [5.0, 20.0]
+    }
+  },
+  "system_thresholds": {
+    "cpu_usage_normal": 70.0,
+    "cpu_usage_stressed": 85.0,
+    "cpu_usage_overloaded": 95.0,
+    "memory_usage_normal": 75.0,
+    "memory_usage_stressed": 90.0,
+    "memory_usage_overloaded": 95.0,
+    "latency_normal_ms": 200.0,
+    "latency_stressed_ms": 500.0,
+    "latency_overloaded_ms": 1000.0,
+    "error_rate_normal_percent": 1.0,
+    "error_rate_stressed_percent": 5.0,
+    "error_rate_overloaded_percent": 10.0
+  },
+  "monitoring": {
+    "metrics_collection_interval": 1.0,
+    "system_monitoring_enabled": true,
+    "volatility_monitoring_enabled": true,
+    "alert_on_threshold_breach": true
+  }
+}

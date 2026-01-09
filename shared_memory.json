@@ -1,0 +1,17 @@
+{
+  "last_update": 1761130078.8432937,
+  "tick_count": 439,
+  "system_status": "running",
+  "active_processes": [
+    {
+      "type": "chatgpt_bot",
+      "pid": 14796,
+      "last_seen": 1761130078.8432937
+    }
+  ],
+  "database_locks": {
+    "main_db": "unlocked",
+    "analysis_db": "unlocked",
+    "logs_db": "unlocked"
+  }
+}

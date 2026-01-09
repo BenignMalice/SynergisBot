@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\circuit_breaker_system.py
+# hypothesis_version: 6.142.1
+
+[-1200.0, 0.0, 0.02, 0.05, 0.8, 85.0, 90.0, 95.0, 98.0, 100.0, 102.0, 105.0, 110.0, 115.0, 120.0, 250.0, 1000.0, 9000.0, 10000.0, -1000, 200, 1000, 'EURJPYc', 'Manual reset', '__main__', 'breaker_config', 'breaker_type_counts', 'closed', 'current_drawdown', 'data_quality', 'drawdown', 'half_open', 'latency', 'losing_trades', 'loss', 'loss_limit', 'max_drawdown', 'max_drawdown_seen', 'max_latency_ms', 'max_loss_limit', 'max_system_load', 'max_volatility', 'min_data_quality', 'open', 'open_breakers', 'peak_equity', 'performance_metrics', 'status_counts', 'symbol', 'system_overload', 'total_events', 'total_pnl', 'total_trades', 'unknown', 'volatility', 'win', 'winning_trades']

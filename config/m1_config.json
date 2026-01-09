@@ -1,0 +1,66 @@
+{
+  "m1_data": {
+    "enabled": true,
+    "max_candles_per_symbol": 200,
+    "refresh_interval_active_scalp": 30,
+    "refresh_interval_active": 60,
+    "refresh_interval_inactive": 300,
+    "force_refresh_on_stale": true,
+    "stale_threshold_seconds": 180,
+    "skip_weekend_refresh": true,
+    "weekend_start_utc": "21:00",
+    "weekend_end_utc": "22:00",
+    "symbols": {
+      "active_scalp": [
+        "XAUUSD",
+        "BTCUSD"
+      ],
+      "active": [
+        "EURUSD",
+        "GBPUSD",
+        "USDJPY"
+      ]
+    },
+    "choch_detection": {
+      "require_3_candle_confirmation": true,
+      "require_choch_bos_combo": true,
+      "confidence_threshold": 70,
+      "debug_confidence_weights": false,
+      "include_m15_alignment": false,
+      "use_sigmoid_scaling": true,
+      "sigmoid_steepness": 0.1,
+      "use_rolling_mean": false,
+      "rolling_mean_window": 5,
+      "symbol_thresholds": {
+        "BTCUSD": 75,
+        "XAUUSD": 72,
+        "EURUSD": 70,
+        "GBPUSD": 70
+      },
+      "session_adjustments": {
+        "ASIAN": 5.0,
+        "LONDON": -5.0,
+        "NY": -2.0,
+        "OVERLAP": -8.0,
+        "POST_NY": 10.0
+      }
+    },
+    "cache": {
+      "enabled": true,
+      "ttl_seconds": 300,
+      "max_cached_symbols": 10
+    },
+    "snapshots": {
+      "enabled": true,
+      "interval": 1800,
+      "directory": "data/m1_snapshots",
+      "max_age_hours": 24,
+      "cleanup_enabled": true,
+      "validate_checksum": true,
+      "use_file_locking": true,
+      "use_compression": true,
+      "compression_level": 3
+    }
+  }
+}
+

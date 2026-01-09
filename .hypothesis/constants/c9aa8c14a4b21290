@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\multi_timeframe_exit_engine.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.3, 0.5, 0.6, 0.7, 1.0, 2.0, 149.0, 149.5, 149.8, 150.0, 150.2, 150.5, 150.7, 151.0, 151.2, 151.5, 151.7, 152.0, 152.5, 153.0, 153.5, 154.0, -1000, 200, 250, 300, 350, 400, 1000, 1100, 1200, 1300, 1400, 3600, 'BUY', 'EURJPYc', 'H1', 'M15', '__main__', 'average_confidence', 'break_strength', 'close', 'direction', 'entry_price', 'entry_time', 'exit_thresholds', 'exit_type_counts', 'high', 'hold_time_hours', 'low', 'max_hold_time_hours', 'momentum_loss', 'momentum_score', 'ohlcv', 'priority_counts', 'profit_ratio', 'profit_target', 'profit_target_ratio', 'stop_loss', 'structure_break', 'symbol', 'time_based', 'timeframe', 'total_signals', 'trailing_stop', 'unknown', 'volume', 'volume_decline', 'volume_ratio']

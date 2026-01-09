@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\advanced_micro_bos_choch.py
+# hypothesis_version: 6.142.1
+
+[0.001, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.7, 1.0, 5.0, 10.0, 50000.0, -100, 100, 1000, 3600, 60000, 300000, 'BTCUSDc', 'M1', '__main__', 'atr_values_size', 'bar_buffer_size', 'bar_lookback', 'bearish', 'bos', 'bullish', 'choch', 'config', 'cooldown_period_ms', 'current_state', 'current_trend', 'data_counts', 'displacement_weight', 'extreme', 'false_breaks', 'in_cooldown', 'last_break', 'max_atr_displacement', 'micro_bos', 'micro_choch', 'min_atr_displacement', 'moderate', 'neutral', 'performance', 'strong', 'symbol', 'time_weight', 'valid_breaks', 'volume_weight', 'weak']

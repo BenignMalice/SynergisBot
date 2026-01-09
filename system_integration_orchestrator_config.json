@@ -1,0 +1,55 @@
+{
+  "integration_phases": {
+    "system_integration": {
+      "enabled": true,
+      "timeout_minutes": 120,
+      "critical": true,
+      "required_tests": ["e2e_real_data_test", "load_testing", "stress_testing", "volatility_testing"]
+    },
+    "real_market_data": {
+      "enabled": true,
+      "timeout_minutes": 90,
+      "critical": true,
+      "required_tests": ["mt5_data_test", "binance_data_test", "hybrid_data_test"]
+    },
+    "high_volatility_stress": {
+      "enabled": true,
+      "timeout_minutes": 180,
+      "critical": true,
+      "required_tests": ["price_spike_test", "volume_surge_test", "market_crash_test", "flash_crash_test"]
+    },
+    "load_testing": {
+      "enabled": true,
+      "timeout_minutes": 60,
+      "critical": false,
+      "required_tests": ["concurrent_user_test", "throughput_test", "latency_test"]
+    },
+    "concurrent_user_testing": {
+      "enabled": true,
+      "timeout_minutes": 45,
+      "critical": false,
+      "required_tests": ["user_simulation_test", "session_management_test", "concurrency_test"]
+    },
+    "mt5_binance_integration": {
+      "enabled": true,
+      "timeout_minutes": 75,
+      "critical": true,
+      "required_tests": ["mt5_connection_test", "binance_connection_test", "data_fusion_test"]
+    }
+  },
+  "integration_criteria": {
+    "minimum_system_stability_score": 85.0,
+    "minimum_market_data_quality_score": 90.0,
+    "minimum_stress_test_score": 80.0,
+    "maximum_latency_ms": 500.0,
+    "minimum_throughput_rps": 10.0,
+    "maximum_error_rate_percent": 2.0,
+    "minimum_integration_readiness_score": 90.0
+  },
+  "reporting": {
+    "generate_detailed_report": true,
+    "include_metrics": true,
+    "include_recommendations": true,
+    "export_formats": ["json", "html", "pdf"]
+  }
+}

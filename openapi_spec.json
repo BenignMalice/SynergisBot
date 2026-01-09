@@ -1,0 +1,248 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TelegramMoneyBot Trading API",
+    "description": "API for executing trades on MT5 via ChatGPT. Allows placing BUY/SELL trades with stop loss and take profit levels.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://verbally-faithful-monster.ngrok-free.app",
+      "description": "Production ngrok tunnel"
+    }
+  ],
+  "paths": {
+    "/api/v1/trade/execute": {
+      "post": {
+        "operationId": "executeTrade",
+        "summary": "Execute a trade on MT5",
+        "description": "Place a BUY or SELL trade on MT5 with the specified parameters. All symbols should end with 'c' (e.g., BTCUSDc, XAUUSDc).",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["symbol", "action", "stop_loss", "take_profit"],
+                "properties": {
+                  "symbol": {
+                    "type": "string",
+                    "description": "Trading symbol (e.g., BTCUSDc, XAUUSDc, EURUSDc). The 'c' suffix will be added automatically if missing.",
+                    "example": "BTCUSDc"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": ["BUY", "SELL"],
+                    "description": "Trade direction: BUY or SELL",
+                    "example": "BUY"
+                  },
+                  "entry": {
+                    "type": "number",
+                    "description": "Entry price. If not specified, will execute at market price.",
+                    "example": 60000.0
+                  },
+                  "stop_loss": {
+                    "type": "number",
+                    "description": "Stop loss price. Must be below entry for BUY, above entry for SELL.",
+                    "example": 59500.0
+                  },
+                  "take_profit": {
+                    "type": "number",
+                    "description": "Take profit price. Must be above entry for BUY, below entry for SELL.",
+                    "example": 61000.0
+                  },
+                  "lot_size": {
+                    "type": "number",
+                    "description": "Position size in lots (default: 0.01, max: 0.01 for safety)",
+                    "example": 0.01,
+                    "default": 0.01
+                  },
+                  "comment": {
+                    "type": "string",
+                    "description": "Optional comment for the trade",
+                    "example": "GPT recommendation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Trade executed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Trade executed: BUY BTCUSDc"
+                    },
+                    "ticket": {
+                      "type": "integer",
+                      "description": "MT5 order ticket number",
+                      "example": 123456
+                    },
+                    "position": {
+                      "type": "integer",
+                      "description": "MT5 position ID",
+                      "example": 123456
+                    },
+                    "entry_price": {
+                      "type": "number",
+                      "description": "Actual entry price",
+                      "example": 60000.0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "description": "Server error - MT5 connection issue"
+          }
+        }
+      }
+    },
+    "/api/v1/account": {
+      "get": {
+        "operationId": "getAccountInfo",
+        "summary": "Get MT5 account information",
+        "description": "Returns current balance, equity, and margin information",
+        "responses": {
+          "200": {
+            "description": "Account information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "login": {
+                      "type": "integer",
+                      "description": "MT5 account login number"
+                    },
+                    "balance": {
+                      "type": "number",
+                      "description": "Account balance"
+                    },
+                    "equity": {
+                      "type": "number",
+                      "description": "Account equity"
+                    },
+                    "profit": {
+                      "type": "number",
+                      "description": "Current profit/loss"
+                    },
+                    "margin": {
+                      "type": "number",
+                      "description": "Used margin"
+                    },
+                    "free_margin": {
+                      "type": "number",
+                      "description": "Free margin available"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "Account currency"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/symbols": {
+      "get": {
+        "operationId": "listSymbols",
+        "summary": "List available trading symbols",
+        "description": "Returns a list of symbols available for trading",
+        "responses": {
+          "200": {
+            "description": "List of symbols",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "symbols": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbol": {
+                            "type": "string",
+                            "example": "BTCUSDc"
+                          },
+                          "description": {
+                            "type": "string",
+                            "example": "Bitcoin vs US Dollar"
+                          },
+                          "bid": {
+                            "type": "number",
+                            "example": 60000.0
+                          },
+                          "ask": {
+                            "type": "number",
+                            "example": 60005.0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Check API and MT5 connection health",
+        "description": "Returns the health status of the API server and MT5 connection",
+        "responses": {
+          "200": {
+            "description": "Health status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "healthy"
+                    },
+                    "mt5_connected": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "account": {
+                      "type": "integer",
+                      "description": "MT5 account number"
+                    },
+                    "balance": {
+                      "type": "number",
+                      "description": "Current account balance"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

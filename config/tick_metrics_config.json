@@ -1,0 +1,25 @@
+{
+  "enabled": true,
+  "symbols": ["BTCUSDc", "XAUUSDc", "EURUSDc", "USDJPYc", "GBPUSDc"],
+  "update_interval_seconds": 60,
+  "previous_day_refresh_hours": 1,
+  "timeframes": ["M5", "M15", "H1"],
+  "cache": {
+    "memory_ttl_seconds": 60,
+    "sqlite_retention_hours": 24,
+    "cleanup_interval_hours": 1,
+    "database_path": "data/unified_tick_pipeline/tick_metrics_cache.db"
+  },
+  "thresholds": {
+    "absorption_min_volume_ratio": 2.0,
+    "absorption_max_price_move_atr": 0.1,
+    "void_spread_multiplier": 2.0,
+    "volatility_expanding_ratio": 1.3,
+    "volatility_contracting_ratio": 0.7,
+    "cvd_slope_threshold": 0.1,
+    "absorption_volume_multiplier": 2.0,
+    "liquidity_void_spread_multiplier": 3.0,
+    "absorption_price_tolerance_pct": 0.05
+  }
+}
+

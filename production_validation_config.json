@@ -1,0 +1,50 @@
+{
+  "validation_phases": {
+    "load_testing": {
+      "enabled": true,
+      "timeout_minutes": 60,
+      "critical": true,
+      "required_tests": ["stress_test", "spike_test", "volume_test"]
+    },
+    "test_validation": {
+      "enabled": true,
+      "timeout_minutes": 30,
+      "critical": true,
+      "required_suites": ["unit_tests", "integration_tests", "e2e_tests"]
+    },
+    "security_assessment": {
+      "enabled": true,
+      "timeout_minutes": 15,
+      "critical": true,
+      "required_checks": ["password_policy", "access_control", "encryption"]
+    },
+    "performance_benchmarking": {
+      "enabled": true,
+      "timeout_minutes": 45,
+      "critical": false,
+      "benchmarks": ["latency", "throughput", "resource_usage"]
+    },
+    "production_readiness": {
+      "enabled": true,
+      "timeout_minutes": 10,
+      "critical": true,
+      "readiness_criteria": ["all_tests_pass", "security_compliant", "performance_acceptable"]
+    }
+  },
+  "production_criteria": {
+    "minimum_load_test_pass_rate": 90.0,
+    "minimum_test_validation_pass_rate": 95.0,
+    "minimum_security_score": 80.0,
+    "maximum_latency_ms": 200.0,
+    "minimum_throughput_rps": 10.0,
+    "maximum_cpu_usage_percent": 85.0,
+    "maximum_memory_usage_percent": 85.0,
+    "maximum_error_rate_percent": 1.0
+  },
+  "reporting": {
+    "generate_detailed_report": true,
+    "include_metrics": true,
+    "include_recommendations": true,
+    "export_formats": ["json", "html"]
+  }
+}

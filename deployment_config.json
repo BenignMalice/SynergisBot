@@ -1,0 +1,168 @@
+{
+  "environments": {
+    "production": {
+      "host": "localhost",
+      "port_base": 8000,
+      "backup_enabled": true,
+      "rollback_enabled": true,
+      "health_check_timeout": 300,
+      "deployment_timeout": 1800,
+      "max_retries": 3,
+      "retry_delay": 30
+    },
+    "staging": {
+      "host": "staging.localhost",
+      "port_base": 9000,
+      "backup_enabled": true,
+      "rollback_enabled": true,
+      "health_check_timeout": 180,
+      "deployment_timeout": 900,
+      "max_retries": 2,
+      "retry_delay": 15
+    },
+    "development": {
+      "host": "dev.localhost",
+      "port_base": 7000,
+      "backup_enabled": false,
+      "rollback_enabled": false,
+      "health_check_timeout": 60,
+      "deployment_timeout": 300,
+      "max_retries": 1,
+      "retry_delay": 10
+    }
+  },
+  "services": {
+    "main_api": {
+      "command": "python -m uvicorn app.main_api:app --host 0.0.0.0 --port {port}",
+      "port_offset": 0,
+      "health_endpoint": "/health",
+      "restart_command": "python -m uvicorn app.main_api:app --host 0.0.0.0 --port {port}",
+      "stop_command": "pkill -f 'uvicorn app.main_api'",
+      "required": true,
+      "startup_timeout": 60,
+      "health_check_interval": 10
+    },
+    "chatgpt_bot": {
+      "command": "python chatgpt_bot.py",
+      "port_offset": 1,
+      "health_endpoint": "/health",
+      "restart_command": "python chatgpt_bot.py",
+      "stop_command": "pkill -f 'chatgpt_bot.py'",
+      "required": true,
+      "startup_timeout": 60,
+      "health_check_interval": 10
+    },
+    "desktop_agent": {
+      "command": "python desktop_agent.py",
+      "port_offset": 2,
+      "health_endpoint": "/health",
+      "restart_command": "python desktop_agent.py",
+      "stop_command": "pkill -f 'desktop_agent.py'",
+      "required": true,
+      "startup_timeout": 60,
+      "health_check_interval": 10
+    },
+    "mt5_service": {
+      "command": "python -c 'import MetaTrader5 as mt5; mt5.initialize()'",
+      "port_offset": null,
+      "health_endpoint": null,
+      "restart_command": "python -c 'import MetaTrader5 as mt5; mt5.initialize()'",
+      "stop_command": "python -c 'import MetaTrader5 as mt5; mt5.shutdown()'",
+      "required": true,
+      "startup_timeout": 30,
+      "health_check_interval": 15
+    },
+    "binance_feeds": {
+      "command": "python -c 'import asyncio; from infra.binance_feeds import start_binance_feeds; asyncio.run(start_binance_feeds())'",
+      "port_offset": null,
+      "health_endpoint": null,
+      "restart_command": "python -c 'import asyncio; from infra.binance_feeds import start_binance_feeds; asyncio.run(start_binance_feeds())'",
+      "stop_command": "pkill -f 'binance_feeds'",
+      "required": false,
+      "startup_timeout": 30,
+      "health_check_interval": 15
+    }
+  },
+  "databases": [
+    "data/unified_tick_pipeline.db",
+    "data/analysis_data.db",
+    "data/system_logs.db",
+    "data/journal.sqlite"
+  ],
+  "backup_directories": {
+    "code": "backups/code",
+    "database": "backups/database",
+    "config": "backups/config",
+    "logs": "backups/logs"
+  },
+  "deployment_scripts": {
+    "pre_deploy": "scripts/pre_deploy.sh",
+    "post_deploy": "scripts/post_deploy.sh",
+    "pre_rollback": "scripts/pre_rollback.sh",
+    "post_rollback": "scripts/post_rollback.sh"
+  },
+  "health_checks": {
+    "endpoints": {
+      "main_api": "http://localhost:{port}/health",
+      "chatgpt_bot": "http://localhost:{port}/health",
+      "desktop_agent": "http://localhost:{port}/health"
+    },
+    "timeout": 5,
+    "retries": 3,
+    "retry_delay": 10
+  },
+  "rollback": {
+    "enabled": true,
+    "auto_rollback_on_failure": true,
+    "rollback_timeout": 600,
+    "max_rollback_attempts": 3,
+    "backup_retention_days": 30
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "username": "deployments@company.com",
+      "password": "your_password",
+      "recipients": [
+        "admin@company.com",
+        "ops@company.com",
+        "devops@company.com"
+      ]
+    },
+    "slack": {
+      "enabled": true,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+      "channel": "#deployments",
+      "notify_on_start": true,
+      "notify_on_success": true,
+      "notify_on_failure": true,
+      "notify_on_rollback": true
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/deployment.log",
+    "max_size": "50MB",
+    "backup_count": 5,
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  },
+  "security": {
+    "encrypt_backups": true,
+    "backup_encryption_key": "your_backup_encryption_key",
+    "secure_cleanup": true,
+    "audit_logging": true
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics_endpoint": "http://localhost:8000/metrics",
+    "alerting_enabled": true,
+    "performance_thresholds": {
+      "cpu_usage": 80.0,
+      "memory_usage": 85.0,
+      "disk_usage": 90.0,
+      "response_time": 1000.0
+    }
+  }
+}

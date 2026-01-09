@@ -1,0 +1,17 @@
+{
+  "symbols": ["BTCUSDc", "XAUUSDc", "EURUSDc"],
+  "enable_database": true,
+  "db_path": "data/multi_tf_candles.db",
+  "refresh_intervals": {
+    "M1": 60,
+    "M5": 300,
+    "M15": 900,
+    "M30": 1800,
+    "H1": 3600,
+    "H4": 14400
+  },
+  "retention_days": 30,
+  "max_memory_mb": 100.0,
+  "max_db_size_mb": 500.0,
+  "batch_write_size": 20
+}

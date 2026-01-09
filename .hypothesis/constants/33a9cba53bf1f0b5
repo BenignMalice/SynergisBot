@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\queue_monitoring.py
+# hypothesis_version: 6.142.1
+
+[0.0, 1.0, 2.0, 5.0, 1000.0, 100, 120, 150, 200, 250, 300, 350, 400, 500, 600, 1000, 2000, 5000, '__main__', 'atr_processing', 'avg_size', 'binance_websocket', 'critical', 'critical_queues', 'current_size', 'database_write', 'degraded', 'delta_analysis', 'emergency', 'exit_signals', 'healthy', 'healthy_queues', 'info', 'last_overflow_time', 'last_update', 'max_size', 'micro_bos', 'mt5_ingestion', 'overflow', 'overflow_count', 'overflow_queues', 'processing_rate', 'queue_type', 'spread_filter', 'status', 'stop_management', 'system_alarm', 'system_health', 'tick_processing', 'timestamp', 'total_queues', 'trade_execution', 'vwap_calculation', 'wait_time_ms', 'warning', 'warning_queues']

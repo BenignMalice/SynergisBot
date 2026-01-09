@@ -1,0 +1,109 @@
+{
+  "backup_configurations": {
+    "full_system_backup": {
+      "backup_id": "full_system_backup",
+      "name": "Full System Backup",
+      "backup_type": "full",
+      "source_paths": [
+        "data/",
+        "config/",
+        "app/",
+        "infra/",
+        "domain/",
+        "handlers/",
+        "*.py",
+        "*.json",
+        "*.md"
+      ],
+      "destination_path": "backups/full_system",
+      "compression_enabled": true,
+      "encryption_enabled": true,
+      "retention_days": 30,
+      "schedule": "0 2 * * *",
+      "enabled": true
+    },
+    "database_backup": {
+      "backup_id": "database_backup",
+      "name": "Database Backup",
+      "backup_type": "incremental",
+      "source_paths": [
+        "data/unified_tick_pipeline.db",
+        "data/analysis_data.db",
+        "data/system_logs.db",
+        "data/journal.sqlite"
+      ],
+      "destination_path": "backups/databases",
+      "compression_enabled": true,
+      "encryption_enabled": true,
+      "retention_days": 90,
+      "schedule": "0 */6 * * *",
+      "enabled": true
+    },
+    "config_backup": {
+      "backup_id": "config_backup",
+      "name": "Configuration Backup",
+      "backup_type": "full",
+      "source_paths": [
+        "config/",
+        "*.json",
+        "*.py"
+      ],
+      "destination_path": "backups/configurations",
+      "compression_enabled": true,
+      "encryption_enabled": true,
+      "retention_days": 365,
+      "schedule": "0 3 * * *",
+      "enabled": true
+    },
+    "logs_backup": {
+      "backup_id": "logs_backup",
+      "name": "Logs Backup",
+      "backup_type": "incremental",
+      "source_paths": [
+        "logs/",
+        "*.log"
+      ],
+      "destination_path": "backups/logs",
+      "compression_enabled": true,
+      "encryption_enabled": false,
+      "retention_days": 30,
+      "schedule": "0 4 * * *",
+      "enabled": true
+    }
+  },
+  "disaster_recovery": {
+    "recovery_time_objective": 4,
+    "recovery_point_objective": 1,
+    "max_data_loss_hours": 1,
+    "backup_verification_enabled": true,
+    "automated_recovery_enabled": true,
+    "recovery_testing_schedule": "0 0 * * 0"
+  },
+  "storage": {
+    "local_storage": {
+      "enabled": true,
+      "path": "backups/",
+      "max_size_gb": 100,
+      "cleanup_enabled": true
+    },
+    "remote_storage": {
+      "enabled": false,
+      "type": "s3",
+      "bucket": "your-backup-bucket",
+      "region": "us-east-1",
+      "access_key": "your-access-key",
+      "secret_key": "your-secret-key"
+    }
+  },
+  "encryption": {
+    "algorithm": "AES-256-GCM",
+    "key_rotation_days": 30,
+    "key_storage": "secure"
+  },
+  "monitoring": {
+    "backup_monitoring_enabled": true,
+    "alert_on_failure": true,
+    "alert_on_success": false,
+    "retention_monitoring": true
+  }
+}

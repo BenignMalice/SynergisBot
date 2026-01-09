@@ -1,0 +1,1118 @@
+{
+  "summary": "\ud83d\udcca BTCUSD - Unified Analysis\n    \ud83d\udcc5 2026-01-06 12:08 UTC | Price: $93,941.51\n\n\ud83d\udd34 BIAS CONFIDENCE: 56/100\n\ud83c\udfdb\ufe0f MARKET REGIME: Volatile\n\ud83d\udfe2 VOLATILITY REGIME: STABLE (ATR 0.86\u00d7, Confidence: 96.2%)\n\n\ud83d\udcca SELECTED STRATEGY: INSIDE_BAR_VOLATILITY_TRAP (Score: 80.0)\n   \u2192 Inside Bar Volatility Trap: BB width tight (compression detected) | ATR 0.86x (compression) | Volume not dropping\n\n   \u2192 Normal volatility, manageable risk - standard position sizing (1.0% max)\n\n\ud83c\udf0d MACRO CONTEXT\n\ud83c\udf0d Macro Market Context\n\n\ud83d\udcca Traditional Markets:\nDXY (Dollar Index): 97.98 \ud83d\udcc9 Falling\nUS10Y (Yield): 4.165% \u2796 Neutral\nVIX (Volatility): 15.15 \u26a0\ufe0f Elevated\nS&P 500: 6902.05 (+0.64%)\n\n\ud83d\udd37 Crypto Fundamentals:\nBTC Dominance: 56.7% (STRONG (Money flowing to Bitcoin))\nCrypto Fear & Greed: Fear (44/100)\n\n\ud83d\udca1 Impact on BTCUSD:\n\ud83d\udfe2 BULLISH for Crypto\nRisk Sentiment: NEUTRAL (VIX 15.1)\nS&P 500: RISING (+0.64%) - Correlation +0.70\nBTC Dominance: 56.7% (STRONG - Bitcoin outperforming)\nCrypto Sentiment: Fear (44/100)\n\u2192 Macro Bias: BEARISH (-0.50)\n\ud83d\udd34 Macro Bias: BEARISH (moderate) - Score: -0.50\n   BTUSD: DXY-based bias (-0.50)\n\n\n\ud83c\udfdb\ufe0f SMC STRUCTURE (H4 \u2192 H1 \u2192 M30 \u2192 M15 \u2192 M5)\nH4: BULLISH\nH1: DIVERGENCE\nM30: WAIT\nM15: WAIT\nM5: NO_TRADE\nCHOCH/BOS: \u274c None detected\n\u2192 Structure: BULLISH\n\n\ud83d\udd6f\ufe0f CANDLE PATTERNS\nM5: Bull Engulfing \u2192 Bullish (Strength: 0.7)\nM15: No pattern detected\nH1: No pattern detected\n\n\u2699\ufe0f ADVANCED FEATURES\nRMAG: 4.08 ATR (overbought)\nVWAP: outer zone\nVolatility: unknown\nMomentum: 2.03 (bullish)\n\u2192 Technicals: Extreme overbought, strong bullish momentum\n\n\ud83d\udcc8 TECHNICAL INDICATORS\nH1: EMA STRONG BULL | RSI 45.1 | ADX 26.1 | MACD BEAR\nM15: RSI 88.0 | MACD BULL | Stoch BULL (97.8) | BB ABOVE UPPER\nM5: RSI 77.6 (OVERBOUGHT) | MACD BULL | ATR 86.57\n\n\ud83d\udcca BINANCE ENRICHMENT\nNo enrichment data available\n\n\ud83d\udca7 LIQUIDITY & ORDER FLOW\n\ud83d\uded1 Stop cluster above $93,619.56 (4 wicks > 0.5 ATR) \u2192 Expect liquidity sweep before move\nOrder flow: Neutral (Binance service not active) - Using MT5 data only\n\n\n\n\ud83d\udcca MARKET CONTEXT\n\ud83d\udcc8 Volume & Delta: Volume: Data unavailable | Delta: Neutral\n\ud83d\uddfa\ufe0f Liquidity Map:\nAbove: No clusters\nBelow: No clusters\n\ud83d\udd52 Session: LONDON session \u00b7 480min remaining\n\ud83d\udcf0 News: France December preliminary CPI +0.8% vs +0.9% y/y in 2.3h (HIGH impact)\n\n\ud83d\udcc9 VOLATILITY FORECASTING\nVolatility Signal: STABLE\n\u27a1\ufe0f Volatility STABLE \u2192 Standard risk management\n\n\ud83d\udd2c M1 MICROSTRUCTURE ANALYSIS\n\u26aa Signal: NEUTRAL\n\u2705 BOS Detected (Confidence: 70%)\n\ud83d\udcca Structure: CHOPPY (Strength: 30%)\n\ud83d\udcc8 Volatility: CONTRACTING (-100.0%)\n\ud83d\udca7 Liquidity: BETWEEN | Zones: PDH @ 93960.05, PDL @ 93164.53, EQUAL_HIGH @ 93486.01\n\u26a1 Momentum: CHOPPY (Consistency: 10%)\n\ud83c\udfaf Strategy Hint: RANGE_SCALP\n\u2b50 Confluence: 64.5/100 (Grade: D) \u2192 WAIT\n\ud83c\udf9a\ufe0f Dynamic Threshold: 50.0 (Base: 75, ATR: 0.00x)\n\n\ud83d\udcca ENHANCED DATA FIELDS \u2b50 NEW\n\ud83d\udeab Execution Quality: POOR\n   - Spread elevated\n\ud83c\udfd7\ufe0f Structure: Accumulation, Near Range High\n\u2699\ufe0f Constraints: Max trades: 1, Max risk: 2.0%\n\n\ud83c\udfaf CONFLUENCE VERDICT\n\u26a0\ufe0f CONFLICTING SIGNALS\nMacro bearish but structure bullish - WAIT for clarity\nRisk Level: HIGH - Mixed signals, avoid trading\n\n\ud83d\udcc8 LAYERED RECOMMENDATIONS\n\nSCALP (M5 entry, 2-4hr hold):\n\u26aa WAIT - No M5 setup currently\nCurrent conditions don't support scalp entry\n\nINTRADAY (M15 entry, 12-24hr hold):\n\u26aa WAIT - No M15 BOS confirmation yet\nCurrent setup: Awaiting structure confirmation\n\nSWING (H1 entry, multi-day hold):\n\ud83d\udeab NOT RECOMMENDED - User prefers scalp/intraday only\nThis system is optimized for short-term trades\n",
+  "data": {
+    "symbol": "BTCUSD",
+    "symbol_normalized": "BTCUSDc",
+    "current_price": 93941.51,
+    "session": {
+      "name": "LONDON",
+      "is_overlap": false,
+      "overlap_type": null,
+      "minutes_into_session": 0,
+      "minutes_remaining": 480,
+      "context": "LONDON session \u00b7 480min remaining"
+    },
+    "news": {
+      "upcoming_events": [
+        {
+          "time": "2026-01-06T12:30:00Z",
+          "event": "Final Services PMI",
+          "impact": "LOW",
+          "description": "Final Services PMI",
+          "category": "macro"
+        },
+        {
+          "time": "2026-01-06T14:27:52.940955Z",
+          "event": "France December preliminary CPI +0.8% vs +0.9% y/y",
+          "impact": "HIGH",
+          "description": "France December preliminary CPI +0.8% vs +0.9% y/y expected (https://www.forexlive.com/)",
+          "category": "macro"
+        },
+        {
+          "time": "2026-01-06T16:00:00Z",
+          "event": "FOMC Member Barkin Speaks",
+          "impact": "LOW",
+          "description": "FOMC Member Barkin Speaks",
+          "category": "macro"
+        },
+        {
+          "time": "2026-01-06T17:45:00Z",
+          "event": "Final Services PMI",
+          "impact": "LOW",
+          "description": "Final Services PMI",
+          "category": "macro"
+        },
+        {
+          "time": "2026-01-06T18:50:00Z",
+          "event": "GDT Price Index",
+          "impact": "LOW",
+          "description": "GDT Price Index",
+          "category": "macro"
+        }
+      ],
+      "high_impact_events": [
+        {
+          "time": "2026-01-06T14:27:52.940955Z",
+          "event": "France December preliminary CPI +0.8% vs +0.9% y/y",
+          "impact": "HIGH",
+          "description": "France December preliminary CPI +0.8% vs +0.9% y/y expected (https://www.forexlive.com/)",
+          "category": "macro"
+        }
+      ],
+      "high_impact_count": 1,
+      "next_event": {
+        "time": "2026-01-06T14:27:52.940955Z",
+        "event": "France December preliminary CPI +0.8% vs +0.9% y/y",
+        "impact": "HIGH",
+        "description": "France December preliminary CPI +0.8% vs +0.9% y/y expected (https://www.forexlive.com/)",
+        "category": "macro"
+      },
+      "guardrail": "News: France December preliminary CPI +0.8% vs +0.9% y/y in 2.3h (HIGH impact)"
+    },
+    "macro": {
+      "bias": {
+        "bias_score": -0.5,
+        "bias_strength": "moderate",
+        "bias_direction": "bearish",
+        "factors": {
+          "dxy": {
+            "value": -0.5,
+            "reason": "DXY trend: up"
+          }
+        },
+        "explanation": "BTUSD: DXY-based bias (-0.50)",
+        "timestamp": "2026-01-06T15:08:12.371899"
+      },
+      "summary": "\ud83c\udf0d Macro Market Context\n\n\ud83d\udcca Traditional Markets:\nDXY (Dollar Index): 97.98 \ud83d\udcc9 Falling\nUS10Y (Yield): 4.165% \u2796 Neutral\nVIX (Volatility): 15.15 \u26a0\ufe0f Elevated\nS&P 500: 6902.05 (+0.64%)\n\n\ud83d\udd37 Crypto Fundamentals:\nBTC Dominance: 56.7% (STRONG (Money flowing to Bitcoin))\nCrypto Fear & Greed: Fear (44/100)\n\n\ud83d\udca1 Impact on BTCUSD:\n\ud83d\udfe2 BULLISH for Crypto\nRisk Sentiment: NEUTRAL (VIX 15.1)\nS&P 500: RISING (+0.64%) - Correlation +0.70\nBTC Dominance: 56.7% (STRONG - Bitcoin outperforming)\nCrypto Sentiment: Fear (44/100)",
+      "data": {
+        "dxy": 97.98200225830078,
+        "dxy_trend": "\ud83d\udcc9 Falling",
+        "us10y": 4.164999961853027,
+        "us10y_trend": "\u2796 Neutral",
+        "vix": 15.149999618530273,
+        "vix_level": "\u26a0\ufe0f Elevated",
+        "risk_sentiment": "NEUTRAL",
+        "sp500": 6902.0498046875,
+        "sp500_change_pct": 0.6354126864826347,
+        "sp500_trend": "RISING",
+        "btc_dominance": 56.73325264693013,
+        "btc_dominance_status": "STRONG (Money flowing to Bitcoin)",
+        "crypto_fear_greed": 44,
+        "crypto_sentiment": "Fear",
+        "symbol_context": "\ud83d\udfe2 BULLISH for Crypto\nRisk Sentiment: NEUTRAL (VIX 15.1)\nS&P 500: RISING (+0.64%) - Correlation +0.70\nBTC Dominance: 56.7% (STRONG - Bitcoin outperforming)\nCrypto Sentiment: Fear (44/100)",
+        "timestamp": "2026-01-06T15:08:11.822185",
+        "timestamp_human": "2026-01-06 15:08:11 UTC"
+      }
+    },
+    "smc": {
+      "choch_detected": false,
+      "bos_detected": false,
+      "trend": "BULLISH",
+      "timeframes": {
+        "H4": {
+          "bias": "BULLISH",
+          "confidence": 85,
+          "reason": "Strong bullish alignment: Price > EMA20 > EMA50 > EMA200 | Strong trend (ADX=63.4)",
+          "adx": 63.41124498468039,
+          "rsi": 70.33303751220468,
+          "ema_stack": "EMA20=92351.71, EMA50=90641.24, EMA200=89914.71",
+          "verdict": "H4 Bias: BULLISH (85% confidence)",
+          "choch_detected": false,
+          "choch_bull": false,
+          "choch_bear": false,
+          "bos_detected": false,
+          "bos_bull": false,
+          "bos_bear": false
+        },
+        "H1": {
+          "status": "DIVERGENCE",
+          "confidence": 40,
+          "reason": "H1 not aligned with H4 bullish bias - caution",
+          "rsi": 45.12468319582368,
+          "macd_cross": "bearish",
+          "price_vs_ema20": "above",
+          "verdict": "H1 Context: DIVERGENCE (40% confidence)",
+          "choch_detected": false,
+          "choch_bull": false,
+          "choch_bear": false,
+          "bos_detected": false,
+          "bos_bull": false,
+          "bos_bear": false
+        },
+        "M30": {
+          "setup": "WAIT",
+          "confidence": 30,
+          "reason": "M30 structure unclear - wait for better setup",
+          "rsi": 57.41240195719627,
+          "atr": 246.16000000000454,
+          "ema_alignment": "bullish",
+          "verdict": "M30 Setup: WAIT (30% confidence)",
+          "choch_detected": false,
+          "choch_bull": false,
+          "choch_bear": false,
+          "bos_detected": false,
+          "bos_bull": false,
+          "bos_bear": false
+        },
+        "M15": {
+          "trigger": "WAIT",
+          "confidence": 30,
+          "reason": "M15 no trigger - M30 setup not ready",
+          "rsi": 88.00538942794802,
+          "macd_status": "bullish",
+          "price_vs_ema20": "above",
+          "verdict": "M15 Trigger: WAIT (30% confidence)",
+          "choch_detected": false,
+          "choch_bull": false,
+          "choch_bear": false,
+          "bos_detected": false,
+          "bos_bull": false,
+          "bos_bear": false
+        },
+        "M5": {
+          "execution": "NO_TRADE",
+          "confidence": 30,
+          "reason": "M5 no execution - higher timeframes not aligned",
+          "entry_price": null,
+          "stop_loss": null,
+          "atr": 86.57214285714144,
+          "verdict": "M5 Execution: NO_TRADE (30% confidence)",
+          "choch_detected": false,
+          "choch_bull": false,
+          "choch_bear": false,
+          "bos_detected": false,
+          "bos_bull": false,
+          "bos_bear": false
+        }
+      },
+      "alignment_score": 75,
+      "recommendation": {
+        "action": "WAIT",
+        "confidence": 75,
+        "reason": "Weak alignment (75/100) - wait for better setup | Advanced Analysis: \u26a0\ufe0f Price stretched (4.1\u03c3) | \u2705 Strong trend expansion | \u2705 Quality momentum | \u2705 MTF Aligned (3/3) | \u26a0\ufe0f Far from VWAP (mean reversion risk)",
+        "h4_bias": "BULLISH",
+        "entry_price": null,
+        "stop_loss": null,
+        "summary": "H4: BULLISH | H1: DIVERGENCE | M30: WAIT | M15: WAIT | M5: NO_TRADE",
+        "market_bias": {
+          "trend": "BULLISH",
+          "strength": "WEAK",
+          "confidence": 62.5,
+          "stability": "INSUFFICIENT_DATA",
+          "reason": "H4 BULLISH (85%) + H1 DIVERGENCE (40%)"
+        },
+        "trade_opportunities": {
+          "type": "NONE",
+          "direction": "NONE",
+          "confidence": 0,
+          "risk_level": "UNKNOWN",
+          "risk_adjustments": {},
+          "reason": "No trade opportunity detected"
+        },
+        "volatility_regime": "high",
+        "volatility_weights": {
+          "H4": 0.5,
+          "H1": 0.3,
+          "M30": 0.12,
+          "M15": 0.06,
+          "M5": 0.02
+        },
+        "recommendation": {
+          "action": "WAIT",
+          "confidence": 75,
+          "reason": "Weak alignment (75/100) - wait for better setup | Advanced Analysis: \u26a0\ufe0f Price stretched (4.1\u03c3) | \u2705 Strong trend expansion | \u2705 Quality momentum | \u2705 MTF Aligned (3/3) | \u26a0\ufe0f Far from VWAP (mean reversion risk)",
+          "h4_bias": "BULLISH",
+          "entry_price": null,
+          "stop_loss": null,
+          "summary": "H4: BULLISH | H1: DIVERGENCE | M30: WAIT | M15: WAIT | M5: NO_TRADE"
+        }
+      },
+      "market_bias": {
+        "trend": "BULLISH",
+        "strength": "WEAK",
+        "confidence": 62.5,
+        "stability": "INSUFFICIENT_DATA",
+        "reason": "H4 BULLISH (85%) + H1 DIVERGENCE (40%)"
+      },
+      "trade_opportunities": {
+        "type": "NONE",
+        "direction": "NONE",
+        "confidence": 0,
+        "risk_level": "UNKNOWN",
+        "risk_adjustments": {},
+        "reason": "No trade opportunity detected"
+      },
+      "volatility_regime": "high",
+      "volatility_weights": {
+        "H4": 0.5,
+        "H1": 0.3,
+        "M30": 0.12,
+        "M15": 0.06,
+        "M5": 0.02
+      },
+      "advanced_insights": {
+        "rmag_analysis": {
+          "status": "STRETCHED",
+          "ema200_stretch": 4.08,
+          "vwap_stretch": 9.49,
+          "interpretation": "Price is 4.1\u03c3 from EMA200 - expect mean reversion",
+          "confidence_adjustment": -15
+        },
+        "ema_slope_quality": {
+          "quality": "MODERATE",
+          "ema50_slope": -0.029,
+          "ema200_slope": 0.042,
+          "interpretation": "Moderate trend - proceed with caution",
+          "confidence_adjustment": 0
+        },
+        "volatility_state": {
+          "state": "expansion_strong_trend",
+          "bb_width": 5.28,
+          "adx": 33.9,
+          "action": "RIDE",
+          "interpretation": "High volatility with strong trend - momentum continuation likely",
+          "confidence_adjustment": 10
+        },
+        "momentum_quality": {
+          "quality": "QUALITY_MOMENTUM",
+          "ratio": 2.59,
+          "rsi": 88.0,
+          "adx": 33.9,
+          "interpretation": "High RSI (88) with strong ADX (34) - quality trend momentum",
+          "confidence_adjustment": 10
+        },
+        "mtf_alignment": {
+          "status": "STRONG_ALIGNMENT",
+          "total": 3,
+          "max": 3,
+          "m5_aligned": true,
+          "m15_aligned": true,
+          "h1_aligned": true,
+          "interpretation": "Strong confluence (3/3 timeframes aligned)",
+          "confidence_adjustment": 10
+        },
+        "market_structure": {
+          "liquidity_risk": false,
+          "pdl_distance": 9.77,
+          "pdh_distance": 0.65,
+          "equal_highs": false,
+          "equal_lows": false,
+          "fvg_nearby": false,
+          "fvg_info": null,
+          "vwap_zone": "outer",
+          "vwap_deviation": 9.49,
+          "mean_reversion_risk": true
+        }
+      },
+      "advanced_summary": "Advanced Analysis: \u26a0\ufe0f Price stretched (4.1\u03c3) | \u2705 Strong trend expansion | \u2705 Quality momentum | \u2705 MTF Aligned (3/3) | \u26a0\ufe0f Far from VWAP (mean reversion risk)",
+      "confidence_score": 75
+    },
+    "advanced": {
+      "rmag": {
+        "ema200_atr": 4.08,
+        "vwap_atr": 9.49
+      },
+      "vwap": {
+        "dev_atr": 9.49,
+        "zone": "outer"
+      },
+      "volatility": {
+        "bb_width": 5.61,
+        "adx": 38.1,
+        "state": "expansion_strong_trend"
+      },
+      "momentum": {
+        "ratio": 2.03,
+        "rsi": 77.6,
+        "adx": 38.1
+      }
+    },
+    "confluence": {
+      "verdict": "\u26a0\ufe0f CONFLICTING SIGNALS",
+      "action": "Macro bearish but structure bullish - WAIT for clarity",
+      "risk": "HIGH - Mixed signals, avoid trading"
+    },
+    "recommendations": {
+      "scalp": "SCALP (M5 entry, 2-4hr hold):\n\u26aa WAIT - No M5 setup currently\nCurrent conditions don't support scalp entry",
+      "intraday": "INTRADAY (M15 entry, 12-24hr hold):\n\u26aa WAIT - No M15 BOS confirmation yet\nCurrent setup: Awaiting structure confirmation",
+      "swing": "SWING (H1 entry, multi-day hold):\n\ud83d\udeab NOT RECOMMENDED - User prefers scalp/intraday only\nThis system is optimized for short-term trades"
+    },
+    "volatility_regime": {
+      "regime": "VolatilityRegime.STABLE",
+      "confidence": 96.2,
+      "indicators": {
+        "M5": {
+          "atr_ratio": 0.9299592969688374,
+          "bb_width_ratio": 0.8865689034526896,
+          "adx": 38.14416047567755,
+          "volume_confirmed": true,
+          "atr_14": 86.57214285714144,
+          "atr_50": 93.09239999999961
+        },
+        "M15": {
+          "atr_ratio": 0.9201677265408682,
+          "bb_width_ratio": 1.1018889605906226,
+          "adx": 33.94638816952743,
+          "volume_confirmed": true,
+          "atr_14": 170.22642857142844,
+          "atr_50": 184.99500000000057
+        },
+        "H1": {
+          "atr_ratio": 0.7980082595403718,
+          "bb_width_ratio": 0.6287561122676061,
+          "adx": 26.116277821149005,
+          "volume_confirmed": true,
+          "atr_14": 357.5364285714303,
+          "atr_50": 448.03600000000034
+        }
+      },
+      "reasoning": "ATR ratio: 0.86x | BB width: 0.82x median | ADX: 30.9 | Volume confirmed | Timeframes: M5: ATR 0.93x, M15: ATR 0.92x, H1: ATR 0.80x",
+      "atr_ratio": 0.8610463071262138,
+      "bb_width_ratio": 0.8222585250015277,
+      "adx_composite": 30.870887456568244,
+      "volume_confirmed": true,
+      "timestamp": "2026-01-06T15:08:12.041747",
+      "atr_trends": {
+        "M5": {
+          "current_atr": 86.57214285714144,
+          "slope": 0.0,
+          "slope_pct": 0.0,
+          "is_declining": false,
+          "is_above_baseline": false,
+          "trend_direction": "insufficient_data"
+        },
+        "M15": {
+          "current_atr": 170.22642857142844,
+          "slope": 0.0,
+          "slope_pct": 0.0,
+          "is_declining": false,
+          "is_above_baseline": false,
+          "trend_direction": "insufficient_data"
+        },
+        "H1": {
+          "current_atr": 357.5364285714303,
+          "slope": 0.0,
+          "slope_pct": 0.0,
+          "is_declining": false,
+          "is_above_baseline": false,
+          "trend_direction": "insufficient_data"
+        }
+      },
+      "wick_variances": {
+        "M5": {
+          "current_variance": 0.0,
+          "previous_variance": 0.0,
+          "variance_change_pct": 0.0,
+          "is_increasing": false,
+          "current_ratio": 0.2844128208539795,
+          "mean_ratio": 0.2844128208539795
+        },
+        "M15": {
+          "current_variance": 0.0,
+          "previous_variance": 0.0,
+          "variance_change_pct": 0.0,
+          "is_increasing": false,
+          "current_ratio": 0.510282273829147,
+          "mean_ratio": 0.510282273829147
+        },
+        "H1": {
+          "current_variance": 0.0,
+          "previous_variance": 0.0,
+          "variance_change_pct": 0.0,
+          "is_increasing": false,
+          "current_ratio": 0.510282273829147,
+          "mean_ratio": 0.510282273829147
+        }
+      },
+      "time_since_breakout": {
+        "M5": null,
+        "M15": null,
+        "H1": null
+      },
+      "mean_reversion_pattern": {
+        "is_mean_reverting": false,
+        "oscillation_around_vwap": false,
+        "oscillation_around_ema": false,
+        "touch_count": 0,
+        "reversion_strength": 0.0
+      },
+      "volatility_spike": {
+        "is_spike": false,
+        "current_atr": 170.22642857142844,
+        "spike_ratio": 0.9201677265408682,
+        "spike_magnitude": -7.983227345913178,
+        "is_temporary": false
+      },
+      "session_transition": {
+        "is_transition": false,
+        "transition_type": null,
+        "minutes_into_transition": 0,
+        "transition_window_start": null,
+        "transition_window_end": null
+      },
+      "whipsaw_detected": {
+        "is_whipsaw": false,
+        "direction_changes": 2,
+        "oscillation_around_mean": "True"
+      },
+      "volatility_strategy_recommendations": {
+        "prioritize": [],
+        "avoid": [],
+        "confidence_adjustment": 0,
+        "recommendation": "Standard strategies for STABLE",
+        "wait_reason": null
+      },
+      "volatility_metrics": {
+        "regime": "STABLE",
+        "confidence": 96.2,
+        "atr_ratio": 0.8610463071262138,
+        "bb_width_ratio": 0.8222585250015277,
+        "adx_composite": 30.870887456568244,
+        "volume_confirmed": true,
+        "atr_trends": {
+          "M5": {
+            "current_atr": 86.57214285714144,
+            "slope": 0.0,
+            "slope_pct": 0.0,
+            "is_declining": false,
+            "is_above_baseline": false,
+            "trend_direction": "insufficient_data"
+          },
+          "M15": {
+            "current_atr": 170.22642857142844,
+            "slope": 0.0,
+            "slope_pct": 0.0,
+            "is_declining": false,
+            "is_above_baseline": false,
+            "trend_direction": "insufficient_data"
+          },
+          "H1": {
+            "current_atr": 357.5364285714303,
+            "slope": 0.0,
+            "slope_pct": 0.0,
+            "is_declining": false,
+            "is_above_baseline": false,
+            "trend_direction": "insufficient_data"
+          }
+        },
+        "wick_variances": {
+          "M5": {
+            "current_variance": 0.0,
+            "previous_variance": 0.0,
+            "variance_change_pct": 0.0,
+            "is_increasing": false,
+            "current_ratio": 0.2844128208539795,
+            "mean_ratio": 0.2844128208539795
+          },
+          "M15": {
+            "current_variance": 0.0,
+            "previous_variance": 0.0,
+            "variance_change_pct": 0.0,
+            "is_increasing": false,
+            "current_ratio": 0.510282273829147,
+            "mean_ratio": 0.510282273829147
+          },
+          "H1": {
+            "current_variance": 0.0,
+            "previous_variance": 0.0,
+            "variance_change_pct": 0.0,
+            "is_increasing": false,
+            "current_ratio": 0.510282273829147,
+            "mean_ratio": 0.510282273829147
+          }
+        },
+        "time_since_breakout": {
+          "M5": null,
+          "M15": null,
+          "H1": null
+        },
+        "atr_trend": {
+          "current_atr": 170.22642857142844,
+          "slope": 0.0,
+          "slope_pct": 0.0,
+          "is_declining": false,
+          "is_above_baseline": false,
+          "trend_direction": "insufficient_data"
+        },
+        "wick_variance": {
+          "current_variance": 0.0,
+          "previous_variance": 0.0,
+          "variance_change_pct": 0.0,
+          "is_increasing": false,
+          "current_ratio": 0.510282273829147,
+          "mean_ratio": 0.510282273829147
+        },
+        "time_since_breakout_minutes": null,
+        "mean_reversion_pattern": {
+          "is_mean_reverting": false,
+          "oscillation_around_vwap": false,
+          "oscillation_around_ema": false,
+          "touch_count": 0,
+          "reversion_strength": 0.0
+        },
+        "volatility_spike": {
+          "is_spike": false,
+          "current_atr": 170.22642857142844,
+          "spike_ratio": 0.9201677265408682,
+          "spike_magnitude": -7.983227345913178,
+          "is_temporary": false
+        },
+        "session_transition": {
+          "is_transition": false,
+          "transition_type": null,
+          "minutes_into_transition": 0,
+          "transition_window_start": null,
+          "transition_window_end": null
+        },
+        "whipsaw_detected": {
+          "is_whipsaw": false,
+          "direction_changes": 2,
+          "oscillation_around_mean": "True"
+        },
+        "strategy_recommendations": {
+          "prioritize": [],
+          "avoid": [],
+          "confidence_adjustment": 0,
+          "recommendation": "Standard strategies for STABLE",
+          "wait_reason": null
+        }
+      },
+      "strategy_selection": {
+        "selected_strategy": {
+          "strategy": "INSIDE_BAR_VOLATILITY_TRAP",
+          "score": 80.0,
+          "reasoning": "Inside Bar Volatility Trap: BB width tight (compression detected) | ATR 0.86x (compression) | Volume not dropping",
+          "entry_conditions": {
+            "bb_compression": true,
+            "atr_ratio": 0.8610463071262138,
+            "volume_dropping": false
+          },
+          "entry": 93954.49582142857,
+          "stop_loss": 93854.93785714285,
+          "take_profit": 94214.21225,
+          "confidence": 84.86,
+          "direction": "BUY",
+          "risk_reward_ratio": 2.6086956521737417
+        },
+        "all_scores": [
+          {
+            "strategy": "INSIDE_BAR_VOLATILITY_TRAP",
+            "score": 80.0,
+            "reasoning": "Inside Bar Volatility Trap: BB width tight (compression detected) | ATR 0.86x (compression) | Volume not dropping",
+            "entry_conditions": {
+              "bb_compression": true,
+              "atr_ratio": 0.8610463071262138,
+              "volume_dropping": false
+            },
+            "entry": 93954.49582142857,
+            "stop_loss": 93854.93785714285,
+            "take_profit": 94214.21225,
+            "confidence": 84.86,
+            "direction": "BUY",
+            "risk_reward_ratio": 2.6086956521737417
+          },
+          {
+            "strategy": "VOLATILITY_REVERSION_SCALP",
+            "score": 35.0,
+            "reasoning": "Volatility Reversion Scalp: ATR 0.86x (not elevated) | RSI 77.6 (approaching extremes) | Volume spike detected (potential exhaustion)",
+            "entry_conditions": {
+              "atr_ratio": 0.8610463071262138,
+              "rsi": 77.58059019968861,
+              "volume_exhaustion": true
+            },
+            "entry": null,
+            "stop_loss": null,
+            "take_profit": null,
+            "confidence": 53.36,
+            "direction": null,
+            "risk_reward_ratio": null
+          },
+          {
+            "strategy": "BREAKOUT_CONTINUATION",
+            "score": 31.43544372828412,
+            "reasoning": "Breakout-Continuation: ATR ratio 0.86x (weak) | ADX 30.9 (strong trend) | Volume confirms breakout",
+            "entry_conditions": {
+              "atr_ratio": 0.8610463071262138,
+              "adx": 30.870887456568244,
+              "structure_break": false,
+              "volume_confirmed": true
+            },
+            "entry": null,
+            "stop_loss": null,
+            "take_profit": null,
+            "confidence": 50.86481060979888,
+            "direction": null,
+            "risk_reward_ratio": null
+          },
+          {
+            "strategy": "POST_NEWS_REACTION",
+            "score": 30.0,
+            "reasoning": "Post-News Reaction: No news data available | ATR 0.86x (low) | Price at EMA(20) pullback",
+            "entry_conditions": {
+              "news_timing": false,
+              "atr_ratio": 0.8610463071262138,
+              "ema20_pullback": true
+            },
+            "entry": null,
+            "stop_loss": null,
+            "take_profit": null,
+            "confidence": 49.86,
+            "direction": null,
+            "risk_reward_ratio": null
+          }
+        ],
+        "wait_reason": null
+      }
+    },
+    "volatility_metrics": {
+      "regime": "STABLE",
+      "confidence": 96.2,
+      "atr_ratio": 0.8610463071262138,
+      "bb_width_ratio": 0.8222585250015277,
+      "adx_composite": 30.870887456568244,
+      "volume_confirmed": true,
+      "atr_trends": {
+        "M5": {
+          "current_atr": 86.57214285714144,
+          "slope": 0.0,
+          "slope_pct": 0.0,
+          "is_declining": false,
+          "is_above_baseline": false,
+          "trend_direction": "insufficient_data"
+        },
+        "M15": {
+          "current_atr": 170.22642857142844,
+          "slope": 0.0,
+          "slope_pct": 0.0,
+          "is_declining": false,
+          "is_above_baseline": false,
+          "trend_direction": "insufficient_data"
+        },
+        "H1": {
+          "current_atr": 357.5364285714303,
+          "slope": 0.0,
+          "slope_pct": 0.0,
+          "is_declining": false,
+          "is_above_baseline": false,
+          "trend_direction": "insufficient_data"
+        }
+      },
+      "wick_variances": {
+        "M5": {
+          "current_variance": 0.0,
+          "previous_variance": 0.0,
+          "variance_change_pct": 0.0,
+          "is_increasing": false,
+          "current_ratio": 0.2844128208539795,
+          "mean_ratio": 0.2844128208539795
+        },
+        "M15": {
+          "current_variance": 0.0,
+          "previous_variance": 0.0,
+          "variance_change_pct": 0.0,
+          "is_increasing": false,
+          "current_ratio": 0.510282273829147,
+          "mean_ratio": 0.510282273829147
+        },
+        "H1": {
+          "current_variance": 0.0,
+          "previous_variance": 0.0,
+          "variance_change_pct": 0.0,
+          "is_increasing": false,
+          "current_ratio": 0.510282273829147,
+          "mean_ratio": 0.510282273829147
+        }
+      },
+      "time_since_breakout": {
+        "M5": null,
+        "M15": null,
+        "H1": null
+      },
+      "atr_trend": {
+        "current_atr": 170.22642857142844,
+        "slope": 0.0,
+        "slope_pct": 0.0,
+        "is_declining": false,
+        "is_above_baseline": false,
+        "trend_direction": "insufficient_data"
+      },
+      "wick_variance": {
+        "current_variance": 0.0,
+        "previous_variance": 0.0,
+        "variance_change_pct": 0.0,
+        "is_increasing": false,
+        "current_ratio": 0.510282273829147,
+        "mean_ratio": 0.510282273829147
+      },
+      "time_since_breakout_minutes": null,
+      "mean_reversion_pattern": {
+        "is_mean_reverting": false,
+        "oscillation_around_vwap": false,
+        "oscillation_around_ema": false,
+        "touch_count": 0,
+        "reversion_strength": 0.0
+      },
+      "volatility_spike": {
+        "is_spike": false,
+        "current_atr": 170.22642857142844,
+        "spike_ratio": 0.9201677265408682,
+        "spike_magnitude": -7.983227345913178,
+        "is_temporary": false
+      },
+      "session_transition": {
+        "is_transition": false,
+        "transition_type": null,
+        "minutes_into_transition": 0,
+        "transition_window_start": null,
+        "transition_window_end": null
+      },
+      "whipsaw_detected": {
+        "is_whipsaw": false,
+        "direction_changes": 2,
+        "oscillation_around_mean": "True"
+      },
+      "strategy_recommendations": {
+        "prioritize": [],
+        "avoid": [],
+        "confidence_adjustment": 0,
+        "recommendation": "Standard strategies for STABLE",
+        "wait_reason": null
+      }
+    },
+    "strategy_selection": {
+      "selected_strategy": {
+        "strategy": "INSIDE_BAR_VOLATILITY_TRAP",
+        "score": 80.0,
+        "reasoning": "Inside Bar Volatility Trap: BB width tight (compression detected) | ATR 0.86x (compression) | Volume not dropping",
+        "entry_conditions": {
+          "bb_compression": true,
+          "atr_ratio": 0.8610463071262138,
+          "volume_dropping": false
+        },
+        "entry": 93954.49582142857,
+        "stop_loss": 93854.93785714285,
+        "take_profit": 94214.21225,
+        "confidence": 84.86,
+        "direction": "BUY",
+        "risk_reward_ratio": 2.6086956521737417
+      },
+      "all_scores": [
+        {
+          "strategy": "INSIDE_BAR_VOLATILITY_TRAP",
+          "score": 80.0,
+          "reasoning": "Inside Bar Volatility Trap: BB width tight (compression detected) | ATR 0.86x (compression) | Volume not dropping",
+          "entry_conditions": {
+            "bb_compression": true,
+            "atr_ratio": 0.8610463071262138,
+            "volume_dropping": false
+          },
+          "entry": 93954.49582142857,
+          "stop_loss": 93854.93785714285,
+          "take_profit": 94214.21225,
+          "confidence": 84.86,
+          "direction": "BUY",
+          "risk_reward_ratio": 2.6086956521737417
+        },
+        {
+          "strategy": "VOLATILITY_REVERSION_SCALP",
+          "score": 35.0,
+          "reasoning": "Volatility Reversion Scalp: ATR 0.86x (not elevated) | RSI 77.6 (approaching extremes) | Volume spike detected (potential exhaustion)",
+          "entry_conditions": {
+            "atr_ratio": 0.8610463071262138,
+            "rsi": 77.58059019968861,
+            "volume_exhaustion": true
+          },
+          "entry": null,
+          "stop_loss": null,
+          "take_profit": null,
+          "confidence": 53.36,
+          "direction": null,
+          "risk_reward_ratio": null
+        },
+        {
+          "strategy": "BREAKOUT_CONTINUATION",
+          "score": 31.43544372828412,
+          "reasoning": "Breakout-Continuation: ATR ratio 0.86x (weak) | ADX 30.9 (strong trend) | Volume confirms breakout",
+          "entry_conditions": {
+            "atr_ratio": 0.8610463071262138,
+            "adx": 30.870887456568244,
+            "structure_break": false,
+            "volume_confirmed": true
+          },
+          "entry": null,
+          "stop_loss": null,
+          "take_profit": null,
+          "confidence": 50.86481060979888,
+          "direction": null,
+          "risk_reward_ratio": null
+        },
+        {
+          "strategy": "POST_NEWS_REACTION",
+          "score": 30.0,
+          "reasoning": "Post-News Reaction: No news data available | ATR 0.86x (low) | Price at EMA(20) pullback",
+          "entry_conditions": {
+            "news_timing": false,
+            "atr_ratio": 0.8610463071262138,
+            "ema20_pullback": true
+          },
+          "entry": null,
+          "stop_loss": null,
+          "take_profit": null,
+          "confidence": 49.86,
+          "direction": null,
+          "risk_reward_ratio": null
+        }
+      ],
+      "wait_reason": null
+    },
+    "m1_microstructure": {
+      "available": true,
+      "symbol": "BTCUSD",
+      "timestamp": "2026-01-06T12:08:12.397415+00:00",
+      "candle_count": 200,
+      "structure": {
+        "type": "CHOPPY",
+        "consecutive_count": 1,
+        "strength": 30
+      },
+      "choch_bos": {
+        "has_choch": false,
+        "has_bos": true,
+        "choch_confirmed": false,
+        "choch_bos_combo": false,
+        "last_swing_high": 93875.11,
+        "last_swing_low": 93173.06,
+        "confidence": 70
+      },
+      "liquidity_zones": [
+        {
+          "type": "PDH",
+          "price": 93960.05,
+          "touches": 4
+        },
+        {
+          "type": "PDL",
+          "price": 93164.53,
+          "touches": 14
+        },
+        {
+          "type": "EQUAL_HIGH",
+          "price": 93486.01,
+          "touches": 8
+        },
+        {
+          "type": "EQUAL_HIGH",
+          "price": 93626.1,
+          "touches": 6
+        },
+        {
+          "type": "EQUAL_HIGH",
+          "price": 93767.37,
+          "touches": 9
+        },
+        {
+          "type": "EQUAL_LOW",
+          "price": 93173.06,
+          "touches": 2
+        },
+        {
+          "type": "EQUAL_LOW",
+          "price": 93299.02,
+          "touches": 5
+        },
+        {
+          "type": "EQUAL_LOW",
+          "price": 93434.78,
+          "touches": 8
+        },
+        {
+          "type": "EQUAL_LOW",
+          "price": 93543.38,
+          "touches": 4
+        },
+        {
+          "type": "EQUAL_LOW",
+          "price": 93650.86,
+          "touches": 5
+        },
+        {
+          "type": "EQUAL_LOW",
+          "price": 93758.71,
+          "touches": 2
+        }
+      ],
+      "liquidity_state": "BETWEEN",
+      "volatility": {
+        "state": "CONTRACTING",
+        "change_pct": -100.0,
+        "atr": 0.0,
+        "atr_median": 1.0,
+        "squeeze_duration": 6
+      },
+      "rejection_wicks": [],
+      "order_blocks": [
+        {
+          "type": "BEARISH",
+          "price_range": [
+            93800.58,
+            93853.46
+          ],
+          "strength": 20,
+          "is_doji": false
+        },
+        {
+          "type": "BULLISH",
+          "price_range": [
+            93807.52,
+            93853.46
+          ],
+          "strength": 91,
+          "is_doji": false
+        },
+        {
+          "type": "BULLISH",
+          "price_range": [
+            93808.69,
+            93875.11
+          ],
+          "strength": 56,
+          "is_doji": false
+        },
+        {
+          "type": "BEARISH",
+          "price_range": [
+            93809.7,
+            93860.44
+          ],
+          "strength": 55,
+          "is_doji": false
+        },
+        {
+          "type": "BULLISH",
+          "price_range": [
+            93874.85,
+            93960.05
+          ],
+          "strength": 38,
+          "is_doji": false
+        }
+      ],
+      "momentum": {
+        "quality": "CHOPPY",
+        "consistency": 10,
+        "consecutive_moves": 1,
+        "rsi_validation": true,
+        "rsi_value": 64.82
+      },
+      "trend_context": {
+        "alignment": "WEAK",
+        "confidence": 30,
+        "m1_m5_alignment": false,
+        "m1_h1_alignment": false,
+        "m1_m15_alignment": false
+      },
+      "signal_summary": "NEUTRAL",
+      "last_signal_timestamp": null,
+      "signal_detection_timestamp": null,
+      "signal_age_seconds": 0.0,
+      "session_context": {
+        "session": "UNKNOWN"
+      },
+      "session_adjusted_parameters": {},
+      "asset_personality": null,
+      "signal_valid_for_asset": true,
+      "vwap": {
+        "value": 93549.26007469656,
+        "std": 100.84584829766129,
+        "state": "NEUTRAL"
+      },
+      "strategy_hint": "RANGE_SCALP",
+      "microstructure_confluence": {
+        "score": 64.5,
+        "base_score": 64.5,
+        "grade": "D",
+        "recommended_action": "WAIT",
+        "components": {
+          "m1_signal_confidence": 70,
+          "session_volatility_suitability": 80,
+          "momentum_quality": 40,
+          "liquidity_proximity": 70,
+          "strategy_fit": 70,
+          "base_score": 64.5
+        }
+      },
+      "dynamic_threshold": 50.0,
+      "threshold_calculation": {
+        "base_confidence": 75,
+        "atr_ratio": 0.0,
+        "session_bias": 1.0,
+        "adjusted_threshold": 50.0,
+        "session": "LONDON"
+      },
+      "learning_metrics": null,
+      "effective_confidence": 65.95
+    },
+    "btc_order_flow_metrics": null,
+    "structure_summary": {
+      "current_range_type": "accumulation",
+      "range_state": "near_range_high",
+      "has_liquidity_sweep": false,
+      "sweep_type": "none",
+      "sweep_level": null,
+      "discount_premium_state": "seeking_premium_liquidity",
+      "range_high": 93960.05,
+      "range_low": 93164.53,
+      "range_mid": 93562.29000000001
+    },
+    "correlation_context": {
+      "corr_window_minutes": 240,
+      "corr_vs_dxy": null,
+      "corr_vs_sp500": null,
+      "corr_vs_us10y": null,
+      "corr_vs_btc": null,
+      "conflict_flags": {
+        "gold_vs_dxy_conflict": false,
+        "sp500_divergence": false,
+        "us10y_divergence": false,
+        "btc_divergence": false
+      },
+      "data_quality": "unavailable",
+      "sample_size": 47
+    },
+    "htf_levels": {},
+    "session_risk": {},
+    "execution_context": {
+      "current_spread_points": 1800.0,
+      "spread_vs_median": 100.0,
+      "is_spread_elevated": true,
+      "avg_slippage_points": null,
+      "slippage_vs_normal": null,
+      "is_slippage_elevated": false,
+      "execution_quality": "poor",
+      "slippage_sample_size": 0,
+      "slippage_data_available": false
+    },
+    "strategy_stats": null,
+    "symbol_constraints": {
+      "max_concurrent_trades_for_symbol": 1,
+      "max_total_risk_on_symbol_pct": 2.0,
+      "allowed_strategies": [],
+      "risk_profile": "conservative",
+      "banned_strategies": [],
+      "max_position_size_pct": 3.0
+    },
+    "tick_metrics": null,
+    "decision": {
+      "direction": "HOLD",
+      "entry": 93941.51,
+      "sl": 0,
+      "tp": 0,
+      "confidence": 0,
+      "reasoning": "No clear setup",
+      "rr": 0
+    }
+  },
+  "timestamp": 1767701293,
+  "timestamp_human": "2026-01-06 12:08:13 UTC",
+  "cache_control": "no-cache, no-store, must-revalidate"
+}

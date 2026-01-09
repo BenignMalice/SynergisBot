@@ -1,0 +1,43 @@
+{
+  "optimized_intervals": {
+    "adaptive_intervals": {
+      "enabled": true,
+      "default_interval_seconds": 30,
+      "plan_type_intervals": {
+        "m1_micro_scalp": {
+          "base_interval_seconds": 10,
+          "far_interval_seconds": 30,
+          "close_interval_seconds": 5,
+          "price_proximity_multiplier": 2.0
+        },
+        "m5_range_scalp": {
+          "base_interval_seconds": 30,
+          "far_interval_seconds": 60,
+          "close_interval_seconds": 20
+        },
+        "m15_range_scalp": {
+          "base_interval_seconds": 30,
+          "far_interval_seconds": 60,
+          "close_interval_seconds": 20
+        }
+      }
+    },
+    "smart_caching": {
+      "enabled": true,
+      "m1_cache_ttl_seconds": 20,
+      "invalidate_on_candle_close": true,
+      "prefetch_seconds_before_expiry": 3
+    },
+    "conditional_checks": {
+      "enabled": true,
+      "price_proximity_filter": true,
+      "proximity_multiplier": 2.0,
+      "min_check_interval_seconds": 10
+    },
+    "batch_operations": {
+      "enabled": true,
+      "mt5_batch_size": 5,
+      "db_batch_size": 10
+    }
+  }
+}

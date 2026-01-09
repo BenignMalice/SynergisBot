@@ -1,0 +1,124 @@
+1) 	.\.venv\Scripts\Activate.ps1
+
+
+1) py app/main_api.py
+2) py hub/command_hub.py 
+3) py desktop_agent.py 
+4) py dtms_api_server.py
+5) python chatgpt_bot.py 
+6) ngrok http 8000 --url=verbally-faithful-monster.ngrok-free.app
+7) python -m uvicorn main_api:app --host 0.0.0.0 --port 8010 --reload
+	http://localhost:8010/alerts/view
+	http://localhost:8010/auto-execution/view
+8) python initialize_dtms.py
+
+
+# Start API server
+python app/main_api.py
+python -m uvicorn app.main_api:app --reload --host 0.0.0.0 --port 8000
+
+python dtms_api_server.py
+
+# Start Desktop Agent
+python desktop_agent.py 
+
+python hub/command_hub.py
+
+# Start ChatGPT bot with data retention system
+python start_bot_with_retention.py
+
+OR
+
+# Start data retention system
+safe_retention_integration.py
+python start_retention_system.py
+
+# Start ChatGPT Bot  
+python chatgpt_bot.py   
+
+
+
+# 1. Start main API server
+python -m uvicorn app.main_api:app --reload --host 0.0.0.0 --port 8000
+
+# 2. Start ChatGPT bot (includes DTMS API server automatically)
+python chatgpt_bot.py
+
+# 3. Start desktop agent
+python desktop_agent.py
+
+node simple_whatsapp_service.js
+
+# 4. Start ngrok tunnel
+ngrok http --url=verbally-faithful-monster.ngrok-free.app 8000
+
+
+
+OR use the automated startup:
+python start_ins
+
+
+
+python -m watchdog.watchmedo auto-restart --directory=. --pattern=*.py --recursive -- python chatgpt_bot.py
+
+app/
+ngrok http 8000 --url=verbally-faithful-monster.ngrok-free.app
+python -m uvicorn main_api:app --reload --host 0.0.0.0 --port 8000
+
+python dtms_api_server.py
+
+python desktop_agent.py
+
+
+start_phone_control.bat
+
+start_with_tunnel.bat
+
+load chromedriver - "C:\Users\darry\OneDrive\Downloads\chromedriver-win64\chromedriver-win64\chromedriver.exe"
+
+Start app - python -m app.main_api
+
+taskkill /f /im python.exe   - to close FastAPI
+
+
+Run tests from root folder - python -m pytest app/tests/test_monitor_and_adjust_trades.py
+
+TELEGRAM_SECRET = os.getenv("TELEGRAM_WEBHOOK_SECRET", "supersecret")
+
+## Production Monitoring Dashboard
+### Usage
+```bash
+# Start monitoring dashboard
+python production_monitoring_dashboard.py
+
+# Check system status
+curl http://localhost:8080/health
+
+# Get dashboard data
+curl http://localhost:8080/dashboard
+
+### Usage
+```bash
+# Create rollback point
+python rollback_procedures.py
+
+# Execute rollback
+python rollback_procedures.py --rollback <rollback_point_id>
+
+# Run rollback drill
+python rollback_procedures.py --drill full
+
+### Usage
+```bash
+# Start deployment approval
+python stakeholder_signoff_checklists.py
+
+# Verify checklist item
+python stakeholder_signoff_checklists.py --verify <role> <item_id> <verifier>
+
+# Approve checklist
+python stakeholder_signoff_checklists.py --approve <role> <approver>
+```
+
+
+

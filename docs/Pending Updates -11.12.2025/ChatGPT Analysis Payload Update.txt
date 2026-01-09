@@ -1,0 +1,912 @@
+Short version: your payload is already very rich, but from ChatGPT’s point of view it’s a bit like getting a full hospital chart with no “clinical summary” block. The biggest wins are:
+
+unify/conflict-proof the regimes (trend / volatility / microstructure / session)
+
+add explicit “suitability / guardrail” fields for strategies
+
+give a single canonical volatility + structure object that everything else hangs off
+
+reduce reliance on prose and duplicate info
+
+I’ll walk through concrete changes, all based on what you already send.
+
+1. Fix conflicting / fragmented regimes
+
+Right now GPT sees, in the same response:
+
+🏛️ MARKET REGIME: Volatile
+
+🟢 VOLATILITY REGIME: STABLE (ATR 0.89×)
+
+advanced.volatility.state: "expansion_strong_trend"
+
+VOLATILITY FORECASTING: Volatility Signal: EXPANDING
+
+M1 MICROSTRUCTURE: Volatility: CONTRACTING (-100%)
+
+structure: CHOPPY (Strength: 30%)
+
+→ Structure: UNKNOWN
+
+Session: UNKNOWN, but threshold_calculation.session: "LONDON"
+
+From a model’s perspective, that’s noisy and internally inconsistent.
+
+Recommendation 1 – add a canonical regimes block
+
+At top level of data, add something like:
+
+"regimes": {
+  "trend": {
+    "state": "BEARISH",
+    "timeframe_anchor": "H1",
+    "confidence": 78
+  },
+  "structure": {
+    "state": "RANGE_CHOPPY",
+    "confirmed": true,
+    "confidence": 65
+  },
+  "volatility": {
+    "state": "STABLE",
+    "shape": "PRE_BREAKOUT_TENSION",
+    "confidence": 82
+  },
+  "microstructure": {
+    "state": "CHOPPY_RANGE",
+    "timeframe": "M1",
+    "confidence": 43
+  },
+  "session": {
+    "session": "LONDON",
+    "phase": "LATE",
+    "is_transition_window": false
+  }
+}
+
+
+Then:
+
+keep the other regime-esque fields, but treat this regimes block as source of truth
+
+update your knowledge docs: “ChatGPT must use regimes.* instead of trying to infer regime from textual summary”
+
+Big effect: GPT stops trying to reconcile “STABLE but EXPANDING but CONTRACTING but Volatile”.
+
+2. Give volatility a proper brain
+
+You already have:
+
+volatility_regime (ATR/BB/ADX composite)
+
+advanced.volatility (bb_width, adx, state)
+
+m1_microstructure.volatility (CONTRACTING, squeeze_duration, etc.)
+
+VOLATILITY FORECASTING text
+
+But GPT has to merge and interpret all of that.
+
+Recommendation 2 – add volatility_intel as a structured object
+
+We touched on this before. For this payload, something like:
+
+"volatility_intel": {
+  "base_regime": "STABLE",
+  "shape": "PRE_BREAKOUT_TENSION",             // or whatever your detector decides
+  "confidence": 82.5,
+
+  "timeframe_view": {
+    "M1": { "state": "CONTRACTING", "squeeze_duration": 6 },
+    "M5": { "atr_ratio": 1.10, "bb_width_ratio": 1.17, "adx": 26.4 },
+    "M15": { "atr_ratio": 1.16, "bb_width_ratio": 0.57, "adx": 40.0 },
+    "H1": { "atr_ratio": 0.64, "bb_width_ratio": 0.26, "adx": 20.0 }
+  },
+
+  "alignment_score": 0.74,
+
+  "metrics": {
+    "atr_ratio": 0.89,
+    "bb_width_ratio": 0.53,
+    "bb_width_percentile": 0.18,
+    "bb_width_slope": 0.20,
+    "direction_flip_rate": 0.60,             // from price flips
+    "volume_spike_ratio": 1.3
+  },
+
+  "session_context": {
+    "session": "LONDON",
+    "is_transition_window": false,
+    "session_switch_flare": false
+  },
+
+  "strategy_suitability": {
+    "breakout": "CONDITIONAL",
+    "inside_bar_volatility_trap": "PREFERRED",
+    "mean_reversion_range_scalp": "CONDITIONAL",
+    "trend_continuation": "DISALLOWED"
+  },
+
+  "risk_modifiers": {
+    "position_size_multiplier": 1.0,
+    "sl_width_multiplier": 1.0,
+    "allow_new_trades": true,
+    "forced_wait": false
+  }
+}
+
+
+Then you tell GPT:
+
+Always read volatility_intel when choosing / validating strategies
+
+Obey strategy_suitability and risk_modifiers rather than inferring
+
+This alone will make strategy choice and risk much more consistent.
+
+3. Make SMC / structure machine-readable, not only in prose
+
+In the text block you currently say:
+
+H4: BEARISH, H1: CONTINUATION, M30: SELL_SETUP, M15: SELL_TRIGGER, M5: SELL_NOW
+
+→ Structure: UNKNOWN
+
+CHOCH/BOS: ❌ None detected
+
+GPT sees “UNKNOWN” and hesitates, even though the text clearly implies a short bias ladder.
+
+Recommendation 3 – add a structured smc_context block
+
+You already have a minimal smc:
+
+"smc": { "choch_detected": false, "bos_detected": false, "trend": "UNKNOWN" }
+
+
+I’d expand to something like:
+
+"smc_context": {
+  "htf": {
+    "H4": "BEARISH",
+    "H1": "BEARISH_CONTINUATION"
+  },
+  "mtf": {
+    "M30": "SELL_SETUP",
+    "M15": "SELL_TRIGGER",
+    "M5": "SELL_NOW"
+  },
+  "overall_trend": "BEARISH",
+  "structure_state": "RANGE_WITH_BEAR_BIAS",
+  "choch_bos": {
+    "has_choch": false,
+    "has_bos": false,
+    "last_event": null
+  },
+  "confidence": 70
+}
+
+
+Then remove “→ Structure: UNKNOWN” from the summary, or base it on this field.
+
+That way GPT can:
+
+align strategy direction with overall_trend
+
+reject long scalps when structure is clearly bear-biased
+
+explain “we’re in a bearish continuation context” without guessing
+
+4. Turn strategies + confluence into explicit suitability and guardrails
+
+You already send:
+
+strategy_selection.selected_strategy
+
+all_scores for every candidate
+
+a global CONFLUENCE VERDICT (43.5/100 → AVOID, NEUTRAL - No Clear Setup)
+
+But GPT has to manually reason:
+
+which strategies are invalid
+
+which ones are blocked by confluence
+
+which ones conflict with macro/structure/volatility
+
+Recommendation 4 – add a strategy_context block
+
+Something like:
+
+"strategy_context": {
+  "selected": "INSIDE_BAR_VOLATILITY_TRAP",
+  "selected_score": 80,
+  "selected_direction": "BUY",
+  "selected_valid": false,                   // e.g. due to confluence < threshold
+
+  "confluence": {
+    "score": 43.5,
+    "threshold_for_entry": 70,
+    "grade": "F",
+    "action": "AVOID",
+    "reasons": [
+      "Confluence below threshold",
+      "M1 structure choppy",
+      "Microstructure strategy hint: RANGE_SCALP, not breakout"
+    ]
+  },
+
+  "candidates": [
+    {
+      "strategy": "INSIDE_BAR_VOLATILITY_TRAP",
+      "score": 80,
+      "direction": "BUY",
+      "volatility_required": "COMPRESSION_OR_PRE_BREAKOUT",
+      "structure_required": "RANGE_OR_PRE_BREAKOUT",
+      "suitable": false,
+      "blocked_by": [
+        "macro_bias_conflicts (bearish macro vs buy idea)",
+        "confluence_below_threshold"
+      ]
+    },
+    {
+      "strategy": "RANGE_SCALP",
+      "score": 65,
+      "direction": "EITHER",
+      "suitable": true,
+      "blocked_by": []
+    }
+  ]
+}
+
+
+Then GPT doesn’t have to “decide” if a strategy is allowed; it just:
+
+reads suitable / blocked_by
+
+explains the decision using those reasons
+
+only recommends strategies that pass guardrails
+
+That improves trade recommendations massively.
+
+5. Make the final decision block richer and non-zero
+
+Right now:
+
+"decision": {
+  "direction": "HOLD",
+  "entry": 89177.19,
+  "sl": 0,
+  "tp": 0,
+  "confidence": 0,
+  "reasoning": "No clear setup",
+  "rr": 0
+}
+
+
+For GPT, “HOLD + 0 confidence” is basically “ignore this”.
+
+Recommendation 5 – upgrade decision into a proper trade-state object
+
+For example:
+
+"decision": {
+  "state": "WAIT_NO_SETUP",                 // enum: WAIT_NO_SETUP / SCALP_OK / INTRADAY_OK / FLAT_DANGER etc.
+  "direction": null,
+  "entry": null,
+  "sl": null,
+  "tp": null,
+  "confidence": 0,
+  "rr": null,
+
+  "blocking_reasons": [
+    "Confluence score 43.5 < 70 threshold",
+    "Microstructure: CHOPPY, strategy hint RANGE_SCALP, not aligned with selected strategy",
+    "Session ending in 5 minutes"
+  ],
+
+  "allowed_actions": [
+    "Monitor range boundaries for future range scalp",
+    "Wait for CHOCH/BOS on M15",
+    "Re-evaluate after session reset"
+  ]
+}
+
+
+This lets GPT:
+
+clearly say “no trade”
+
+explain why and what to wait for
+
+avoid getting confused by entry = current price and sl/tp = 0
+
+6. Normalise session and timing
+
+Currently you’ve got:
+
+Session: UNKNOWN session in text
+
+threshold_calculation.session: "LONDON"
+
+Session ending in 5min, but no structured session_phase flag
+
+Recommendation 6 – unify session info
+
+Add:
+
+"session_context": {
+  "session": "LONDON",
+  "phase": "LATE",                  // e.g. EARLY / MID / LATE / OVERLAP
+  "minutes_to_session_end": 5,
+  "is_session_end_block": true      // should we block new entries?
+}
+
+
+And have the knowledge docs instruct GPT:
+
+“Never recommend new trades when is_session_end_block is true, unless the user explicitly overrides.”
+
+That makes session-awareness clean and consistent.
+
+7. Turn key textual flags into booleans / enums
+
+Some important things are currently only in prose, e.g.:
+
+“Extreme oversold, weak momentum”
+
+“Extreme Fear (20/100 - Potential bottom)”
+
+“SQUEEZE detected (UPPER_BAND)”
+
+“NEUTRAL - No Clear Setup”
+
+Recommendation 7 – add small structured flags alongside prose
+
+For example:
+
+"advanced": {
+  "rmag": { "ema200_atr": -3, "vwap_atr": -1.95, "oversold_flag": true },
+  "momentum": { "ratio": 1.36, "rsi": 36, "adx": 26.4, "quality": "WEAK", "direction": "BULLISH" }
+},
+"macro": {
+  "bias": {
+    "bias_score": -0.5,
+    "bias_direction": "BEARISH",
+    "risk_sentiment": "NEUTRAL",
+    "extreme_fear": true,
+    "potential_bottom_flag": true
+  }
+},
+"binance_enrichment": {
+  "bb_squeeze": true,
+  "bb_position": "UPPER_BAND"
+}
+
+
+This helps GPT avoid mis-parsing emojis / natural language to figure out “is this oversold?”, “is there a squeeze?”.
+
+8. Confluence: expose thresholds and per-component penalties
+
+You already send:
+
+global confluence score + grade + recommended_action
+
+component breakdown under microstructure_confluence.components
+
+This is great – I’d double down on it:
+
+expose global min_confluence_for_trade and maybe separate thresholds for:
+
+scalp vs intraday
+
+trend vs range strategies
+
+Example:
+
+"confluence": {
+  "score": 43.5,
+  "grade": "F",
+  "min_for_scalp": 65,
+  "min_for_intraday": 75,
+  "min_for_auto_exec": 80,
+  "recommended_action": "AVOID",
+  "main_drags": [
+    "m1_signal_confidence very low (0)",
+    "momentum_quality only 40",
+    "trend_alignment weak"
+  ]
+}
+
+
+Then GPT can say things like:
+
+Confluence is 43.5/100 vs 65+ required even for a scalp, mainly dragged down by weak momentum and no M1 signal. No trade.
+
+Much more consistent.
+
+9. Small “safety / clarity” extras
+
+A few extra fields that help a lot:
+
+schema_version: so your knowledge docs can say “for v2.1+, expect volatility_intel block”
+
+data_freshness_seconds: so GPT knows if the analysis is stale
+
+price_source: e.g. "mt5_live" vs "binance_agg" vs "cached"
+
+These don’t change trading logic, but help GPT trust the data correctly.
+
+TL;DR – what changes help GPT “read the market” better?
+
+Canonical regimes block → no more contradictory volatility/structure/session.
+
+Volatility_intel → central brain for volatility + suitability + risk.
+
+Structured SMC context → clear trend/structure state instead of “UNKNOWN”.
+
+Strategy_context with suitable + blocked_by → GPT stops recommending things your engine already knows are bad.
+
+Richer decision block → explicit “WAIT / NO TRADE” with reasons and what to watch for.
+
+Unified session_context → stable session reasoning.
+
+Flags for oversold/overbought, squeeze, fear, etc. → less guessing from prose.
+
+Explicit confluence thresholds and drags → consistent, explainable trade filtering.
+
+1. BEFORE – current shape (simplified)
+
+This is roughly what ChatGPT is seeing now (focusing on the important bits):
+
+{
+  "response_data": {
+    "status": "success",
+    "summary": "📊 BTCUSDc - Unified Analysis\n...long text...",
+    "data": {
+      "symbol": "BTCUSDc",
+      "current_price": 89177.19,
+
+      "macro": { ... },
+
+      "smc": {
+        "choch_detected": false,
+        "bos_detected": false,
+        "trend": "UNKNOWN"
+      },
+
+      "advanced": {
+        "rmag": { "ema200_atr": -3, "vwap_atr": -1.95 },
+        "vwap": { "dev_atr": -1.95, "zone": "outer" },
+        "volatility": {
+          "bb_width": 5.21,
+          "adx": 26.4,
+          "state": "expansion_strong_trend"
+        },
+        "momentum": {
+          "ratio": 1.36,
+          "rsi": 36,
+          "adx": 26.4
+        }
+      },
+
+      "confluence": {
+        "verdict": "⚪ NEUTRAL - No Clear Setup",
+        "action": "Wait for better confluence",
+        "risk": "N/A"
+      },
+
+      "volatility_regime": {
+        "regime": "STABLE",
+        "confidence": 95.1,
+        "indicators": { "M5": { ... }, "M15": { ... }, "H1": { ... } },
+        "atr_ratio": 0.8887,
+        "bb_width_ratio": 0.5314,
+        "adx_composite": 27.3274
+      },
+
+      "strategy_selection": {
+        "selected_strategy": { ... },
+        "all_scores": [ ... ],
+        "wait_reason": null
+      },
+
+      "m1_microstructure": {
+        "structure": { "type": "CHOPPY", "strength": 30 },
+        "volatility": { "state": "CONTRACTING", "change_pct": -100, ... },
+        "strategy_hint": "RANGE_SCALP",
+        "microstructure_confluence": {
+          "score": 43.5,
+          "base_score": 43.5,
+          "grade": "F",
+          "recommended_action": "AVOID",
+          "components": { ... }
+        },
+        "threshold_calculation": {
+          "base_confidence": 75,
+          "atr_ratio": 0,
+          "session_bias": 1,
+          "adjusted_threshold": 50,
+          "session": "LONDON"
+        }
+      },
+
+      "btc_order_flow_metrics": { ... },
+
+      "decision": {
+        "direction": "HOLD",
+        "entry": 89177.19,
+        "sl": 0,
+        "tp": 0,
+        "confidence": 0,
+        "reasoning": "No clear setup",
+        "rr": 0
+      }
+    }
+  }
+}
+
+
+So GPT has lots of ingredients, but:
+
+regimes and volatility are fragmented and conflicting
+
+strategy suitability/guardrails are implicit
+
+“no trade” logic is very thin
+
+2. AFTER – enriched, drop-in compatible schema
+
+Below is the same payload conceptually, but with new blocks layered in.
+All your existing fields stay, we’re just adding structured context around them.
+
+{
+  "response_data": {
+    "status": "success",
+    "summary": "📊 BTCUSDc - Unified Analysis\n... (you can also add a 1-line volatility/structure summary here) ...",
+
+    "data": {
+      "schema_version": "2.0",              // NEW: so GPT knows which schema rules apply
+
+      "symbol": "BTCUSDc",
+      "symbol_normalized": "BTCUSDc",
+      "current_price": 89177.19,
+
+      /* ──────────────────────────
+         1. CANONICAL REGIMES BLOCK
+         ────────────────────────── */
+      "regimes": {
+        "trend": {
+          "state": "BEARISH",               // from H4/H1 structure text
+          "timeframe_anchor": "H1",
+          "confidence": 70
+        },
+        "structure": {
+          "state": "RANGE_CHOPPY_BEAR_BIAS", // combines SMC ladder + M1 choppy
+          "confirmed": true,
+          "confidence": 60
+        },
+        "volatility": {
+          "state": "STABLE",                // from volatility_regime.regime
+          "shape": "PRE_BREAKOUT_TENSION",  // or "NONE" / other shape from detector
+          "confidence": 82
+        },
+        "microstructure": {
+          "state": "CHOPPY_RANGE",
+          "timeframe": "M1",
+          "confidence": 43
+        },
+        "session": {
+          "session": "LONDON",              // from threshold_calculation.session
+          "phase": "LATE",                  // inferred from “session ending in 5min”
+          "is_transition_window": false
+        }
+      },
+
+      /* ──────────────────────────
+         2. VOLATILITY INTELLIGENCE
+         ────────────────────────── */
+      "volatility_intel": {
+        "base_regime": "STABLE",            // from volatility_regime.regime
+        "state": "PRE_BREAKOUT_TENSION",    // final semantic label (or NONE)
+        "shape": "PRE_BREAKOUT_TENSION",
+        "confidence": 82.5,
+
+        "timeframe_view": {
+          "M1": {
+            "state": "CONTRACTING",
+            "squeeze_duration": 6
+          },
+          "M5": {
+            "atr_ratio": 1.1036,
+            "bb_width_ratio": 1.1702,
+            "adx": 26.43
+          },
+          "M15": {
+            "atr_ratio": 1.1632,
+            "bb_width_ratio": 0.5652,
+            "adx": 40.05
+          },
+          "H1": {
+            "atr_ratio": 0.6380,
+            "bb_width_ratio": 0.2557,
+            "adx": 20.05
+          }
+        },
+
+        "alignment_score": 0.74,
+
+        "metrics": {
+          "atr_ratio": 0.8887,              // from volatility_regime
+          "bb_width_ratio": 0.5314,
+          "bb_width_percentile": 0.18,      // NEW: detector derived
+          "bb_width_slope": 0.20,           // NEW
+          "direction_flip_rate": 0.60,      // NEW (from price flips)
+          "volume_spike_ratio": 1.3         // NEW
+        },
+
+        "session_context": {
+          "session": "LONDON",
+          "is_transition_window": false,
+          "session_switch_flare": false
+        },
+
+        "strategy_suitability": {
+          "inside_bar_volatility_trap": "PREFERRED",
+          "range_scalp": "CONDITIONAL",
+          "trend_continuation": "DISALLOWED",
+          "breakout_continuation": "CONDITIONAL",
+          "mean_reversion_range_scalp": "CONDITIONAL"
+        },
+
+        "risk_modifiers": {
+          "position_size_multiplier": 1.0,
+          "sl_width_multiplier": 1.0,
+          "allow_new_trades": true,
+          "forced_wait": false
+        },
+
+        "warnings": [
+          "Compression with BB width below median and contracting M1 volatility.",
+          "Microstructure choppy – range scalp favoured over breakout continuation."
+        ]
+      },
+
+      /* ──────────────────────────
+         3. STRUCTURED SMC CONTEXT
+         ────────────────────────── */
+      "smc_context": {
+        "htf": {
+          "H4": "BEARISH",
+          "H1": "BEARISH_CONTINUATION"
+        },
+        "mtf": {
+          "M30": "SELL_SETUP",
+          "M15": "SELL_TRIGGER",
+          "M5": "SELL_NOW"
+        },
+        "overall_trend": "BEARISH",
+        "structure_state": "RANGE_WITH_BEAR_BIAS",
+        "choch_bos": {
+          "has_choch": false,
+          "has_bos": false,
+          "last_event": null
+        },
+        "confidence": 70
+      },
+
+      /* existing minimal smc can stay for backwards compatibility */
+      "smc": {
+        "choch_detected": false,
+        "bos_detected": false,
+        "trend": "UNKNOWN"
+      },
+
+      /* ──────────────────────────
+         4. MACRO, ADVANCED, MICROSTRUCTURE (REUSED)
+         ────────────────────────── */
+      "macro": { ...unchanged... },
+
+      "advanced": {
+        "rmag": {
+          "ema200_atr": -3,
+          "vwap_atr": -1.95,
+          "oversold_flag": true           // NEW: explicit flag from your text
+        },
+        "vwap": {
+          "dev_atr": -1.95,
+          "zone": "outer"
+        },
+        "volatility": {
+          "bb_width": 5.21,
+          "adx": 26.4,
+          "state": "expansion_strong_trend"
+        },
+        "momentum": {
+          "ratio": 1.36,
+          "rsi": 36,
+          "adx": 26.4,
+          "quality": "WEAK_BULLISH"      // NEW: structured summary from text
+        }
+      },
+
+      "m1_microstructure": {
+        "available": true,
+        "structure": { "type": "CHOPPY", "strength": 30 },
+        "volatility": {
+          "state": "CONTRACTING",
+          "change_pct": -100,
+          "atr": 0,
+          "atr_median": 1,
+          "squeeze_duration": 6
+        },
+        "strategy_hint": "RANGE_SCALP",
+        "microstructure_confluence": {
+          "score": 43.5,
+          "base_score": 43.5,
+          "grade": "F",
+          "recommended_action": "AVOID",
+          "components": { ... }
+        },
+        "threshold_calculation": {
+          "base_confidence": 75,
+          "atr_ratio": 0,
+          "session_bias": 1,
+          "adjusted_threshold": 50,
+          "session": "LONDON"
+        },
+        "...": "other existing fields unchanged"
+      },
+
+      /* ──────────────────────────
+         5. STRATEGY CONTEXT LAYER
+         ────────────────────────── */
+      "strategy_context": {
+        "selected": "INSIDE_BAR_VOLATILITY_TRAP",
+        "selected_score": 80,
+        "selected_direction": "BUY",
+        "selected_valid": false,           // e.g. blocked by confluence/session
+
+        "confluence": {
+          "score": 43.5,                   // reuse microstructure_confluence.score
+          "grade": "F",
+          "min_for_scalp": 65,
+          "min_for_intraday": 75,
+          "min_for_auto_exec": 80,
+          "recommended_action": "AVOID",
+          "main_drags": [
+            "m1_signal_confidence very low",
+            "momentum_quality weak",
+            "trend_alignment weak for long"
+          ]
+        },
+
+        "candidates": [
+          {
+            "strategy": "INSIDE_BAR_VOLATILITY_TRAP",
+            "score": 80,
+            "direction": "BUY",
+            "suitable": false,
+            "blocked_by": [
+              "confluence_below_threshold",
+              "macro_bias_bearish_vs_buy",
+              "microstructure_choppy_not_clean_breakout"
+            ]
+          },
+          {
+            "strategy": "RANGE_SCALP",
+            "score": 65,
+            "direction": "EITHER",
+            "suitable": true,
+            "blocked_by": []
+          }
+          /* plus other strategies if you like */
+        ]
+      },
+
+      /* existing strategy_selection block can stay for compatibility */
+      "strategy_selection": { ...unchanged... },
+
+      /* ──────────────────────────
+         6. CONFLUENCE + RECOMMENDATIONS
+         ────────────────────────── */
+      "confluence": {
+        "verdict": "⚪ NEUTRAL - No Clear Setup",
+        "action": "Wait for better confluence",
+        "risk": "N/A",
+        "score": 43.5,
+        "threshold_for_scalp": 65,
+        "threshold_for_intraday": 75,
+        "primary_drivers": [
+          "m1_microstructure_choppy",
+          "no CHOCH/BOS confirmation",
+          "macro bias bearish vs long idea"
+        ]
+      },
+
+      "recommendations": {
+        "scalp": "SCALP (M5 entry, 2-4hr hold):\n⚪ WAIT - No M5 setup currently\nCurrent conditions don't support scalp entry",
+        "intraday": "INTRADAY (M15 entry, 12-24hr hold):\n⚪ WAIT - No M15 BOS confirmation yet\nCurrent setup: Awaiting structure confirmation",
+        "swing": "SWING (H1 entry, multi-day hold):\n🚫 NOT RECOMMENDED - User prefers scalp/intraday only\nThis system is optimized for short-term trades"
+      },
+
+      /* ──────────────────────────
+         7. SESSION CONTEXT (EXPLICIT)
+         ────────────────────────── */
+      "session_context": {
+        "session": "LONDON",
+        "phase": "LATE",
+        "minutes_to_session_end": 5,
+        "is_session_end_block": true    // GPT must not suggest new trades unless overridden
+      },
+
+      /* ──────────────────────────
+         8. ORDER FLOW, BTC METRICS (REUSED)
+         ────────────────────────── */
+      "btc_order_flow_metrics": { ...unchanged... },
+
+      /* ──────────────────────────
+         9. DECISION BLOCK – RICHER NO-TRADE STATE
+         ────────────────────────── */
+      "decision": {
+        "state": "WAIT_NO_SETUP",       // NEW enum instead of just HOLD
+        "direction": null,
+        "entry": null,
+        "sl": null,
+        "tp": null,
+        "confidence": 0,
+        "rr": null,
+
+        "blocking_reasons": [
+          "Confluence 43.5 < 65 scalp threshold",
+          "Microstructure CHOPPY with RANGE_SCALP hint but no clean levels",
+          "Session ending in 5 minutes – new entries blocked"
+        ],
+
+        "allowed_actions": [
+          "Monitor PDH/PDL for range scalp boundaries",
+          "Wait for CHOCH/BOS on M15 or H1",
+          "Re-evaluate after new session open"
+        ]
+      }
+    }
+  }
+}
+
+What this buys you in practice
+
+With this “after” shape:
+
+GPT has a single source of truth for:
+
+trend, structure, volatility, microstructure, session (regimes)
+
+volatility shape + suitability + risk (volatility_intel)
+
+SMC ladder (smc_context)
+
+strategy viability (strategy_context)
+
+trade state (decision)
+
+It no longer has to guess:
+
+whether to trade during session end
+
+whether a strategy is allowed
+
+whether confluence is enough
+
+whether volatility favours breakout vs range
+
+Your knowledge docs can give very strict rules:
+
+“Only recommend strategies where strategy_context.candidates[i].suitable == true”
+
+“Never propose trades when decision.state == WAIT_NO_SETUP unless user explicitly overrides.”
+
+“Always respect session_context.is_session_end_block.”
+
+“Always use regimes.volatility and volatility_intel instead of reading volatility from prose.”
+

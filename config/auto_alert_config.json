@@ -1,0 +1,14 @@
+{
+  "enabled": false,
+  "min_confidence": 85,
+  "notification_only": true,
+  "symbols": ["BTCUSDc", "XAUUSDc"],
+  "max_alerts_per_day": 3,
+  "cooldown_minutes": 30,
+  "require_pattern_confirmation": false,
+  "require_volume_expansion": true,
+  "require_mtf_alignment": true,
+  "require_structure_confirmation": true,
+  "discord_notification": true
+}
+

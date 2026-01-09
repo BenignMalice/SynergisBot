@@ -1,0 +1,78 @@
+{
+  "logging": {
+    "application_log": {
+      "log_file": "logs/application.log",
+      "max_size_mb": 100,
+      "backup_count": 5,
+      "rotation_type": "size",
+      "rotation_interval": "daily",
+      "compression": true,
+      "encryption": false,
+      "retention_days": 30
+    },
+    "security_log": {
+      "log_file": "logs/security.log",
+      "max_size_mb": 50,
+      "backup_count": 10,
+      "rotation_type": "size",
+      "rotation_interval": "daily",
+      "compression": true,
+      "encryption": true,
+      "retention_days": 365
+    },
+    "trading_log": {
+      "log_file": "logs/trading.log",
+      "max_size_mb": 200,
+      "backup_count": 3,
+      "rotation_type": "size",
+      "rotation_interval": "daily",
+      "compression": true,
+      "encryption": true,
+      "retention_days": 2555
+    },
+    "system_log": {
+      "log_file": "logs/system.log",
+      "max_size_mb": 100,
+      "backup_count": 5,
+      "rotation_type": "size",
+      "rotation_interval": "daily",
+      "compression": true,
+      "encryption": false,
+      "retention_days": 90
+    },
+    "audit_log": {
+      "log_file": "logs/audit.log",
+      "max_size_mb": 50,
+      "backup_count": 20,
+      "rotation_type": "size",
+      "rotation_interval": "daily",
+      "compression": true,
+      "encryption": true,
+      "retention_days": 2555
+    }
+  },
+  "audit_trail": {
+    "enabled": true,
+    "database_path": "data/audit_trail.db",
+    "retention_days": 2555,
+    "encryption_enabled": true,
+    "integrity_check_enabled": true,
+    "backup_enabled": true
+  },
+  "compliance": {
+    "sox_compliance": true,
+    "gdpr_compliance": true,
+    "pci_compliance": false,
+    "hipaa_compliance": false,
+    "audit_retention_years": 7,
+    "data_encryption_required": true,
+    "access_logging_required": true
+  },
+  "monitoring": {
+    "log_monitoring_enabled": true,
+    "error_threshold": 10,
+    "warning_threshold": 50,
+    "alert_on_critical": true,
+    "log_analysis_enabled": true
+  }
+}

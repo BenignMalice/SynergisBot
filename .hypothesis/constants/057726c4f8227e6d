@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\shadow_mode.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.01, 0.05, 0.5, 0.75, 0.82, 50000.0, 100, 1000, 'BTCUSDc', 'No trades to compare', 'Shadow mode expired', 'Stopped shadow mode', '__main__', 'action', 'active', 'avg_dtms_latency_ms', 'comparison', 'confidence', 'confidence_delta', 'disabled', 'dtms', 'dtms_better', 'dtms_better_pct', 'dtms_latency_ms', 'dtms_success_rate', 'dtms_validation', 'duration_days', 'equivalent', 'equivalent_pct', 'error', 'expired', 'hold', 'inactive', 'inconclusive', 'intelligent_better', 'intelligent_exit', 'latency_delta_ms', 'latency_ms', 'partial_exit', 'performance', 'price', 'reasoning', 'recommendation', 'shadow', 'status', 'summary', 'symbol', 'timestamp', 'total_comparisons', 'total_trades', 'volume']

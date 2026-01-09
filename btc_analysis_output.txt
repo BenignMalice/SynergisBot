@@ -1,0 +1,499 @@
+================================================================================
+BTCUSDc MARKET ANALYSIS & AUTO-EXECUTION PLAN REVIEW
+================================================================================
+
+Fetching current BTC price...
+Current BTC Price: $90,002.62 (Source: API)
+Bid: $89,993.62 | Ask: $90,011.62 | Spread: $18.00
+
+================================================================================
+AUTO-EXECUTION PLANS REVIEW
+================================================================================
+
+Total BTC Plans Found: 30
+Status Breakdown:
+  PENDING: 30
+
+================================================================================
+PENDING PLANS ANALYSIS (30 plans)
+================================================================================
+
+[1] micro_scalp_c6dc4c1b
+    Direction: BUY | Created: 2026-01-03T14:16:01.879269+00:00
+    Expires: 2026-01-03T20:16:01.879269+00:00
+    Price Check: Price 90002.62 is 1042.62 away from target 88960.00 (tolerance: ┬▒5.0)
+    Relevance: LOW
+    Conditions:
+      - plan_type: micro_scalp
+      - timeframe: M1
+      - price_in_discount: True
+      - price_near: 88960.0
+      - tolerance: 5.0
+    Notes:
+      - Price is 1042.62 away from target
+
+[2] chatgpt_997ffad4
+    Direction: BUY | Created: 2026-01-03T14:15:42.902497+00:00
+    Expires: 2026-01-04T02:15:42.853532+00:00
+    Price Check: Price 90002.62 is WITHIN tolerance of 89950.00 (┬▒100.0)
+    Relevance: HIGH
+    Conditions:
+      - price_near: 89950.0
+      - tolerance: 100.0
+      - choch_bear: True
+      - bos_bull: True
+      - m1_choch_bos_combo: True
+      - timeframe: M15
+    Notes:
+      - Price is near target: 52.62 away
+      - Has structure-based conditions (requires chart analysis)
+
+[3] chatgpt_d6b8467f
+    Direction: BUY | Created: 2026-01-03T14:15:42.850498+00:00
+    Expires: 2026-01-03T22:15:42.800340+00:00
+    Price Check: Price 90002.62 is 702.62 away from target 89300.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - range_scalp_confluence: 80
+      - structure_confirmation: True
+      - structure_timeframe: M15
+      - price_near: 89300.0
+      - tolerance: 100.0
+      - plan_type: range_scalp
+    Notes:
+      - Price is 702.62 away from target
+
+[4] chatgpt_f2791d2f
+    Direction: SELL | Created: 2026-01-03T14:15:42.797099+00:00
+    Expires: 2026-01-04T02:15:42.741846+00:00
+    Price Check: Price 90002.62 is WITHIN tolerance of 89920.00 (┬▒100.0)
+    Relevance: HIGH
+    Conditions:
+      - rejection_wick: True
+      - price_near: 89920.0
+      - tolerance: 100.0
+      - liquidity_sweep: True
+      - choch_bear: True
+      - timeframe: M5
+    Notes:
+      - Price is near target: 82.62 away
+      - Has structure-based conditions (requires chart analysis)
+
+[5] chatgpt_9696e907
+    Direction: BUY | Created: 2026-01-03T14:15:42.739404+00:00
+    Expires: 2026-01-04T02:15:42.681230+00:00
+    Price Check: Price 90002.62 is 522.62 away from target 89480.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - order_block: True
+      - order_block_type: auto
+      - min_validation_score: 60
+      - price_near: 89480.0
+      - tolerance: 100.0
+      - timeframe: M1
+    Notes:
+      - Price is 522.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[6] chatgpt_4722516b
+    Direction: BUY | Created: 2026-01-03T14:12:06.275968+00:00
+    Expires: 2026-01-04T02:12:06.222946+00:00
+    Price Check: Price 90002.62 is 602.62 away from target 89400.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - order_block: True
+      - order_block_type: auto
+      - min_validation_score: 60
+      - price_near: 89400.0
+      - tolerance: 100.0
+      - timeframe: M1
+    Notes:
+      - Price is 602.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[7] chatgpt_04d8fb18
+    Direction: SELL | Created: 2026-01-03T14:12:06.212200+00:00
+    Expires: 2026-01-04T02:12:06.160842+00:00
+    Price Check: Price 90002.62 is 102.62 away from target 89900.00 (tolerance: ┬▒100.0)
+    Relevance: MEDIUM
+    Conditions:
+      - rejection_wick: True
+      - price_near: 89900.0
+      - tolerance: 100.0
+      - liquidity_sweep: True
+      - choch_bear: True
+      - timeframe: M15
+    Notes:
+      - Price is 102.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[8] chatgpt_10c015aa
+    Direction: BUY | Created: 2026-01-03T14:11:37.060109+00:00
+    Expires: 2026-01-04T02:11:36.993134+00:00
+    Price Check: Price 90002.62 is 1052.62 away from target 88950.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - vwap_deviation: True
+      - vwap_deviation_direction: below
+      - rsi_div_bull: True
+      - price_near: 88950.0
+      - tolerance: 100.0
+      - timeframe: M15
+    Notes:
+      - Price is 1052.62 away from target
+
+[9] chatgpt_5eff10a7
+    Direction: SELL | Created: 2026-01-03T09:29:25.750533+00:00
+    Expires: 2026-01-03T21:29:25.699736+00:00
+    Price Check: Price 90002.62 is WITHIN tolerance of 89950.00 (┬▒100.0)
+    Relevance: HIGH
+    Conditions:
+      - order_block: True
+      - order_block_type: auto
+      - min_validation_score: 60
+      - price_near: 89950.0
+      - tolerance: 100.0
+      - timeframe: M1
+    Notes:
+      - Price is near target: 52.62 away
+      - Has structure-based conditions (requires chart analysis)
+
+[10] chatgpt_cbe5ec97
+    Direction: BUY | Created: 2026-01-03T09:29:25.696809+00:00
+    Expires: 2026-01-03T21:29:25.641280+00:00
+    Price Check: Price 90002.62 is 252.62 away from target 89750.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - price_near: 89750.0
+      - tolerance: 100.0
+      - choch_bull: True
+      - bos_bull: True
+      - timeframe: M5
+    Notes:
+      - Price is 252.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[11] micro_scalp_a7848c9f
+    Direction: BUY | Created: 2026-01-03T09:27:09.247534+00:00
+    Expires: 2026-01-03T15:27:09.247534+00:00
+    Price Check: Price 90002.62 is 1122.62 away from target 88880.00 (tolerance: ┬▒5.0)
+    Relevance: LOW
+    Conditions:
+      - plan_type: micro_scalp
+      - timeframe: M1
+      - price_in_discount: True
+      - price_near: 88880.0
+      - tolerance: 5.0
+    Notes:
+      - Price is 1122.62 away from target
+
+[12] chatgpt_6aa6a689
+    Direction: SELL | Created: 2026-01-03T09:26:38.400060+00:00
+    Expires: 2026-01-03T19:26:38.346731+00:00
+    Price Check: Price 90002.62 is 197.38 away from target 90200.00 (tolerance: ┬▒100.0)
+    Relevance: MEDIUM
+    Conditions:
+      - order_block: True
+      - order_block_type: auto
+      - min_validation_score: 60
+      - price_near: 90200.0
+      - tolerance: 100.0
+      - timeframe: M1
+    Notes:
+      - Price is 197.38 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[13] chatgpt_0a5bb89a
+    Direction: BUY | Created: 2026-01-03T09:26:38.343731+00:00
+    Expires: 2026-01-03T19:26:38.292235+00:00
+    Price Check: Price 90002.62 is 702.62 away from target 89300.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - range_scalp_confluence: 80
+      - structure_confirmation: True
+      - structure_timeframe: M15
+      - price_near: 89300.0
+      - tolerance: 100.0
+      - plan_type: range_scalp
+    Notes:
+      - Price is 702.62 away from target
+
+[14] chatgpt_69d2dbe6
+    Direction: BUY | Created: 2026-01-03T09:23:22.939080+00:00
+    Expires: 2026-01-03T21:23:22.888570+00:00
+    Price Check: Price 90002.62 is ABOVE threshold 89950.00 Γ£ô
+    Relevance: HIGH
+    Conditions:
+      - bos_bull: True
+      - price_above: 89950.0
+      - price_near: 89950.0
+      - tolerance: 100.0
+      - timeframe: M15
+    Notes:
+      - Price is near target: 52.62 away
+      - Has structure-based conditions (requires chart analysis)
+
+[15] chatgpt_1a62cef8
+    Direction: SELL | Created: 2026-01-03T09:23:22.885575+00:00
+    Expires: 2026-01-03T21:23:22.836387+00:00
+    Price Check: Price 90002.62 is 532.62 away from target 89470.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - rejection_wick: True
+      - price_near: 89470.0
+      - tolerance: 100.0
+      - liquidity_sweep: True
+      - choch_bear: True
+      - timeframe: M5
+    Notes:
+      - Price is 532.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[16] chatgpt_bfd5da80
+    Direction: BUY | Created: 2026-01-03T09:23:22.824389+00:00
+    Expires: 2026-01-03T21:23:22.772006+00:00
+    Price Check: Price 90002.62 is ABOVE threshold 89635.00 Γ£ô
+    Relevance: HIGH
+    Conditions:
+      - inside_bar: True
+      - bb_compression: True
+      - price_above: 89635.0
+      - price_near: 89635.0
+      - tolerance: 100.0
+      - timeframe: M15
+    Notes:
+      - Price is 367.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[17] chatgpt_272f946b
+    Direction: BUY | Created: 2026-01-03T09:20:37.717180+00:00
+    Expires: 2026-01-03T17:20:37.670707+00:00
+    Price Check: Price 90002.62 is ABOVE threshold 88980.00 Γ£ô
+    Relevance: HIGH
+    Conditions:
+      - bos_bull: True
+      - price_above: 88980.0
+      - price_near: 88980.0
+      - tolerance: 100.0
+      - timeframe: M15
+    Notes:
+      - Price is 1022.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[18] chatgpt_ea9ca8e0
+    Direction: BUY | Created: 2026-01-03T09:20:37.657388+00:00
+    Expires: 2026-01-03T17:20:37.606348+00:00
+    Price Check: Price 90002.62 is 1602.62 away from target 88400.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - liquidity_sweep: True
+      - choch_bull: True
+      - price_near: 88400.0
+      - tolerance: 100.0
+      - timeframe: M5
+    Notes:
+      - Price is 1602.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[19] chatgpt_8f2b31fd
+    Direction: SELL | Created: 2026-01-03T07:21:37.419030+00:00
+    Expires: 2026-01-05T07:21:37.365601+00:00
+    Price Check: Price 90002.62 is 377.38 away from target 90380.00 (tolerance: ┬▒100)
+    Relevance: LOW
+    Conditions:
+      - rejection_wick: True
+      - price_near: 90380
+      - tolerance: 100
+      - liquidity_grab_bear: True
+      - rejection_detected: True
+      - order_block: True
+      - timeframe: M5
+      - order_block_type: auto
+    Notes:
+      - Price is 377.38 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[20] chatgpt_bd1e3b85
+    Direction: BUY | Created: 2026-01-03T07:21:37.361653+00:00
+    Expires: 2026-01-05T07:21:37.317913+00:00
+    Price Check: Price 90002.62 is 162.62 away from target 89840.00 (tolerance: ┬▒100)
+    Relevance: MEDIUM
+    Conditions:
+      - rejection_wick: True
+      - price_near: 89840
+      - tolerance: 100
+      - liquidity_grab_bull: True
+      - rejection_detected: True
+      - order_block: True
+      - timeframe: M5
+      - order_block_type: auto
+    Notes:
+      - Price is 162.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[21] chatgpt_3c6f9985
+    Direction: SELL | Created: 2026-01-03T07:21:37.314938+00:00
+    Expires: 2026-01-05T07:21:37.272782+00:00
+    Price Check: Price 90002.62 is 237.38 away from target 90240.00 (tolerance: ┬▒120)
+    Relevance: MEDIUM
+    Conditions:
+      - fvg_bear: True
+      - fvg_filled_pct: 0.6
+      - choch_bear: True
+      - price_near: 90240
+      - tolerance: 120
+      - timeframe: M15
+    Notes:
+      - Price is 237.38 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[22] chatgpt_0334ec8a
+    Direction: BUY | Created: 2026-01-03T07:21:37.270152+00:00
+    Expires: 2026-01-05T07:21:37.223940+00:00
+    Price Check: Price 90002.62 is WITHIN tolerance of 90020.00 (┬▒120)
+    Relevance: HIGH
+    Conditions:
+      - fvg_bull: True
+      - fvg_filled_pct: 0.6
+      - choch_bull: True
+      - price_near: 90020
+      - tolerance: 120
+      - timeframe: M15
+    Notes:
+      - Price is near target: 17.38 away
+      - Has structure-based conditions (requires chart analysis)
+
+[23] chatgpt_a2bff8a6
+    Direction: SELL | Created: 2026-01-03T07:21:37.221437+00:00
+    Expires: 2026-01-05T07:21:37.174768+00:00
+    Price Check: Price 90002.62 is 357.38 away from target 90360.00 (tolerance: ┬▒100.0)
+    Relevance: LOW
+    Conditions:
+      - order_block: True
+      - order_block_type: auto
+      - min_validation_score: 60
+      - price_near: 90360
+      - tolerance: 100.0
+      - timeframe: M1
+    Notes:
+      - Price is 357.38 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[24] chatgpt_aa535b06
+    Direction: BUY | Created: 2026-01-03T07:21:37.162363+00:00
+    Expires: 2026-01-05T07:21:37.106253+00:00
+    Price Check: Price 90002.62 is 112.62 away from target 89890.00 (tolerance: ┬▒100.0)
+    Relevance: MEDIUM
+    Conditions:
+      - order_block: True
+      - order_block_type: auto
+      - min_validation_score: 60
+      - price_near: 89890
+      - tolerance: 100.0
+      - timeframe: M1
+    Notes:
+      - Price is 112.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[25] chatgpt_916beece
+    Direction: SELL | Created: 2026-01-03T07:20:08.634989+00:00
+    Expires: 2026-01-05T07:20:08.581537+00:00
+    Price Check: Price 90002.62 is 362.62 away from target 89640.00 (tolerance: ┬▒150)
+    Relevance: LOW
+    Conditions:
+      - price_near: 89640
+      - tolerance: 150
+      - choch_bear: True
+      - mss_bear: True
+      - pullback_to_mss: True
+      - timeframe: M15
+    Notes:
+      - Price is 362.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[26] chatgpt_f8b71fbc
+    Direction: BUY | Created: 2026-01-03T07:20:08.576936+00:00
+    Expires: 2026-01-05T07:20:08.528800+00:00
+    Price Check: Price 90002.62 is 277.38 away from target 90280.00 (tolerance: ┬▒150)
+    Relevance: MEDIUM
+    Conditions:
+      - price_near: 90280
+      - tolerance: 150
+      - choch_bear: True
+      - mss_bull: True
+      - pullback_to_mss: True
+      - timeframe: M15
+    Notes:
+      - Price is 277.38 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[27] chatgpt_60aa95b2
+    Direction: BUY | Created: 2026-01-03T07:20:08.525869+00:00
+    Expires: 2026-01-04T07:20:08.467877+00:00
+    Price Check: Price 90002.62 is 302.62 away from target 89700.00 (tolerance: ┬▒120)
+    Relevance: LOW
+    Conditions:
+      - rejection_wick: True
+      - price_near: 89700
+      - tolerance: 120
+      - liquidity_sweep: True
+      - choch_bull: True
+      - timeframe: M5
+    Notes:
+      - Price is 302.62 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[28] chatgpt_c393d54c
+    Direction: SELL | Created: 2026-01-03T07:20:08.464375+00:00
+    Expires: 2026-01-04T07:20:08.414966+00:00
+    Price Check: Price 90002.62 is 477.38 away from target 90480.00 (tolerance: ┬▒120)
+    Relevance: LOW
+    Conditions:
+      - rejection_wick: True
+      - price_near: 90480
+      - tolerance: 120
+      - liquidity_sweep: True
+      - choch_bear: True
+      - timeframe: M5
+    Notes:
+      - Price is 477.38 away from target
+      - Has structure-based conditions (requires chart analysis)
+
+[29] chatgpt_555c5ae7
+    Direction: SELL | Created: 2026-01-03T07:19:55.785739+00:00
+    Expires: 2026-01-04T07:19:55.731318+00:00
+    Price Check: Price 90002.62 is 147.38 away from target 90150.00 (tolerance: ┬▒100.0)
+    Relevance: MEDIUM
+    Conditions:
+      - range_scalp_confluence: 80
+      - structure_confirmation: True
+      - structure_timeframe: M15
+      - price_near: 90150
+      - tolerance: 100.0
+      - plan_type: range_scalp
+    Notes:
+      - Price is 147.38 away from target
+
+[30] chatgpt_95bb84e0
+    Direction: BUY | Created: 2026-01-03T07:19:55.728064+00:00
+    Expires: 2026-01-04T07:19:55.661774+00:00
+    Price Check: Price 90002.62 is WITHIN tolerance of 89930.00 (┬▒100.0)
+    Relevance: HIGH
+    Conditions:
+      - range_scalp_confluence: 80
+      - structure_confirmation: True
+      - structure_timeframe: M15
+      - price_near: 89930
+      - tolerance: 100.0
+      - plan_type: range_scalp
+    Notes:
+      - Price is near target: 72.62 away
+
+
+================================================================================
+SUMMARY
+================================================================================
+Pending Plans: 30
+Executed Plans: 0
+Current Price: $90,002.62
+

@@ -1,0 +1,79 @@
+{
+  "strategy_feature_flags": {
+    "order_block_rejection": {
+      "enabled": true,
+      "tier": 1,
+      "required_detection_fields": ["order_block_bull", "order_block_bear", "ob_strength"]
+    },
+    "fvg_retracement": {
+      "enabled": true,
+      "tier": 1,
+      "required_detection_fields": ["fvg_bull", "fvg_bear", "fvg_strength"]
+    },
+    "breaker_block": {
+      "enabled": true,
+      "tier": 1,
+      "required_detection_fields": ["breaker_block", "ob_broken"]
+    },
+    "mitigation_block": {
+      "enabled": true,
+      "tier": 2,
+      "required_detection_fields": ["mitigation_block_bull", "mitigation_block_bear"]
+    },
+    "market_structure_shift": {
+      "enabled": true,
+      "tier": 1,
+      "required_detection_fields": ["mss_bull", "mss_bear", "mss_strength"]
+    },
+    "inducement_reversal": {
+      "enabled": true,
+      "tier": 2,
+      "required_detection_fields": ["liquidity_grab_bull", "liquidity_grab_bear"]
+    },
+    "premium_discount_array": {
+      "enabled": true,
+      "tier": 3,
+      "required_detection_fields": ["price_in_discount", "price_in_premium"]
+    },
+    "session_liquidity_run": {
+      "enabled": true,
+      "tier": 3,
+      "required_detection_fields": ["session_liquidity_run"]
+    },
+    "kill_zone": {
+      "enabled": true,
+      "tier": 4,
+      "required_detection_fields": ["kill_zone_active"]
+    },
+    "breakout_ib_volatility_trap": {
+      "enabled": true,
+      "tier": 5,
+      "required_detection_fields": ["bb_expansion"]
+    }
+  },
+  "confidence_thresholds": {
+    "order_block_rejection": 0.6,
+    "fvg_retracement": 0.6,
+    "breaker_block": 0.65,
+    "mitigation_block": 0.6,
+    "market_structure_shift": 0.65,
+    "inducement_reversal": 0.6,
+    "premium_discount_array": 0.55,
+    "session_liquidity_run": 0.55,
+    "kill_zone": 0.5,
+    "breakout_ib_volatility_trap": 0.5
+  },
+  "circuit_breaker": {
+    "enabled": true,
+    "affected_strategies": ["all"],
+    "global_settings": {
+      "max_consecutive_losses": 3,
+      "min_win_rate": 0.45,
+      "min_trades_for_evaluation": 10,
+      "max_drawdown_pct": 15.0,
+      "disable_duration_hours": 24
+    },
+    "strategy_overrides": {}
+  }
+}
+

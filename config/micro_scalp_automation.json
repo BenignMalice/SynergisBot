@@ -1,0 +1,31 @@
+{
+  "enabled": false,
+  "symbols": ["BTCUSDc", "XAUUSDc"],
+  "check_interval_seconds": 5,
+  "min_execution_interval_seconds": 60,
+  "max_positions_per_symbol": 1,
+  "risk_per_trade": 0.5,
+  "session_filters": {
+    "enabled": false,
+    "preferred_sessions": ["london", "ny", "overlap"],
+    "disable_during_news": true
+  },
+  "rate_limiting": {
+    "max_trades_per_hour": 10,
+    "max_trades_per_day": 50
+  },
+  "position_limits": {
+    "max_total_positions": 3,
+    "max_per_symbol": 1
+  },
+  "execution_validation": {
+    "max_spread_percent": 0.15,
+    "check_tick_alignment": true,
+    "use_spread_tracker": true
+  },
+  "news_blackout": {
+    "enabled": true,
+    "categories": ["macro", "crypto"]
+  }
+}
+

@@ -1,0 +1,40 @@
+{
+  "validation_id": "VALIDATION_1761069079",
+  "timestamp": "2025-10-21T20:51:19.473214",
+  "overall_score": 0.8730158730158731,
+  "readiness_status": "GOOD",
+  "components": {
+    "system_requirements": {
+      "score": 1.0,
+      "status": "PASS"
+    },
+    "code_quality": {
+      "score": 1.0,
+      "status": "PASS"
+    },
+    "configuration": {
+      "score": 1.0,
+      "status": "PASS"
+    },
+    "documentation": {
+      "score": 1.0,
+      "status": "PASS"
+    },
+    "testing": {
+      "score": 0.4444444444444444,
+      "status": "FAIL"
+    },
+    "monitoring": {
+      "score": 1.0,
+      "status": "PASS"
+    },
+    "security": {
+      "score": 0.6666666666666666,
+      "status": "PASS"
+    }
+  },
+  "issues": [],
+  "recommendations": [
+    "Create .env.example for security"
+  ]
+}

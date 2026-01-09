@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\data_management_automation.py
+# hypothesis_version: 6.142.1
+
+[1.0, 60.0, 300.0, 180, 365, 1000, '%Y%m%d_%H%M%S', '.db', 'ANALYZE', 'BTCUSDc', 'PRAGMA optimize', 'VACUUM', '__main__', 'active_tasks', 'archive', 'archive_old', 'archive_path', 'automation_active', 'backup', 'backup_config', 'completed', 'completed_tasks', 'compress', 'compress_old', 'compression_config', 'compression_level', 'daily', 'data/archives/', 'data/backups/', 'data/test.db', 'data_config', 'delete', 'delete_old', 'enabled', 'error', 'failed', 'frequency', 'keep_all', 'level', 'main', 'market_structure', 'ohlcv_bars', 'optimize', 'pending', 'pending_tasks', 'performance_metrics', 'policy', 'raw_ticks', 'rb', 'retention_days', 'retention_rules', 'symbol', 'trade_history', 'trade_management', 'unknown', 'vacuum', 'wb']

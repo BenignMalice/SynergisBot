@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\risk_controls.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.005, 0.01, 0.02, 0.05, 0.06, 0.1, 1.0, 1.5, 5.0, 30.0, 60.0, 100, 300, 500, 600, 900, 1800, 3600, 86400, 'BTCUSDc', 'EURUSDc', 'GBPUSDc', 'USDJPYc', 'XAUUSDc', '__main__', 'age_seconds', 'circuit_breakers', 'closed', 'critical', 'critical_stale', 'current_usage', 'daily_usage', 'drawdown_breaker', 'enabled', 'error_rate_breaker', 'fresh', 'half_open', 'high', 'hourly_usage', 'inf', 'is_demoted', 'last_trigger_time', 'last_update', 'latency_breaker', 'lot_cap_summary', 'low', 'medium', 'name', 'open', 'overall_risk_level', 'position_count', 'reason', 'stale', 'staleness_level', 'staleness_summary', 'state', 'timestamp', 'total_symbols', 'trigger_count', 'value', 'very_stale']

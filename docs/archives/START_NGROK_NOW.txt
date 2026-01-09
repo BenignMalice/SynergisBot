@@ -1,0 +1,90 @@
+╔════════════════════════════════════════════════════════════════════╗
+║  🚨 IMPORTANT: Start ngrok NOW!                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+
+PROBLEM:
+--------
+✅ API server is running (localhost:8000 works)
+❌ ngrok is NOT running (ChatGPT can't reach it)
+
+ChatGPT needs the PUBLIC URL to access your API!
+
+
+SOLUTION - Start ngrok:
+-----------------------
+
+Option 1: Quick Command (Recommended)
+--------------------------------------
+Open a NEW PowerShell/CMD window and run:
+
+cd C:\mt5-gpt\TelegramMoneyBot.v7
+ngrok http --url=verbally-faithful-monster.ngrok-free.app 8000
+
+
+Option 2: Use Startup Script
+-----------------------------
+Double-click: start_with_ngrok.bat
+
+(This will restart both API server and ngrok)
+
+
+VERIFY IT'S WORKING:
+--------------------
+
+Step 1: Check ngrok is running
+   - Look for a window titled "ngrok"
+   - Should show "online" status
+   - Should show: https://verbally-faithful-monster.ngrok-free.app
+
+Step 2: Test the public URL
+   Run this:
+   
+   python -c "import requests; r = requests.get('https://verbally-faithful-monster.ngrok-free.app/health'); print(r.json())"
+
+   Should return: {"ok": true, "timestamp": "...", ...}
+
+Step 3: Test with ChatGPT
+   Ask: "What's the current XAUUSD price?"
+   
+   Should work now!
+
+
+WHAT'S HAPPENING:
+-----------------
+
+Your API server: http://localhost:8000 ✅ (working)
+              ↓
+           ngrok: ❌ (NOT running - this is the problem!)
+              ↓
+  Public URL: https://verbally-faithful-monster.ngrok-free.app
+              ↓
+         ChatGPT: Can't reach API (because ngrok isn't forwarding)
+
+
+AFTER STARTING NGROK:
+---------------------
+
+Your API server: http://localhost:8000 ✅
+              ↓
+           ngrok: ✅ (forwarding traffic)
+              ↓
+  Public URL: https://verbally-faithful-monster.ngrok-free.app ✅
+              ↓
+         ChatGPT: Can reach API! ✅
+
+
+QUICK TEST:
+-----------
+
+Test locally (should work):
+  http://localhost:8000/api/v1/price/XAUUSD
+
+Test via ngrok (after starting ngrok):
+  https://verbally-faithful-monster.ngrok-free.app/api/v1/price/XAUUSD
+
+
+╔════════════════════════════════════════════════════════════════════╗
+║  ACTION REQUIRED: Start ngrok NOW!                                 ║
+║  Command: ngrok http --url=verbally-faithful-monster.ngrok-free.app 8000 ║
+╚════════════════════════════════════════════════════════════════════╝
+

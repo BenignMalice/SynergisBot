@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\numba\core\target_extension.py
+# hypothesis_version: 6.142.1
+
+['CPU', 'CUDA', 'GPU', 'cpu', 'cuda', 'generic', 'gpu', 'npyufunc', 'target']

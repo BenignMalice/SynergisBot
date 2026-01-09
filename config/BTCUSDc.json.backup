@@ -1,0 +1,12 @@
+{
+  "symbol": "BTCUSDc",
+  "asset_type": "crypto",
+  "enabled": true,
+  "vwap": {
+    "session_anchor": "crypto",
+    "sigma_window_minutes": 60
+  },
+  "atr": {
+    "period": 14
+  }
+}

@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\scipy\optimize\_lsq\dogbox.py
+# hypothesis_version: 6.142.1
+
+[-1.0, 0.0, 0.25, 0.5, 1.0, 100, 'cost', 'exact', 'jac', 'lsmr']

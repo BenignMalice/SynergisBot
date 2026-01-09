@@ -1,0 +1,120 @@
+{
+  "alert_rules": {
+    "cpu_usage_high": {
+      "rule_id": "cpu_usage_high",
+      "name": "High CPU Usage",
+      "description": "CPU usage exceeds threshold",
+      "metric_name": "cpu_usage_percent",
+      "condition": ">",
+      "threshold": 85.0,
+      "severity": "high",
+      "enabled": true,
+      "cooldown_minutes": 5,
+      "notification_channels": ["email", "slack"]
+    },
+    "memory_usage_high": {
+      "rule_id": "memory_usage_high",
+      "name": "High Memory Usage",
+      "description": "Memory usage exceeds threshold",
+      "metric_name": "memory_usage_percent",
+      "condition": ">",
+      "threshold": 90.0,
+      "severity": "high",
+      "enabled": true,
+      "cooldown_minutes": 5,
+      "notification_channels": ["email", "slack"]
+    },
+    "disk_usage_high": {
+      "rule_id": "disk_usage_high",
+      "name": "High Disk Usage",
+      "description": "Disk usage exceeds threshold",
+      "metric_name": "disk_usage_percent",
+      "condition": ">",
+      "threshold": 85.0,
+      "severity": "medium",
+      "enabled": true,
+      "cooldown_minutes": 10,
+      "notification_channels": ["email"]
+    },
+    "response_time_high": {
+      "rule_id": "response_time_high",
+      "name": "High Response Time",
+      "description": "API response time exceeds threshold",
+      "metric_name": "response_time_ms",
+      "condition": ">",
+      "threshold": 2000.0,
+      "severity": "high",
+      "enabled": true,
+      "cooldown_minutes": 5,
+      "notification_channels": ["email", "slack"]
+    },
+    "error_rate_high": {
+      "rule_id": "error_rate_high",
+      "name": "High Error Rate",
+      "description": "Error rate exceeds threshold",
+      "metric_name": "error_rate_percent",
+      "condition": ">",
+      "threshold": 10.0,
+      "severity": "critical",
+      "enabled": true,
+      "cooldown_minutes": 2,
+      "notification_channels": ["email", "sms", "slack"]
+    },
+    "component_down": {
+      "rule_id": "component_down",
+      "name": "Component Down",
+      "description": "Critical component is down",
+      "metric_name": "component_status",
+      "condition": "==",
+      "threshold": 0.0,
+      "severity": "critical",
+      "enabled": true,
+      "cooldown_minutes": 1,
+      "notification_channels": ["email", "sms", "slack", "webhook"]
+    }
+  },
+  "notification_channels": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "username": "alerts@company.com",
+      "password": "password",
+      "from_email": "alerts@company.com",
+      "recipients": ["admin@company.com", "ops@company.com"]
+    },
+    "sms": {
+      "enabled": true,
+      "api_key": "your_sms_api_key",
+      "from_number": "+1234567890",
+      "recipients": ["+1234567890"]
+    },
+    "slack": {
+      "enabled": true,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+      "channel": "#alerts",
+      "username": "AlertBot"
+    },
+    "webhook": {
+      "enabled": true,
+      "url": "https://your-webhook-endpoint.com/alerts",
+      "headers": {
+        "Authorization": "Bearer your-token",
+        "Content-Type": "application/json"
+      }
+    }
+  },
+  "alerting": {
+    "evaluation_interval": 30.0,
+    "retention_days": 30,
+    "max_alerts_per_minute": 10,
+    "suppression_rules": {
+      "maintenance_window": {
+        "enabled": false,
+        "start_time": "02:00",
+        "end_time": "04:00",
+        "timezone": "UTC"
+      }
+    }
+  }
+}

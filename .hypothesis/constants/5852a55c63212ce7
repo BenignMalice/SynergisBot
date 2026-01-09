@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\advanced_atr_filters.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.0001, 0.0002, 0.1, 0.5, 1.2, 1.5, 1.8, 2.0, 3.0, 5.0, 10.0, 99.0, 99.5, 100.0, 100.5, 101.0, 101.5, 102.0, 102.5, 103.0, 103.5, 104.0, 105.0, 105.5, 106.0, 107.0, 107.5, 108.0, 100, 'BTCUSDc', 'EURUSDc', '__main__', 'ask', 'atr_multiplier_m1', 'atr_multiplier_m5', 'atr_period', 'atr_ratio', 'atr_ratio_threshold', 'bid', 'close', 'current_spread', 'data_points', 'high', 'low', 'm1_atr', 'm1_atr_valid', 'm5_atr', 'm5_atr_valid', 'max_allowed', 'max_allowed_spread', 'max_spread_valid', 'median_spread', 'outlier_valid', 'ratio', 'ratio_valid', 'spread_median', 'spread_median_window', 'symbol', 'unknown', 'valid']

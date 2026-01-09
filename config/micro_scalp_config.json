@@ -1,0 +1,245 @@
+{
+  "enabled": true,
+  "symbols": ["BTCUSDc", "XAUUSDc"],
+  "check_interval_seconds": 10,
+  "cooldown_seconds": 60,
+  "cool_off_lock_seconds": 60,
+  "max_concurrent_plans": 3,
+  "max_concurrent_plans_per_symbol": 2,
+  
+  "regime_detection": {
+    "enabled": true,
+    "strategy_confidence_thresholds": {
+      "vwap_reversion": 70,
+      "range_scalp": 55,
+      "balanced_zone": 65,
+      "edge_based": 60
+    },
+    "confidence_diff_threshold": 10,
+    "confluence_pre_check": {
+      "enabled": false,
+      "min_confluence": 5.0
+    },
+    "vwap_reversion": {
+      "min_deviation_sigma": 2.0,
+      "min_deviation_pct_btc": 0.005,
+      "min_deviation_pct_xau": 0.002,
+      "max_vwap_slope_normalized": 0.1,
+      "volume_normalization": "multiplier",
+      "volume_multiplier": 1.3,
+      "volume_z_score_threshold": 1.5
+    },
+    "range_scalp": {
+      "m15_trend_max_adx": 20,
+      "min_range_respects": 2,
+      "edge_proximity_tolerance_pct": 0.005
+    },
+    "balanced_zone": {
+      "bb_width_threshold": 0.02,
+      "news_blackout_minutes": 15,
+      "ema_vwap_equilibrium_threshold": 0.001,
+      "require_equilibrium_for_fade": true
+    },
+    "confluence_weights": {
+      "vwap_reversion": {
+        "deviation_sigma": 2.0,
+        "choch_quality": 2.0,
+        "volume_confirmation": 2.0,
+        "vwap_slope": 1.0,
+        "absorption_wick": 1.0
+      },
+      "range_scalp": {
+        "edge_proximity": 2.0,
+        "sweep_quality": 2.0,
+        "range_respects": 2.0,
+        "bb_compression": 1.0,
+        "choch_reversal": 1.0
+      },
+      "balanced_zone": {
+        "compression_quality": 2.0,
+        "equal_highs_lows": 2.0,
+        "vwap_alignment": 2.0,
+        "volume_on_breakout": 1.0,
+        "fade_quality": 1.0
+      }
+    }
+  },
+  
+  "xauusd_rules": {
+    "sl_range": [0.50, 1.20],
+    "tp_range": [1.00, 2.50],
+    "min_conditions": 2,
+    "high_probability_conditions": 4,
+    "vwap_tolerance_type": "fixed",
+    "vwap_tolerance_fixed": 0.0005,
+    "vwap_tolerance_atr_multiplier": 0.1,
+    "micro_ob_lookback": 3,
+    "micro_ob_range_type": "atr_based",
+    "micro_ob_range_atr_multiplier": [0.1, 0.3],
+    "micro_ob_range_pct": [0.001, 0.003],
+    "note": "Dynamic ATR-based range: [ATR(1) × 0.1, ATR(1) × 0.3]. Falls back to fixed pct if ATR unavailable.",
+    
+    "pre_trade_filters": {
+      "volatility": {
+        "atr1_min": 0.5,
+        "m1_range_avg_min": 0.8
+      },
+      "spread": {
+        "max_spread": 0.25
+      }
+    },
+    
+    "location_filter": {
+      "vwap_band_enabled": true,
+      "prior_session_high_low_enabled": true,
+      "intraday_range_high_low_enabled": true,
+      "clean_ob_zone_enabled": true,
+      "liquidity_cluster_enabled": true
+    },
+    
+    "candle_signals": {
+      "primary_triggers": {
+        "long_wick_trap_enabled": true,
+        "micro_liquidity_sweep_enabled": true,
+        "vwap_tap_rejection_enabled": true,
+        "strong_engulfing_enabled": true
+      },
+      "secondary_confluence": {
+        "ob_retest_enabled": true,
+        "fresh_micro_choch_enabled": true,
+        "strong_session_momentum_enabled": true,
+        "increasing_volume_enabled": true
+      }
+    },
+    
+    "confluence_scoring": {
+      "wick_quality_points": 2,
+      "vwap_proximity_points": 2,
+      "edge_location_points": 2,
+      "volatility_state_points": 1,
+      "session_quality_points": 1,
+      "min_score_for_trade": 5,
+      "min_score_for_aplus": 7
+    }
+  },
+  
+  "btcusd_rules": {
+    "sl_range": [5.0, 10.0],
+    "tp_range": [10.0, 25.0],
+    "min_conditions": 2,
+    "high_probability_conditions": 4,
+    "vwap_tolerance_type": "atr_adjusted",
+    "vwap_tolerance_fixed": 0.0005,
+    "vwap_tolerance_atr_multiplier": 0.15,
+    "cvd_divergence_threshold": 0.3,
+    "delta_spike_threshold": 2.0,
+    "micro_ob_lookback": 3,
+    "micro_ob_range_type": "atr_based",
+    "micro_ob_range_atr_multiplier": [0.1, 0.3],
+    "micro_ob_range_pct": [0.0005, 0.002],
+    "note": "Dynamic ATR-based range: [ATR(1) × 0.1, ATR(1) × 0.3]. Falls back to fixed pct if ATR unavailable.",
+    
+    "pre_trade_filters": {
+      "volatility": {
+        "atr1_min": 10.0,
+        "m1_range_avg_min": 15.0
+      },
+      "spread": {
+        "max_spread": 25.0
+      }
+    },
+    
+    "location_filter": {
+      "vwap_band_enabled": true,
+      "prior_session_high_low_enabled": true,
+      "intraday_range_high_low_enabled": true,
+      "clean_ob_zone_enabled": true,
+      "liquidity_cluster_enabled": true
+    },
+    
+    "candle_signals": {
+      "primary_triggers": {
+        "long_wick_trap_enabled": true,
+        "micro_liquidity_sweep_enabled": true,
+        "vwap_tap_rejection_enabled": true,
+        "strong_engulfing_enabled": true
+      },
+      "secondary_confluence": {
+        "ob_retest_enabled": true,
+        "fresh_micro_choch_enabled": true,
+        "strong_session_momentum_enabled": true,
+        "increasing_volume_enabled": true
+      }
+    },
+    
+    "confluence_scoring": {
+      "wick_quality_points": 2,
+      "vwap_proximity_points": 2,
+      "edge_location_points": 2,
+      "volatility_state_points": 1,
+      "session_quality_points": 1,
+      "min_score_for_trade": 5,
+      "min_score_for_aplus": 7
+    }
+  },
+  
+  "volatility_filters": {
+    "note": "Pre-trade filters are now in symbol-specific rules (xauusd_rules.pre_trade_filters, btcusd_rules.pre_trade_filters)",
+    "spread_volatility_adjustment": true,
+    "tick_volume_required": false,
+    "candle_volume_required": true,
+    "candle_volume_threshold": 1.2
+  },
+  
+  "execution": {
+    "max_spread_ratio": 1.5,
+    "max_spread_ratio_low_volume": 2.0,
+    "max_slippage_pct": 0.1,
+    "max_latency_ms": 200,
+    "instant_exit_on_adverse_candle": true,
+    "asynchronous_exit_triggers": true,
+    "exit_priority_queue": true,
+    "background_exit_monitoring": true,
+    "trailing_stop_enabled": true,
+    "trailing_stop_activate_after_r": 0.5,
+    "trailing_stop_distance_atr": 0.3
+  },
+  
+  "risk_mitigation": {
+    "timestamp_normalization": true,
+    "timestamp_desync_threshold_seconds": 1.0,
+    "signal_hash_enabled": true,
+    "cooldown_timer_seconds": 30,
+    "max_concurrent_plans_per_symbol": 2,
+    "low_volume_detection": true,
+    "low_volume_threshold_multiplier": 0.5,
+    "session_filter_enabled": true,
+    "block_post_ny_session": true,
+    "post_ny_session_hours": [21, 23]
+  },
+  
+  "m0_5_candles": {
+    "enabled": false,
+    "buffer_size": 100,
+    "refresh_interval_seconds": 30,
+    "btc_use_binance": false,
+    "xauusd_use_mt5_ticks": false,
+    "timestamp_normalization": false,
+    "desync_detection": false,
+    "note": "M0.5 candles postponed to Phase 2+. V1 uses M1 candles only."
+  },
+  
+  "enhancements": {
+    "micro_confluence_enabled": true,
+    "micro_confluence_weight_multiplier": 0.5,
+    "session_adaptive_volatility": false,
+    "session_adaptive_volatility_note": "Planned for Phase 3 - links to session API for dynamic ATR thresholds",
+    "vwap_persistence_tracking": true,
+    "vwap_persistence_min_seconds": 30,
+    "cvd_divergence_auto_throttle": false,
+    "cvd_divergence_throttle_seconds": 45,
+    "cvd_divergence_confirmation_threshold": 0.3,
+    "note": "CVD divergence auto-throttle postponed to Phase 2+ (requires micro order flow metrics)"
+  }
+}
+

@@ -1,0 +1,138 @@
+{
+  "backup_directories": {
+    "code": "backups/code",
+    "database": "backups/database",
+    "config": "backups/config",
+    "logs": "backups/logs"
+  },
+  "rollback_timeouts": {
+    "database_restore": 300,
+    "service_restart": 60,
+    "config_restore": 30,
+    "code_restore": 120
+  },
+  "verification_checks": {
+    "database_integrity": true,
+    "service_health": true,
+    "configuration_valid": true,
+    "test_suite": true
+  },
+  "components": {
+    "chatgpt_bot": {
+      "service_name": "chatgpt_bot",
+      "restart_command": "python chatgpt_bot.py",
+      "health_check": "http://localhost:8001/health",
+      "stop_command": "pkill -f 'chatgpt_bot.py'",
+      "backup_files": [
+        "chatgpt_bot.py",
+        "handlers/",
+        "domain/",
+        "infra/"
+      ]
+    },
+    "desktop_agent": {
+      "service_name": "desktop_agent",
+      "restart_command": "python desktop_agent.py",
+      "health_check": "http://localhost:8002/health",
+      "stop_command": "pkill -f 'desktop_agent.py'",
+      "backup_files": [
+        "desktop_agent.py",
+        "unified_tick_pipeline/",
+        "app/"
+      ]
+    },
+    "main_api": {
+      "service_name": "main_api",
+      "restart_command": "python -m uvicorn app.main_api:app --host 0.0.0.0 --port 8000",
+      "health_check": "http://localhost:8000/health",
+      "stop_command": "pkill -f 'uvicorn app.main_api'",
+      "backup_files": [
+        "app/main_api.py",
+        "app/",
+        "requirements.txt"
+      ]
+    },
+    "mt5_service": {
+      "service_name": "mt5_service",
+      "restart_command": "python -c 'import MetaTrader5 as mt5; mt5.initialize()'",
+      "health_check": "mt5_connection",
+      "stop_command": "python -c 'import MetaTrader5 as mt5; mt5.shutdown()'",
+      "backup_files": []
+    }
+  },
+  "databases": {
+    "main_db": "data/unified_tick_pipeline.db",
+    "analysis_db": "data/analysis_data.db",
+    "logs_db": "data/system_logs.db",
+    "journal_db": "data/journal.sqlite"
+  },
+  "rollback_triggers": {
+    "critical_error": {
+      "enabled": true,
+      "auto_rollback": true,
+      "timeout_seconds": 60
+    },
+    "performance_degradation": {
+      "enabled": true,
+      "auto_rollback": false,
+      "threshold_cpu": 90.0,
+      "threshold_memory": 90.0,
+      "threshold_latency": 1000.0
+    },
+    "data_corruption": {
+      "enabled": true,
+      "auto_rollback": true,
+      "timeout_seconds": 30
+    },
+    "security_breach": {
+      "enabled": true,
+      "auto_rollback": true,
+      "timeout_seconds": 10
+    },
+    "manual_intervention": {
+      "enabled": true,
+      "auto_rollback": false
+    },
+    "circuit_breaker": {
+      "enabled": true,
+      "auto_rollback": true,
+      "timeout_seconds": 120
+    }
+  },
+  "rollback_points": {
+    "retention_days": 30,
+    "max_points": 10,
+    "auto_cleanup": true,
+    "verification_required": true
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "recipients": [
+        "admin@company.com",
+        "ops@company.com"
+      ],
+      "on_rollback_start": true,
+      "on_rollback_complete": true,
+      "on_rollback_failure": true
+    },
+    "slack": {
+      "enabled": true,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+      "channel": "#rollbacks",
+      "on_rollback_start": true,
+      "on_rollback_complete": true,
+      "on_rollback_failure": true
+    }
+  },
+  "testing": {
+    "drill_enabled": true,
+    "drill_schedule": "0 2 * * 0",
+    "drill_types": [
+      "full",
+      "database",
+      "services"
+    ],
+    "drill_timeout": 300
+  }
+}

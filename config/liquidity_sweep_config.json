@@ -1,0 +1,80 @@
+{
+  "symbols": ["BTCUSDc", "XAUUSDc"],
+  "enabled": true,
+  "risk_per_trade_pct": 1.5,
+  "max_concurrent_setups_per_symbol": 1,
+  "sweep_zone_cooldown_minutes": 30,
+  
+  "sessions": {
+    "LONDON": {
+      "start_hour_utc": 7,
+      "end_hour_utc": 10,
+      "enabled": true
+    },
+    "NY": {
+      "start_hour_utc": 12,
+      "end_hour_utc": 16,
+      "enabled": true
+    },
+    "ASIA": {
+      "start_hour_utc": 22,
+      "end_hour_utc": 2,
+      "enabled": false
+    }
+  },
+  
+  "macro_context": {
+    "vix_max": 22,
+    "vix_critical": 25,
+    "dxy_change_threshold": 0.5,
+    "update_interval_minutes": 15,
+    "news_blackout_minutes": 30
+  },
+  
+  "setup_context": {
+    "lookback_candles": 5,
+    "sweep_atr_multiplier": 1.5,
+    "volume_spike_multiplier": 1.3,
+    "volume_lookback": 10,
+    "vwap_deviation_sigma": 2.0,
+    "pdh_pdl_proximity_atr": 0.25,
+    "min_conditions": 4,
+    "total_conditions": 6
+  },
+  
+  "trigger_context": {
+    "confirmation_window_bars": 3,
+    "max_wait_bars": 5,
+    "rejection_wick_pct": 50,
+    "rejection_body_pct": 40,
+    "volume_decline_pct": 20,
+    "vwap_magnet_atr": 1.0
+  },
+  
+  "confluence_scoring": {
+    "macro_weight": 0.30,
+    "setup_weight": 0.40,
+    "trigger_weight": 0.30,
+    "execution_threshold": 70,
+    "monitor_threshold": 50
+  },
+  
+  "execution": {
+    "type1_sl_atr_multiplier": 0.5,
+    "type2_sl_atr_multiplier": 0.25,
+    "type1_tp_r_multiplier": 1.5,
+    "type2_tp_r_multiplier": 2.0,
+    "type2_retrace_atr_range": [0.5, 1.0],
+    "breakeven_trigger_r": 0.3,
+    "partial_profit_r": 0.6
+  },
+  
+  "notifications": {
+    "discord_enabled": true,
+    "notify_sweep_detected": true,
+    "notify_confirmation": true,
+    "notify_execution": true,
+    "notify_invalidation": false
+  }
+}
+

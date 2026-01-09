@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\adaptive_tp.py
+# hypothesis_version: 6.142.1
+
+[0.7, 1.0, 1.2, 1.5, 4.0, 'base_tp', 'long', 'normal']

@@ -1,0 +1,9 @@
+# Unified Tick Pipeline Dependencies
+aiohttp>=3.8.0
+websockets>=10.0
+asyncio-mqtt>=0.11.0
+MetaTrader5>=5.0.0
+pandas>=1.5.0
+numpy>=1.21.0
+sqlite3
+pathlib

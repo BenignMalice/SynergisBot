@@ -1,0 +1,113 @@
+{
+  "monitoring": {
+    "collection_interval": 5.0,
+    "retention_days": 30,
+    "alert_retention_days": 7,
+    "dashboard_refresh_interval": 1.0
+  },
+  "components": {
+    "chatgpt_bot": {
+      "enabled": true,
+      "health_check_url": "http://localhost:8000/health",
+      "timeout_seconds": 5,
+      "critical": true
+    },
+    "desktop_agent": {
+      "enabled": true,
+      "health_check_url": "http://localhost:8001/health",
+      "timeout_seconds": 5,
+      "critical": true
+    },
+    "main_api": {
+      "enabled": true,
+      "health_check_url": "http://localhost:8000/health",
+      "timeout_seconds": 5,
+      "critical": true
+    },
+    "database": {
+      "enabled": true,
+      "health_check_url": "sqlite:///data/bot.sqlite",
+      "timeout_seconds": 3,
+      "critical": true
+    },
+    "mt5_connection": {
+      "enabled": true,
+      "health_check_url": "mt5://localhost:8080",
+      "timeout_seconds": 10,
+      "critical": true
+    },
+    "binance_connection": {
+      "enabled": true,
+      "health_check_url": "wss://stream.binance.com:9443/ws/btcusdt@ticker",
+      "timeout_seconds": 10,
+      "critical": false
+    }
+  },
+  "alerts": {
+    "cpu_usage": {
+      "enabled": true,
+      "warning_threshold": 80.0,
+      "critical_threshold": 90.0,
+      "component": "system"
+    },
+    "memory_usage": {
+      "enabled": true,
+      "warning_threshold": 85.0,
+      "critical_threshold": 95.0,
+      "component": "system"
+    },
+    "disk_usage": {
+      "enabled": true,
+      "warning_threshold": 80.0,
+      "critical_threshold": 90.0,
+      "component": "system"
+    },
+    "response_time": {
+      "enabled": true,
+      "warning_threshold": 1000.0,
+      "critical_threshold": 2000.0,
+      "component": "api"
+    },
+    "error_rate": {
+      "enabled": true,
+      "warning_threshold": 5.0,
+      "critical_threshold": 10.0,
+      "component": "api"
+    },
+    "database_connections": {
+      "enabled": true,
+      "warning_threshold": 80.0,
+      "critical_threshold": 95.0,
+      "component": "database"
+    }
+  },
+  "metrics": {
+    "system_metrics": [
+      "cpu_usage_percent",
+      "memory_usage_percent",
+      "disk_usage_percent",
+      "network_io_bytes",
+      "process_count"
+    ],
+    "application_metrics": [
+      "request_count",
+      "response_time_ms",
+      "error_count",
+      "active_connections",
+      "queue_depth"
+    ],
+    "business_metrics": [
+      "trades_executed",
+      "trades_successful",
+      "trades_failed",
+      "profit_loss",
+      "win_rate"
+    ]
+  },
+  "dashboard": {
+    "refresh_interval": 1.0,
+    "max_data_points": 1000,
+    "chart_time_range_hours": 24,
+    "auto_refresh": true
+  }
+}

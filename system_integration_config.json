@@ -1,0 +1,138 @@
+{
+  "integration_tests": {
+    "e2e_real_data_test": {
+      "test_id": "e2e_real_data_test",
+      "test_type": "e2e_real_data",
+      "duration_minutes": 60,
+      "concurrent_users": 10,
+      "symbols": ["BTCUSDc", "XAUUSDc", "EURUSDc"],
+      "market_conditions": ["normal", "high_volatility", "trending"],
+      "expected_latency_ms": 200.0,
+      "expected_throughput_rps": 10.0,
+      "max_error_rate": 1.0,
+      "volatility_threshold": 0.02,
+      "stress_level": 1.0
+    },
+    "load_testing": {
+      "test_id": "load_testing",
+      "test_type": "load_testing",
+      "duration_minutes": 30,
+      "concurrent_users": 50,
+      "symbols": ["BTCUSDc", "XAUUSDc"],
+      "market_conditions": ["normal"],
+      "expected_latency_ms": 300.0,
+      "expected_throughput_rps": 25.0,
+      "max_error_rate": 2.0,
+      "volatility_threshold": 0.01,
+      "stress_level": 2.0
+    },
+    "stress_testing": {
+      "test_id": "stress_testing",
+      "test_type": "stress_testing",
+      "duration_minutes": 15,
+      "concurrent_users": 100,
+      "symbols": ["BTCUSDc"],
+      "market_conditions": ["high_volatility"],
+      "expected_latency_ms": 500.0,
+      "expected_throughput_rps": 50.0,
+      "max_error_rate": 5.0,
+      "volatility_threshold": 0.05,
+      "stress_level": 5.0
+    },
+    "volatility_testing": {
+      "test_id": "volatility_testing",
+      "test_type": "volatility_testing",
+      "duration_minutes": 45,
+      "concurrent_users": 20,
+      "symbols": ["BTCUSDc", "XAUUSDc", "EURUSDc", "GBPUSDc"],
+      "market_conditions": ["high_volatility", "breakout"],
+      "expected_latency_ms": 250.0,
+      "expected_throughput_rps": 15.0,
+      "max_error_rate": 2.0,
+      "volatility_threshold": 0.03,
+      "stress_level": 3.0
+    },
+    "mt5_integration_test": {
+      "test_id": "mt5_integration_test",
+      "test_type": "mt5_integration",
+      "duration_minutes": 30,
+      "concurrent_users": 5,
+      "symbols": ["BTCUSDc", "XAUUSDc", "EURUSDc"],
+      "market_conditions": ["normal"],
+      "expected_latency_ms": 100.0,
+      "expected_throughput_rps": 5.0,
+      "max_error_rate": 0.5,
+      "volatility_threshold": 0.01,
+      "stress_level": 1.0
+    },
+    "binance_integration_test": {
+      "test_id": "binance_integration_test",
+      "test_type": "binance_integration",
+      "duration_minutes": 30,
+      "concurrent_users": 5,
+      "symbols": ["BTCUSDc"],
+      "market_conditions": ["normal"],
+      "expected_latency_ms": 150.0,
+      "expected_throughput_rps": 5.0,
+      "max_error_rate": 1.0,
+      "volatility_threshold": 0.01,
+      "stress_level": 1.0
+    },
+    "database_integration_test": {
+      "test_id": "database_integration_test",
+      "test_type": "database_integration",
+      "duration_minutes": 20,
+      "concurrent_users": 10,
+      "symbols": ["BTCUSDc", "XAUUSDc"],
+      "market_conditions": ["normal"],
+      "expected_latency_ms": 50.0,
+      "expected_throughput_rps": 10.0,
+      "max_error_rate": 0.1,
+      "volatility_threshold": 0.01,
+      "stress_level": 1.0
+    },
+    "api_integration_test": {
+      "test_id": "api_integration_test",
+      "test_type": "api_integration",
+      "duration_minutes": 15,
+      "concurrent_users": 25,
+      "symbols": ["BTCUSDc"],
+      "market_conditions": ["normal"],
+      "expected_latency_ms": 200.0,
+      "expected_throughput_rps": 20.0,
+      "max_error_rate": 1.0,
+      "volatility_threshold": 0.01,
+      "stress_level": 2.0
+    }
+  },
+  "market_data_sources": {
+    "mt5": {
+      "enabled": true,
+      "connection_timeout": 10,
+      "reconnect_attempts": 3,
+      "symbols": ["BTCUSDc", "XAUUSDc", "EURUSDc", "GBPUSDc", "USDJPYc"]
+    },
+    "binance": {
+      "enabled": true,
+      "websocket_url": "wss://stream.binance.com:9443/ws/btcusdt@ticker",
+      "connection_timeout": 10,
+      "reconnect_attempts": 3,
+      "symbols": ["BTCUSDT"]
+    }
+  },
+  "performance_thresholds": {
+    "max_latency_ms": 500.0,
+    "min_throughput_rps": 5.0,
+    "max_error_rate_percent": 5.0,
+    "min_data_quality_score": 80.0,
+    "min_market_data_accuracy": 95.0,
+    "min_system_stability_score": 90.0
+  },
+  "monitoring": {
+    "metrics_collection_interval": 1.0,
+    "system_monitoring_enabled": true,
+    "market_data_monitoring_enabled": true,
+    "database_monitoring_enabled": true,
+    "alert_on_threshold_breach": true
+  }
+}

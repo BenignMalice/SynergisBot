@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\performance_optimizer.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.1, 1.0, 5.0, 100, 200, 500, 1000, 1024, '/', 'BTCUSDc', '__main__', 'advanced', 'aggressive', 'avg_cpu_percent', 'avg_cpu_usage', 'avg_latency_p95', 'avg_memory_percent', 'avg_memory_usage', 'avg_throughput', 'basic', 'cache_hit_rate', 'cpu_count', 'cpu_percent', 'cpu_usage', 'disk_free_mb', 'disk_percent', 'error', 'healthy', 'latency', 'max_cpu_usage', 'max_memory_usage', 'maximum', 'measurement_count', 'memory_available_mb', 'memory_percent', 'memory_usage', 'no_data', 'optimization_active', 'optimization_level', 'performance_config', 'process_cpu_percent', 'process_memory_mb', 'profile_count', 'queue_depth', 'status', 'symbol', 'target_latency_p95', 'throughput', 'timestamp', 'unknown', 'warning']

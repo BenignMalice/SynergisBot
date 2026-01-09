@@ -1,0 +1,52 @@
+======================================================================
+TEST RESULTS
+======================================================================
+
+test_all_states_count (tests.test_volatility_phase1_basic.TestPhase1_1_EnumExtension.test_all_states_count)
+Test that we have all expected states ... ok
+test_existing_states (tests.test_volatility_phase1_basic.TestPhase1_1_EnumExtension.test_existing_states)
+Test existing volatility states ... ok
+test_new_states (tests.test_volatility_phase1_basic.TestPhase1_1_EnumExtension.test_new_states)
+Test new volatility states ... ok
+test_fragmented_chop_config (tests.test_volatility_phase1_basic.TestPhase1_2_Configuration.test_fragmented_chop_config)
+Test FRAGMENTED_CHOP configuration ... ok
+test_post_breakout_decay_config (tests.test_volatility_phase1_basic.TestPhase1_2_Configuration.test_post_breakout_decay_config)
+Test POST_BREAKOUT_DECAY configuration ... ok
+test_pre_breakout_tension_config (tests.test_volatility_phase1_basic.TestPhase1_2_Configuration.test_pre_breakout_tension_config)
+Test PRE_BREAKOUT_TENSION configuration ... ok
+test_session_switch_flare_config (tests.test_volatility_phase1_basic.TestPhase1_2_Configuration.test_session_switch_flare_config)
+Test SESSION_SWITCH_FLARE configuration ... ok
+test_ensure_symbol_tracking (tests.test_volatility_phase1_basic.TestPhase1_3_1_TrackingStructures.test_ensure_symbol_tracking)
+Test _ensure_symbol_tracking method ... ok
+test_normalize_rates_dataframe (tests.test_volatility_phase1_basic.TestPhase1_3_1_TrackingStructures.test_normalize_rates_dataframe)
+Test _normalize_rates with DataFrame ... ok
+test_normalize_rates_none (tests.test_volatility_phase1_basic.TestPhase1_3_1_TrackingStructures.test_normalize_rates_none)
+Test _normalize_rates with None ... ok
+test_normalize_rates_numpy (tests.test_volatility_phase1_basic.TestPhase1_3_1_TrackingStructures.test_normalize_rates_numpy)
+Test _normalize_rates with numpy array ... ok
+test_thread_locks_exist (tests.test_volatility_phase1_basic.TestPhase1_3_1_TrackingStructures.test_thread_locks_exist)
+Test that thread locks are initialized ... ok
+test_tracking_structures_exist (tests.test_volatility_phase1_basic.TestPhase1_3_1_TrackingStructures.test_tracking_structures_exist)
+Test that tracking structures are initialized ... ok
+test_database_file_exists (tests.test_volatility_phase1_basic.TestPhase1_3_2_Database.test_database_file_exists)
+Test database file exists ... ok
+test_database_path (tests.test_volatility_phase1_basic.TestPhase1_3_2_Database.test_database_path)
+Test database path is configured ... ok
+test_indices_exist (tests.test_volatility_phase1_basic.TestPhase1_3_2_Database.test_indices_exist)
+Test indices are created ... ok
+test_table_exists (tests.test_volatility_phase1_basic.TestPhase1_3_2_Database.test_table_exists)
+Test breakout_events table exists ... ok
+test_table_structure (tests.test_volatility_phase1_basic.TestPhase1_3_2_Database.test_table_structure)
+Test table has required columns ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.014s
+
+OK
+
+======================================================================
+Tests run: 18
+Failures: 0
+Errors: 0
+Success: 18/18
+======================================================================

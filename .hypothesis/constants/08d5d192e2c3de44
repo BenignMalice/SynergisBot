@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\PIL\GimpPaletteFile.py
+# hypothesis_version: 6.142.1
+
+[b'GIMP Palette', b'\\w+:|#', 100, 256, 768, 'RGB', 'bad palette entry', 'bad palette file']

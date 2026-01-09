@@ -1,0 +1,4 @@
+# Add directories or file patterns to ignore during indexing (e.g. foo/ or *.csv)
+Versions/
+Versions/**
+Versions/TelegramMoneyBot.v8_8/

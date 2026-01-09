@@ -1,0 +1,13 @@
+How to use collect_code.py 
+--------------------------
+
+# From your project root:
+python collect_code.py
+
+# Or specify output and custom includes/excludes:
+python collect_code.py --out project_dump.md \
+  --include "app/**" "handlers/**" "infra/**" \
+  --exclude ".git/**" "venv/**" "**/__pycache__/**" "*.png" "*.jpg" "*.zip"
+
+# Make a ZIP of the source alongside the markdown:
+python collect_code.py --zip

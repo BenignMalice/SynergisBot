@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\scipy\sparse\lil.py
+# hypothesis_version: 6.142.1
+
+['_lil', 'isspmatrix_lil', 'lil', 'lil_array', 'lil_matrix', 'sparse']

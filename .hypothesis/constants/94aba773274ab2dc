@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\numba\misc\cffiimpl.py
+# hypothesis_version: 6.142.1
+
+['cffiimpl', 'ffi.from_buffer']

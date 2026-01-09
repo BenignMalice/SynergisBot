@@ -1,0 +1,60 @@
+{
+  "retention_policies": {
+    "tick_data": {
+      "recent_hours": 6,
+      "sampling_hours": 18,
+      "delete_after_hours": 24,
+      "max_size_mb": 500,
+      "emergency_size_mb": 1000,
+      "sampling_rate": 3
+    },
+    "analysis_data": {
+      "retention_days": 7,
+      "max_size_mb": 100
+    },
+    "system_metrics": {
+      "retention_days": 3,
+      "max_size_mb": 50
+    },
+    "logs": {
+      "retention_days": 7,
+      "max_size_mb": 100
+    }
+  },
+  "cleanup_schedule": {
+    "interval_hours": 1,
+    "enabled": true,
+    "emergency_cleanup_threshold_mb": 1000,
+    "aggressive_cleanup_threshold_mb": 500
+  },
+  "data_tiers": {
+    "tier_1_recent": {
+      "description": "Recent data (0-6 hours)",
+      "action": "keep_all",
+      "hours": 6
+    },
+    "tier_2_sampling": {
+      "description": "Older data (6-24 hours)",
+      "action": "sample_every_nth",
+      "hours": 18,
+      "sampling_rate": 3
+    },
+    "tier_3_archive": {
+      "description": "Very old data (24+ hours)",
+      "action": "delete",
+      "hours": 24
+    }
+  },
+  "size_limits": {
+    "target_size_mb": 500,
+    "warning_size_mb": 750,
+    "emergency_size_mb": 1000,
+    "absolute_max_mb": 1500
+  },
+  "optimization": {
+    "enable_vacuum": true,
+    "enable_analyze": true,
+    "enable_optimize": true,
+    "wal_mode": true
+  }
+}

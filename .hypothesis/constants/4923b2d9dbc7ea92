@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\feature_session_news.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 1.0, 300, 450, 480, 540, 3600, 86400, '+00:00', '..', 'ASIA', 'ASIA_LONDON', 'High', 'LONDON', 'LONDON_NY', 'Low', 'Medium', 'Medium-High', 'NY', 'NY_ASIA', 'No Upcoming Events', 'None', 'UNKNOWN', 'USD', 'Unknown Event', 'Z', 'close', 'closed', 'currency', 'current_time', 'data', 'events', 'excellent', 'expected_liquidity', 'expected_volatility', 'fair', 'good', 'high', 'impact', 'is_market_open', 'is_weekend', 'london', 'low', 'market_open', 'medium', 'new_york', 'news_blackout', 'news_count', 'news_density', 'news_events.json', 'news_minutes', 'next_news_currency', 'next_news_impact', 'next_news_time', 'next_news_title', 'open', 'r', 'session', 'session_minutes', 'session_overlap', 'session_strength', 'time', 'title', 'tokyo', 'trading_quality', 'unknown', 'very_good']

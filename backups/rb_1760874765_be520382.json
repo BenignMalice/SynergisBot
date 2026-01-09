@@ -1,0 +1,15 @@
+{
+  "point_id": "rb_1760874765_be520382",
+  "timestamp": 1760874765.0825193,
+  "description": "Test point",
+  "system_state": {
+    "database": "active"
+  },
+  "configuration_snapshot": {
+    "max_connections": 100
+  },
+  "database_snapshot": null,
+  "file_backups": {},
+  "checksum": "a16ddbe5bb0ae7b73e1939b6dcb595b95c4208e9fb8f014437cf0d7b65582848",
+  "priority": "medium"
+}

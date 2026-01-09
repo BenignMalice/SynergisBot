@@ -1,0 +1,9 @@
+{
+  "database_access": {
+    "main_db": "read",
+    "analysis_db": "read",
+    "logs_db": "write"
+  },
+  "process_type": "api_server",
+  "priority": "low"
+}

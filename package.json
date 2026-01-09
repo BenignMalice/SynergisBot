@@ -1,0 +1,14 @@
+{
+  "name": "whatsapp-trading-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp Web API for Trading Bot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.6.0",
+    "express": "^4.18.2",
+    "qrcode": "^1.5.3"
+  }
+}

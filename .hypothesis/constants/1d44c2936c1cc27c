@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\domain\liquidity.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.1, 0.15, 'bars_ago', 'bear_depth', 'bull_depth', 'close', 'cluster_count', 'cluster_price', 'cluster_zone', 'count', 'depth', 'eq_high_cluster', 'eq_low_cluster', 'high', 'low', 'price', 'sweep_bear', 'sweep_bull', 'sweep_price']

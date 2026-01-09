@@ -1,0 +1,43 @@
+{
+  "XAUUSD": {
+    "max_concurrent_trades_for_symbol": 2,
+    "max_total_risk_on_symbol_pct": 3.0,
+    "allowed_strategies": [],
+    "risk_profile": "normal",
+    "banned_strategies": [],
+    "max_position_size_pct": 5.0
+  },
+  "BTCUSD": {
+    "max_concurrent_trades_for_symbol": 1,
+    "max_total_risk_on_symbol_pct": 2.0,
+    "allowed_strategies": [],
+    "risk_profile": "conservative",
+    "banned_strategies": [],
+    "max_position_size_pct": 3.0
+  },
+  "EURUSD": {
+    "max_concurrent_trades_for_symbol": 3,
+    "max_total_risk_on_symbol_pct": 4.0,
+    "allowed_strategies": [],
+    "risk_profile": "normal",
+    "banned_strategies": [],
+    "max_position_size_pct": 6.0
+  },
+  "GBPUSD": {
+    "max_concurrent_trades_for_symbol": 2,
+    "max_total_risk_on_symbol_pct": 3.0,
+    "allowed_strategies": [],
+    "risk_profile": "normal",
+    "banned_strategies": [],
+    "max_position_size_pct": 5.0
+  },
+  "USDJPY": {
+    "max_concurrent_trades_for_symbol": 2,
+    "max_total_risk_on_symbol_pct": 3.0,
+    "allowed_strategies": [],
+    "risk_profile": "normal",
+    "banned_strategies": [],
+    "max_position_size_pct": 5.0
+  }
+}
+

@@ -1,0 +1,205 @@
+{
+  "enabled": true,
+  "position_sizing": {
+    "fixed_lot_size": 0.01,
+    "use_risk_based": false,
+    "override_lot_sizing": true
+  },
+  "entry_filters": {
+    "require_3_confluence": true,
+    "min_confluence_score": 80,
+    "min_touch_count": 3,
+    "price_edge_threshold_atr": 0.75,
+    "require_one_signal": true,
+    "allowed_signals": [
+      "rsi_extreme",
+      "rejection_wick",
+      "tape_pressure"
+    ],
+    "confluence_weights": {
+      "structure": 40,
+      "location": 35,
+      "confirmation": 25
+    }
+  },
+  "risk_mitigation": {
+    "check_false_range": true,
+    "false_range_red_flags_required": 2,
+    "check_range_validity": true,
+    "range_invalidation_conditions_required": 2,
+    "check_session_filters": true,
+    "blocked_sessions": {
+      "london_ny_overlap": {
+        "start_utc": 12,
+        "end_utc": 15,
+        "enabled": true
+      },
+      "london_open_buffer": {
+        "minutes": 30,
+        "enabled": true
+      },
+      "ny_open_buffer": {
+        "minutes": 30,
+        "enabled": true
+      }
+    },
+    "check_trade_activity": true,
+    "min_volume_percent_of_1h_avg": 0.5,
+    "min_price_deviation_atr": 0.5,
+    "min_minutes_between_trades": 15,
+    "block_major_news_minutes": 60
+  },
+  "range_invalidation": {
+    "candles_outside_range": 2,
+    "vwap_momentum_threshold_pct": 0.2,
+    "bb_width_expansion_percent": 50,
+    "require_m15_bos": true,
+    "conditions_required": 2
+  },
+  "adaptive_anchors": {
+    "atr_change_threshold_percent": 40,
+    "pdh_pdl_drift_threshold_percent": 0.25,
+    "hold_time_minutes": 15,
+    "enabled": true
+  },
+  "strategies": {
+    "vwap_reversion": {
+      "enabled": true
+    },
+    "bb_fade": {
+      "enabled": true
+    },
+    "pdh_pdl_rejection": {
+      "enabled": true
+    },
+    "rsi_bounce": {
+      "enabled": true
+    },
+    "liquidity_sweep": {
+      "enabled": true
+    }
+  },
+  "max_trades_per_day": 10,
+  "cooldown_minutes": 15,
+  "execution": {
+    "user_approval_required": true,
+    "auto_execute_threshold": 85,
+    "auto_execute_enabled": false,
+    "manual_override_volatility_threshold": 25.0,
+    "manual_override_events": [
+      "CPI",
+      "FOMC",
+      "NFP"
+    ]
+  },
+  "performance_optimization": {
+    "range_recalc_schedule": {
+      "m15_structure": 15,
+      "m5_micro_range": 5,
+      "h1_regime": 60
+    },
+    "lazy_evaluation": {
+      "enabled": true,
+      "price_move_threshold_pct": 0.1
+    },
+    "caching": {
+      "enabled": true,
+      "ttl_seconds": 60
+    },
+    "performance_logging_enabled": false,
+    "log_threshold_ms": 100,
+    "log_slow_operations_only": true
+  },
+  "effective_atr": {
+    "enabled": true,
+    "bb_width_multiplier": 0.5,
+    "use_larger": true
+  },
+  "vwap_momentum": {
+    "enabled": true,
+    "method": "atr_percentage",
+    "bars": 5,
+    "threshold_pct": 0.2
+  },
+  "critical_gap_integration": {
+    "enabled": true,
+    "use_in_entry_logic": true,
+    "gap_multiplier": 0.15
+  },
+  "reentry_logic": {
+    "enabled": true,
+    "allowed_exit_reasons": [
+      "stagnation_energy_loss",
+      "breakeven_retrace"
+    ],
+    "blocked_exit_reasons": [
+      "range_invalidation"
+    ],
+    "cooldown_minutes": 15
+  },
+  "broker_timezone": {
+    "offset_hours": 0,
+    "auto_detect": false
+  },
+  "liquidity_heatmap": {
+    "enabled": false,
+    "binance_integration": false
+  },
+  "dynamic_strategy_weighting": {
+    "enabled": true,
+    "adx_low_threshold": 15,
+    "adx_high_threshold": 25,
+    "strategy_weights": {
+      "vwap_reversion": {
+        "low_adx": 0.35,
+        "normal": 0.25
+      },
+      "bb_fade": {
+        "low_adx": 0.3,
+        "normal": 0.2
+      },
+      "pdh_pdl_rejection": {
+        "low_adx": 0.2,
+        "normal": 0.3
+      },
+      "rsi_bounce": {
+        "low_adx": 0.15,
+        "normal": 0.25
+      }
+    }
+  },
+  "false_range_detection": {
+    "volume_increase_threshold": 0.15,
+    "vwap_momentum_threshold": 0.1,
+    "candle_body_expansion_multiplier": 1.5,
+    "cvd_divergence_strength_threshold": 0.6,
+    "red_flags_required": 2
+  },
+  "exit_priority_order": {
+    "critical": [
+      "m15_bos_confirmed"
+    ],
+    "high": [
+      "2_candles_outside_range",
+      "vwap_momentum_high",
+      "quick_move_to_05r"
+    ],
+    "medium": [
+      "bb_width_expansion",
+      "stagnant_after_1h"
+    ],
+    "low": [
+      "strong_divergence",
+      "opposite_order_flow"
+    ]
+  },
+  "error_handling": {
+    "max_critical_errors_per_hour": 3,
+    "max_errors_per_hour": 20,
+    "alert_on_critical": true,
+    "alert_on_high": true,
+    "auto_disable_on_excessive_errors": true
+  },
+  "_config_version": "2025-11-02T09:57:07.532976+00:00",
+  "_config_hash": "2933aaa54dee9c3c"
+}

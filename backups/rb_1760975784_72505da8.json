@@ -1,0 +1,15 @@
+{
+  "point_id": "rb_1760975784_72505da8",
+  "timestamp": 1760975784.430979,
+  "description": "Point 0",
+  "system_state": {
+    "test": "value0"
+  },
+  "configuration_snapshot": {
+    "setting": "value0"
+  },
+  "database_snapshot": null,
+  "file_backups": {},
+  "checksum": "803a4e00c55ab0972c3d20794f7aaf5e303959404ba51dcfd65f7a96abee0520",
+  "priority": "medium"
+}

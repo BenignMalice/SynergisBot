@@ -1,0 +1,7 @@
+version: "3"
+agent:
+  authtoken: 2y0f6eNaeIjVc4eHiHgxs9h2TLL_3fuUyEqd5V3VjFztxiYws
+tunnels:
+  fastapi:
+    proto: http
+    addr: 8000

@@ -1,0 +1,158 @@
+file,module,size_bytes,role,tags
+app/config/virt_pending.py,app.config.virt_pending,1219,module,
+app/engine/regime_classifier.py,app.engine.regime_classifier,12551,decision-engine,"indicators, logging"
+app/engine/risk_model.py,app.engine.risk_model,4985,decision-engine,indicators
+app/engine/risk_sizing.py,app.engine.risk_sizing,2619,decision-engine,
+app/engine/strategy_logic.bak.py,app.engine.strategy_logic.bak,74552,decision-engine,"entrypoint, indicators, logging"
+app/engine/strategy_logic.py,app.engine.strategy_logic,84661,decision-engine,"entrypoint, indicators, logging"
+app/engine/volatile_strategies.py,app.engine.volatile_strategies,11792,decision-engine,indicators
+app/main_api.py,app.main_api,128531,fastapi-app,"entrypoint, fastapi, indicators, logging, mt5, openai, scheduler"
+app/services/oco_tracker.py,app.services.oco_tracker,16376,fastapi-app,"database, fastapi, logging, mt5"
+app/services/pending_emulator.py,app.services.pending_emulator,8725,module,"database, mt5"
+chatgpt_bot.py,chatgpt_bot,99191,telegram-bot,"entrypoint, indicators, logging, mt5, openai, scheduler, telegram-bot"
+chatgpt_bridge.py,chatgpt_bridge,50584,telegram-bot,"indicators, logging, openai, telegram-bot"
+check_mt5_dxy.py,check_mt5_dxy,2885,module,mt5
+check_symbol.py,check_symbol,4874,entrypoint,"entrypoint, mt5"
+collect_code.py,collect_code,10185,entrypoint,entrypoint
+config.py,config,10932,module,"indicators, logging, openai"
+config/settings.py,config.settings,19744,configuration,indicators
+debug_indicator_bridge.py,debug_indicator_bridge,4783,entrypoint,"entrypoint, mt5"
+decision_engine.py,decision_engine,48762,module,"indicators, logging"
+diagnose_dxy_symbols.py,diagnose_dxy_symbols,3231,module,
+domain/breakout_quality.py,domain.breakout_quality,3841,domain-logic,"indicators, logging"
+domain/candle_stats.py,domain.candle_stats,4544,domain-logic,indicators
+domain/candles.py,domain.candles,7740,domain-logic,
+domain/confluence.py,domain.confluence,2733,domain-logic,indicators
+domain/fvg.py,domain.fvg,3391,domain-logic,"indicators, logging"
+domain/levels.py,domain.levels,10279,domain-logic,indicators
+domain/liquidity.py,domain.liquidity,11430,domain-logic,"indicators, logging"
+domain/market_structure.py,domain.market_structure,19346,domain-logic,"indicators, logging"
+domain/models.py,domain.models,592,domain-logic,
+domain/patterns.py,domain.patterns,8393,domain-logic,indicators
+domain/rules.py,domain.rules,3412,domain-logic,indicators
+domain/support_resistance.py,domain.support_resistance,3804,domain-logic,indicators
+domain/zones.py,domain.zones,8959,domain-logic,logging
+fetch_news_feed.py,fetch_news_feed,4620,entrypoint,entrypoint
+handlers/__init__.py,handlers.__init__,0,telegram-handlers,
+handlers/charts.py,handlers.charts,3206,telegram-handlers,telegram-bot
+handlers/chatgpt_bridge.py,handlers.chatgpt_bridge,123611,telegram-handlers,"indicators, logging, mt5, openai, telegram-bot"
+handlers/circuit.py,handlers.circuit,1365,telegram-handlers,telegram-bot
+handlers/errors.py,handlers.errors,768,telegram-handlers,"logging, telegram-bot"
+handlers/feature_builder.py,handlers.feature_builder,9614,telegram-handlers,"indicators, logging, mt5, telegram-bot"
+handlers/help.py,handlers.help,5360,telegram-handlers,"logging, telegram-bot"
+handlers/journal.py,handlers.journal,3014,telegram-handlers,telegram-bot
+handlers/menu.py,handlers.menu,7692,telegram-handlers,"indicators, logging, telegram-bot"
+handlers/pending.bak.py,handlers.pending.bak,80372,telegram-handlers,"indicators, logging, mt5, openai, scheduler, telegram-bot"
+handlers/pending.py,handlers.pending,89010,telegram-handlers,"indicators, logging, mt5, openai, scheduler, telegram-bot"
+handlers/prompt_router.py,handlers.prompt_router,10102,telegram-handlers,"logging, telegram-bot"
+handlers/reco_modes.py,handlers.reco_modes,2798,telegram-handlers,
+handlers/signal_scanner.py,handlers.signal_scanner,8725,telegram-handlers,"logging, openai, telegram-bot"
+handlers/status.py,handlers.status,3081,telegram-handlers,"logging, mt5, telegram-bot"
+handlers/trading.py,handlers.trading,168856,telegram-handlers,"indicators, logging, mt5, openai, telegram-bot"
+indicator_bridge.py,indicator_bridge,15252,module,"indicators, logging, mt5"
+infra/ab_testing.py,infra.ab_testing,10892,infrastructure-service,"database, logging"
+infra/adaptive_tp.py,infra.adaptive_tp,7170,infrastructure-service,logging
+infra/alpha_vantage_service.py,infra.alpha_vantage_service,12300,infrastructure-service,logging
+infra/analytics_logger.py,infra.analytics_logger,6615,infrastructure-service,"database, logging"
+infra/bandit_autoupdate.py,infra.bandit_autoupdate,8649,infrastructure-service,"indicators, logging"
+infra/chart_arranger.py,infra.chart_arranger,1223,infrastructure-service,
+infra/chatgpt_logger.py,infra.chatgpt_logger,7021,infrastructure-service,"database, logging, openai"
+infra/circuit_breaker.py,infra.circuit_breaker,10196,infrastructure-service,logging
+infra/confidence_calibrator.py,infra.confidence_calibrator,3604,infrastructure-service,logging
+infra/confluence_calculator.py,infra.confluence_calculator,12535,infrastructure-service,"indicators, logging"
+infra/dashboard_queries.py,infra.dashboard_queries,18628,infrastructure-service,"database, logging"
+infra/dxy_service.py,infra.dxy_service,12066,infrastructure-service,logging
+infra/exit_monitor.py,infra.exit_monitor,18230,infrastructure-service,"indicators, logging, mt5"
+infra/exit_signal_detector.py,infra.exit_signal_detector,35045,infrastructure-service,"indicators, logging"
+infra/exposure_guard.py,infra.exposure_guard,8548,infrastructure-service,"logging, mt5"
+infra/feature_builder.py,infra.feature_builder,18129,infrastructure-service,"indicators, logging, mt5"
+infra/feature_builder_fast.py,infra.feature_builder_fast,8933,infrastructure-service,"indicators, logging, mt5"
+infra/feature_indicators.py,infra.feature_indicators,21068,infrastructure-service,"indicators, logging"
+infra/feature_microstructure.py,infra.feature_microstructure,20952,infrastructure-service,"indicators, logging"
+infra/feature_patterns.py,infra.feature_patterns,15209,infrastructure-service,"indicators, logging"
+infra/feature_session_news.py,infra.feature_session_news,25568,infrastructure-service,logging
+infra/feature_structure.py,infra.feature_structure,29036,infrastructure-service,"indicators, logging"
+infra/formatting.py,infra.formatting,510,infrastructure-service,mt5
+infra/guardrails.py,infra.guardrails,5437,infrastructure-service,"indicators, logging, mt5"
+infra/indicator_bridge.py,infra.indicator_bridge,10098,infrastructure-service,"indicators, logging, mt5"
+infra/indicator_bridge_fixed.py,infra.indicator_bridge_fixed,10103,infrastructure-service,"indicators, logging, mt5"
+infra/indicator_bridge_original.py,infra.indicator_bridge_original,13267,infrastructure-service,"indicators, logging, mt5"
+infra/intelligent_exit_logger.py,infra.intelligent_exit_logger,16884,infrastructure-service,"database, indicators, logging"
+infra/intelligent_exit_manager.py,infra.intelligent_exit_manager,56423,infrastructure-service,"indicators, logging, mt5"
+infra/journal_repo.py,infra.journal_repo,24233,infrastructure-service,database
+infra/loss_cut_detector.py,infra.loss_cut_detector,27812,infrastructure-service,"indicators, logging"
+infra/loss_cut_monitor.py,infra.loss_cut_monitor,20477,infrastructure-service,"indicators, logging, mt5"
+infra/loss_cutter.py,infra.loss_cutter,13963,infrastructure-service,"indicators, logging, mt5"
+infra/market_indices_service.py,infra.market_indices_service,14942,infrastructure-service,logging
+infra/memory_store.py,infra.memory_store,7777,infrastructure-service,database
+infra/ml_exporter.py,infra.ml_exporter,10731,infrastructure-service,"database, logging"
+infra/momentum_detector.py,infra.momentum_detector,8968,infrastructure-service,"indicators, logging"
+infra/mt5_service.py,infra.mt5_service,33357,infrastructure-service,"logging, mt5"
+infra/multi_timeframe_analyzer.py,infra.multi_timeframe_analyzer,18048,infrastructure-service,"indicators, logging"
+infra/news_service.py,infra.news_service,7923,infrastructure-service,
+infra/oco_brackets.py,infra.oco_brackets,16486,infrastructure-service,"indicators, logging"
+infra/openai_service.py,infra.openai_service,51243,infrastructure-service,"indicators, logging, openai"
+infra/parallel_analyzer.py,infra.parallel_analyzer,8271,infrastructure-service,logging
+infra/position_watcher.py,infra.position_watcher,89820,infrastructure-service,"indicators, logging, mt5"
+infra/postmortem.py,infra.postmortem,1386,infrastructure-service,
+infra/price_alerts.py,infra.price_alerts,10018,infrastructure-service,"logging, mt5"
+infra/price_utils.py,infra.price_utils,2901,infrastructure-service,mt5
+infra/professional_filters.py,infra.professional_filters,16356,infrastructure-service,"indicators, logging"
+infra/prompt_router.py,infra.prompt_router,32229,infrastructure-service,"indicators, logging, openai"
+infra/prompt_templates.py,infra.prompt_templates,25173,infrastructure-service,"indicators, logging"
+infra/prompt_validator.py,infra.prompt_validator,39574,infrastructure-service,"indicators, logging"
+infra/pseudo_pendings.py,infra.pseudo_pendings,28994,infrastructure-service,"indicators, logging, mt5"
+infra/recommendation_logger.py,infra.recommendation_logger,8922,infrastructure-service,"database, logging"
+infra/recommendation_tracker.py,infra.recommendation_tracker,16476,infrastructure-service,"database, logging, mt5"
+infra/risk_simulation.py,infra.risk_simulation,1720,infrastructure-service,indicators
+infra/scheduler.py,infra.scheduler,5295,infrastructure-service,"logging, scheduler, telegram-bot"
+infra/session_analyzer.py,infra.session_analyzer,12471,infrastructure-service,logging
+infra/session_profiles.py,infra.session_profiles,11094,infrastructure-service,indicators
+infra/session_rules.py,infra.session_rules,16667,infrastructure-service,"indicators, logging"
+infra/signal_scanner.py,infra.signal_scanner,16039,infrastructure-service,"indicators, logging, mt5, openai"
+infra/strategy_map.py,infra.strategy_map,18137,infrastructure-service,
+infra/strategy_selector.py,infra.strategy_selector,13364,infrastructure-service,logging
+infra/structure_sl.py,infra.structure_sl,14122,infrastructure-service,"indicators, logging"
+infra/threshold_tuner.py,infra.threshold_tuner,3216,infrastructure-service,indicators
+infra/trade_monitor.py,infra.trade_monitor,15195,infrastructure-service,"indicators, logging, mt5"
+infra/trade_setup_watcher.py,infra.trade_setup_watcher,17285,infrastructure-service,"indicators, logging, mt5"
+infra/trailing_stops.py,infra.trailing_stops,12814,infrastructure-service,"indicators, logging"
+infra/virt_pendings.py,infra.virt_pendings,40176,infrastructure-service,"database, indicators, logging, mt5"
+main_api.py,main_api,58583,fastapi-app,"entrypoint, fastapi, indicators, logging, mt5, openai, scheduler"
+scripts/migrate_expiry_ts.py,scripts.migrate_expiry_ts,4096,entrypoint,"database, entrypoint"
+scripts/migrate_pendings_json.py,scripts.migrate_pendings_json,3533,entrypoint,entrypoint
+technical_analysis.py,technical_analysis,9443,module,"indicators, logging, mt5"
+technical_analysis_fixed.py,technical_analysis_fixed,9443,module,"indicators, logging, mt5"
+technical_analysis_original.py,technical_analysis_original,6196,module,"indicators, mt5"
+test_analyzer_debug.py,test_analyzer_debug,3065,entrypoint,"entrypoint, logging"
+test_analyzer_direct.py,test_analyzer_direct,2446,entrypoint,"entrypoint, logging"
+test_api_btc.py,test_api_btc,3228,entrypoint,"entrypoint, indicators"
+test_api_debug.py,test_api_debug,2710,entrypoint,entrypoint
+test_api_final.py,test_api_final,2713,entrypoint,entrypoint
+test_api_startup.py,test_api_startup,1680,fastapi-app,"fastapi, mt5"
+test_database_logging.py,test_database_logging,13447,entrypoint,"database, entrypoint, logging"
+test_dxy_integration.py,test_dxy_integration,5361,module,
+test_enhancements.py,test_enhancements,11356,entrypoint,entrypoint
+test_exit_monitor.py,test_exit_monitor,22445,entrypoint,"entrypoint, indicators, logging, mt5"
+test_indicator_bridge_direct.py,test_indicator_bridge_direct,1680,entrypoint,"entrypoint, logging"
+test_intelligent_exits.py,test_intelligent_exits,15126,entrypoint,"entrypoint, indicators, logging"
+test_loss_cut_detector.py,test_loss_cut_detector,15668,entrypoint,"entrypoint, indicators"
+test_price_alerts.py,test_price_alerts,4036,fastapi-app,"entrypoint, fastapi"
+test_server_version.py,test_server_version,1117,module,
+test_trailing_live.py,test_trailing_live,8168,entrypoint,"entrypoint, indicators, mt5"
+test_us10y.py,test_us10y,4101,entrypoint,entrypoint
+test_yfinance_vix.py,test_yfinance_vix,1938,module,
+tests/test_adaptive_tp.py,tests.test_adaptive_tp,12658,tests,"entrypoint, indicators"
+tests/test_oco_brackets.py,tests.test_oco_brackets,13381,tests,"entrypoint, indicators"
+tests/test_phase4_1_integration.py,tests.test_phase4_1_integration,6802,tests,entrypoint
+tests/test_phase4_1_structure_toolkit.py,tests.test_phase4_1_structure_toolkit,12503,tests,"entrypoint, indicators"
+tests/test_phase4_2_integration.py,tests.test_phase4_2_integration,8926,tests,entrypoint
+tests/test_phase4_5_integration.py,tests.test_phase4_5_integration,15619,tests,"entrypoint, indicators, logging, openai, scheduler"
+tests/test_session_phase4_2.py,tests.test_session_phase4_2,10412,tests,entrypoint
+tests/test_structure_sl.py,tests.test_structure_sl,12319,tests,"entrypoint, indicators"
+tests/test_trailing_stops.py,tests.test_trailing_stops,13829,tests,"entrypoint, indicators"
+tests/test_validator_phase4_2.py,tests.test_validator_phase4_2,10803,tests,entrypoint
+tests/validate_phase4_1_live.py,tests.validate_phase4_1_live,14121,tests,"entrypoint, indicators, mt5"
+tools/wick_tuner.py,tools.wick_tuner,11996,entrypoint,"entrypoint, indicators, mt5"
+trade_bot.py,trade_bot,18635,telegram-bot,"entrypoint, logging, mt5, openai, scheduler, telegram-bot"
+trade_manager.py,trade_manager,20969,module,"logging, mt5, openai"

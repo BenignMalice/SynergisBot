@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\app\engine\volume_delta_proxy.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.6, 1.0, 1.5, 2.0, 50000.0, 50010.0, 50100.0, 50110.0, 50150.0, 50160.0, 50200.0, 50210.0, 50250.0, 100, 150, 200, 300, 1640995200, 1640995260, 1640995320, 1640995380, 1640995440, 'BTCUSDc', 'Delta proxy reset', '__main__', 'ask', 'bid', 'confidence', 'current_delta', 'data_points', 'delta', 'delta_lookback_ticks', 'delta_ma', 'delta_std', 'delta_strength', 'delta_threshold', 'direction', 'error', 'insufficient_data', 'last_price', 'last_timestamp', 'no_spike', 'price_change', 'reason', 'spike_detected', 'symbol', 'timestamp_utc', 'volume']

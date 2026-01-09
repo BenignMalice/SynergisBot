@@ -1,0 +1,17 @@
+            action = self._move_to_breakeven(rule, position, current_price)
+            if action:
+                actions.append(action)
+                rule.breakeven_triggered = True
+                # Enable trailing after breakeven if enabled
+                if rule.trailing_enabled:
+                    rule.trailing_active = True
+                    rule.last_trailing_sl = action.get("new_sl")
+                    logger.info(f"✅ Trailing stops ACTIVATED for ticket {rule.ticket}")
+                rule.actions_taken.append({
+                    "action": "breakeven",
+                    "timestamp": datetime.now().isoformat(),
+                    "profit_pct": profit_pct,
+                    "r_achieved": r_achieved
+                })
+        
+        # 2. Check partial profit trigger (SKIP if volume < 0.02 - can't partial close 0.01 lots!)

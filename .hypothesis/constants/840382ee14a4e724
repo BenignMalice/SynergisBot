@@ -1,0 +1,4 @@
+# file: C:\Users\darry\AppData\Roaming\Python\Python311\site-packages\scipy\stats\_quantile.py
+# hypothesis_version: 6.142.1
+
+[-0.5, 0.0, 0.5, 'closest_observation', 'harrell-davis', 'hazen', 'integral', 'inverted_cdf', 'linear', 'median_unbiased', 'normal_unbiased', 'propagate', 'real floating', 'weibull']

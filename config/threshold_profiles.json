@@ -1,0 +1,77 @@
+{
+  "symbol_profiles": {
+    "BTCUSD": {
+      "base": 75,
+      "vol_weight": 0.54,
+      "sess_weight": 0.36,
+      "notes": "24/7 trading, wide swings, frequent fakeouts → requires higher confluence in overlap hours (sensitivity reduced by 10%)"
+    },
+    "XAUUSD": {
+      "base": 70,
+      "vol_weight": 0.45,
+      "sess_weight": 0.54,
+      "notes": "High sensitivity to DXY/US10Y → needs stricter confirmation during overlap (sensitivity reduced by 10%)"
+    },
+    "EURUSD": {
+      "base": 65,
+      "vol_weight": 0.36,
+      "sess_weight": 0.63,
+      "notes": "Narrower ATR; trades cleaner in London → can loosen slightly in low-vol hours (sensitivity reduced by 10%)"
+    },
+    "GBPUSD": {
+      "base": 65,
+      "vol_weight": 0.36,
+      "sess_weight": 0.63,
+      "notes": "Similar to EURUSD - moderate volatility, session-sensitive (sensitivity reduced by 10%)"
+    },
+    "USDJPY": {
+      "base": 65,
+      "vol_weight": 0.36,
+      "sess_weight": 0.63,
+      "notes": "Similar to EURUSD - moderate volatility, session-sensitive (sensitivity reduced by 10%)"
+    }
+  },
+  "session_bias": {
+    "ASIAN": {
+      "BTCUSD": 0.9,
+      "XAUUSD": 0.85,
+      "EURUSD": 0.8,
+      "GBPUSD": 0.8,
+      "USDJPY": 0.8,
+      "notes": "Thin liquidity, range conditions → looser threshold (lower bias = lower threshold multiplier)"
+    },
+    "LONDON": {
+      "BTCUSD": 1.0,
+      "XAUUSD": 1.1,
+      "EURUSD": 1.0,
+      "GBPUSD": 1.0,
+      "USDJPY": 1.0,
+      "notes": "High volatility, strong liquidity → normal to slightly stricter threshold"
+    },
+    "OVERLAP": {
+      "BTCUSD": 1.1,
+      "XAUUSD": 1.2,
+      "EURUSD": 1.1,
+      "GBPUSD": 1.1,
+      "USDJPY": 1.1,
+      "notes": "Volatility peak, strong momentum → stricter threshold (higher bias = higher threshold multiplier)"
+    },
+    "NY": {
+      "BTCUSD": 1.0,
+      "XAUUSD": 1.0,
+      "EURUSD": 1.0,
+      "GBPUSD": 1.0,
+      "USDJPY": 1.0,
+      "notes": "Normal volatility, active trading → baseline threshold"
+    },
+    "POST_NY": {
+      "BTCUSD": 0.95,
+      "XAUUSD": 0.9,
+      "EURUSD": 0.85,
+      "GBPUSD": 0.85,
+      "USDJPY": 0.85,
+      "notes": "Liquidity decay → looser threshold"
+    }
+  }
+}
+

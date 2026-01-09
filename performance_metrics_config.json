@@ -1,0 +1,95 @@
+{
+  "collection": {
+    "interval_seconds": 10.0,
+    "retention_days": 30,
+    "batch_size": 1000,
+    "compression_enabled": true
+  },
+  "metrics": {
+    "system_metrics": {
+      "enabled": true,
+      "cpu_usage": true,
+      "memory_usage": true,
+      "disk_usage": true,
+      "network_io": true,
+      "process_count": true
+    },
+    "application_metrics": {
+      "enabled": true,
+      "response_time": true,
+      "throughput": true,
+      "error_rate": true,
+      "active_connections": true,
+      "queue_depth": true
+    },
+    "business_metrics": {
+      "enabled": true,
+      "trades_executed": true,
+      "trades_successful": true,
+      "profit_loss": true,
+      "win_rate": true,
+      "drawdown": true
+    },
+    "performance_metrics": {
+      "enabled": true,
+      "latency": true,
+      "throughput": true,
+      "efficiency": true,
+      "utilization": true,
+      "scalability": true
+    },
+    "availability_metrics": {
+      "enabled": true,
+      "uptime": true,
+      "downtime": true,
+      "recovery_time": true,
+      "failover_time": true,
+      "reliability": true
+    }
+  },
+  "thresholds": {
+    "cpu_usage": {
+      "warning": 80.0,
+      "critical": 90.0,
+      "unit": "percent"
+    },
+    "memory_usage": {
+      "warning": 85.0,
+      "critical": 95.0,
+      "unit": "percent"
+    },
+    "disk_usage": {
+      "warning": 80.0,
+      "critical": 90.0,
+      "unit": "percent"
+    },
+    "response_time": {
+      "warning": 1000.0,
+      "critical": 2000.0,
+      "unit": "milliseconds"
+    },
+    "error_rate": {
+      "warning": 5.0,
+      "critical": 10.0,
+      "unit": "percent"
+    },
+    "latency": {
+      "warning": 200.0,
+      "critical": 500.0,
+      "unit": "milliseconds"
+    }
+  },
+  "analysis": {
+    "analysis_interval": 300.0,
+    "trend_detection": true,
+    "anomaly_detection": true,
+    "bottleneck_detection": true,
+    "performance_scoring": true
+  },
+  "monitoring": {
+    "alert_on_threshold_breach": true,
+    "performance_degradation_detection": true,
+    "capacity_planning": true,
+    "optimization_recommendations": true
+  }
+}

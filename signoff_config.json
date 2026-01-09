@@ -1,0 +1,301 @@
+{
+  "stakeholders": {
+    "technical_lead": {
+      "name": "Technical Lead",
+      "email": "tech-lead@company.com",
+      "required": true,
+      "approval_timeout_hours": 24
+    },
+    "product_manager": {
+      "name": "Product Manager",
+      "email": "product@company.com",
+      "required": true,
+      "approval_timeout_hours": 24
+    },
+    "security_officer": {
+      "name": "Security Officer",
+      "email": "security@company.com",
+      "required": true,
+      "approval_timeout_hours": 12
+    },
+    "operations_manager": {
+      "name": "Operations Manager",
+      "email": "ops@company.com",
+      "required": true,
+      "approval_timeout_hours": 24
+    },
+    "business_owner": {
+      "name": "Business Owner",
+      "email": "business@company.com",
+      "required": true,
+      "approval_timeout_hours": 48
+    },
+    "qa_lead": {
+      "name": "QA Lead",
+      "email": "qa@company.com",
+      "required": true,
+      "approval_timeout_hours": 24
+    },
+    "devops_engineer": {
+      "name": "DevOps Engineer",
+      "email": "devops@company.com",
+      "required": true,
+      "approval_timeout_hours": 24
+    }
+  },
+  "deployment_requirements": {
+    "min_approvals": 5,
+    "required_roles": [
+      "technical_lead",
+      "security_officer",
+      "operations_manager",
+      "business_owner"
+    ],
+    "approval_timeout_hours": 48,
+    "escalation_enabled": true,
+    "escalation_contacts": [
+      "cto@company.com",
+      "vp-engineering@company.com"
+    ]
+  },
+  "checklist_categories": {
+    "code_quality": {
+      "weight": 1.0,
+      "required": true
+    },
+    "architecture": {
+      "weight": 1.0,
+      "required": true
+    },
+    "performance": {
+      "weight": 1.0,
+      "required": true
+    },
+    "testing": {
+      "weight": 1.0,
+      "required": true
+    },
+    "reliability": {
+      "weight": 1.0,
+      "required": true
+    },
+    "observability": {
+      "weight": 0.8,
+      "required": true
+    },
+    "database": {
+      "weight": 0.8,
+      "required": true
+    },
+    "documentation": {
+      "weight": 0.6,
+      "required": false
+    },
+    "features": {
+      "weight": 1.0,
+      "required": true
+    },
+    "ux": {
+      "weight": 0.8,
+      "required": true
+    },
+    "business_logic": {
+      "weight": 1.0,
+      "required": true
+    },
+    "risk": {
+      "weight": 1.0,
+      "required": true
+    },
+    "compliance": {
+      "weight": 1.0,
+      "required": true
+    },
+    "security_audit": {
+      "weight": 1.0,
+      "required": true
+    },
+    "auth": {
+      "weight": 1.0,
+      "required": true
+    },
+    "encryption": {
+      "weight": 1.0,
+      "required": true
+    },
+    "api_security": {
+      "weight": 1.0,
+      "required": true
+    },
+    "input_validation": {
+      "weight": 1.0,
+      "required": true
+    },
+    "security_monitoring": {
+      "weight": 0.8,
+      "required": true
+    },
+    "vulnerability": {
+      "weight": 1.0,
+      "required": true
+    },
+    "penetration_testing": {
+      "weight": 0.8,
+      "required": false
+    },
+    "deployment": {
+      "weight": 1.0,
+      "required": true
+    },
+    "rollback": {
+      "weight": 1.0,
+      "required": true
+    },
+    "monitoring": {
+      "weight": 0.8,
+      "required": true
+    },
+    "backup": {
+      "weight": 1.0,
+      "required": true
+    },
+    "capacity": {
+      "weight": 0.8,
+      "required": true
+    },
+    "incident_response": {
+      "weight": 0.8,
+      "required": true
+    },
+    "runbooks": {
+      "weight": 0.6,
+      "required": true
+    },
+    "support": {
+      "weight": 0.6,
+      "required": true
+    },
+    "business_value": {
+      "weight": 1.0,
+      "required": true
+    },
+    "risk_management": {
+      "weight": 1.0,
+      "required": true
+    },
+    "communication": {
+      "weight": 0.8,
+      "required": true
+    },
+    "metrics": {
+      "weight": 0.8,
+      "required": true
+    },
+    "budget": {
+      "weight": 0.6,
+      "required": true
+    },
+    "timeline": {
+      "weight": 0.6,
+      "required": true
+    },
+    "test_coverage": {
+      "weight": 1.0,
+      "required": true
+    },
+    "automated_testing": {
+      "weight": 1.0,
+      "required": true
+    },
+    "performance_testing": {
+      "weight": 0.8,
+      "required": true
+    },
+    "load_testing": {
+      "weight": 0.8,
+      "required": true
+    },
+    "security_testing": {
+      "weight": 1.0,
+      "required": true
+    },
+    "regression_testing": {
+      "weight": 0.8,
+      "required": true
+    },
+    "uat": {
+      "weight": 1.0,
+      "required": true
+    },
+    "test_documentation": {
+      "weight": 0.6,
+      "required": true
+    },
+    "infrastructure": {
+      "weight": 1.0,
+      "required": true
+    },
+    "cicd": {
+      "weight": 0.8,
+      "required": true
+    },
+    "config_management": {
+      "weight": 0.8,
+      "required": true
+    },
+    "containers": {
+      "weight": 0.6,
+      "required": false
+    },
+    "environment": {
+      "weight": 0.8,
+      "required": true
+    }
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "smtp_server": "smtp.gmail.com",
+      "smtp_port": 587,
+      "username": "signoff@company.com",
+      "password": "your_password",
+      "templates": {
+        "approval_request": "templates/approval_request.html",
+        "approval_reminder": "templates/approval_reminder.html",
+        "approval_complete": "templates/approval_complete.html",
+        "approval_timeout": "templates/approval_timeout.html"
+      }
+    },
+    "slack": {
+      "enabled": true,
+      "webhook_url": "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK",
+      "channel": "#deployments",
+      "templates": {
+        "approval_request": "templates/slack_approval_request.json",
+        "approval_reminder": "templates/slack_approval_reminder.json",
+        "approval_complete": "templates/slack_approval_complete.json"
+      }
+    }
+  },
+  "escalation": {
+    "enabled": true,
+    "timeout_hours": 24,
+    "escalation_levels": [
+      {
+        "level": 1,
+        "timeout_hours": 12,
+        "contacts": ["tech-lead@company.com", "ops@company.com"]
+      },
+      {
+        "level": 2,
+        "timeout_hours": 24,
+        "contacts": ["cto@company.com", "vp-engineering@company.com"]
+      },
+      {
+        "level": 3,
+        "timeout_hours": 48,
+        "contacts": ["ceo@company.com", "board@company.com"]
+      }
+    ]
+  }
+}

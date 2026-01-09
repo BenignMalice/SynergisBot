@@ -1,0 +1,60 @@
+⚙️ 1️⃣ Core Continuation Frameworks (Trend Phase)
+
+✅ For London/NY sessions — most volume, clean structure.
+
+Strategy	Trigger Condition	Ideal Session	Purpose
+BOS Continuation (Buy/Sell)	{"choch_bull": true} or {"choch_bear": true} with M1 confirmation	London/NY overlap	Captures post-BOS trend extension
+Momentum Continuation	Volatility expanding + EMA slope alignment	Overlap	Ride institutional momentum flow
+VWAP Anchored Continuation	VWAP support/resistance holds	NY	Confirms trend sustainability
+Pullback Re-entry	Price retests previous BOS/OB level	London	Re-entry after impulse exhaustion
+Continuation Buy/Sell	{"bos_bull": true} / {"bos_bear": true} + confluence ≥ 80	London/Overlap	Trend follow-through execution
+⚡ 2️⃣ Breakout & Expansion Strategies
+
+✅ For high-volatility sessions (London open or NY overlap).
+
+Strategy	Trigger Condition	Ideal Session	Purpose
+Breakout Buy/Sell	{"price_above": entry} / {"price_below": entry}	London	Captures expansion beyond liquidity zone
+CHOCH Breakout (Buy/Sell)	{"choch_bull": true} / {"choch_bear": true}	London	Confirms new directional phase
+Volatility Expansion Breakout	ATR rising + BB width expanding	Overlap	Captures initial volatility release
+Bracket Trade (Buy+Sell)	Dual pending orders above/below range	London	One cancels other — safe breakout execution
+Asian Range Breakout	{"price_above": asian_high} / {"price_below": asian_low}	07:00–09:00 UTC	Classic London Breakout structure
+💎 3️⃣ Reversal & Liquidity Sweep Strategies
+
+✅ For late London / NY sessions — liquidity traps and reversals.
+
+Strategy	Trigger Condition	Ideal Session	Purpose
+Sweep Buy/Sell	{"liquidity_sweep": true} + {"rejection_wick": true}	London/NY	Fade liquidity grabs near PDH/PDL
+Rejection Wick (Buy/Sell)	{"rejection_wick": true}	NY	Confirm exhaustion candle reversal
+PDH/PDL Sweep	Liquidity grab beyond previous day high/low	London/NY	Stop-hunt reversal confirmation
+Liquidity Grab + OB Retest	Sweep → OB validation	London	Smart money reversal entry
+VWAP Deviation Buy/Sell	±2σ deviation + reversal wick	NY	Mean reversion from VWAP extremes
+🧭 4️⃣ Order Block & Institutional Re-Entry Strategies
+
+✅ Smart Money Concept-based setups for institutional re-entry.
+
+Strategy	Trigger Condition	Ideal Session	Purpose
+OB Retest Buy/Sell	{"order_block": true, "order_block_type": "auto"}	London	Institutional retrace entry
+Order Block + FVG Combo	OB + imbalance fill (FVG)	Overlap	Precision institutional re-entry
+Trend Pullback Buy/Sell	{"choch_bull": true} + EMA trend alignment	London/NY	Trend continuation after pullback
+Mitigation Block Trade	Retest of opposing OB after displacement	London	Institutional continuation filter
+Anchor Candle OB	OB confirmed with displacement + volume spike	Overlap	Institutional footprint confirmation
+🪙 5️⃣ Range & Mean Reversion Strategies
+
+✅ For low-volatility periods — ideal during Asian session.
+
+Strategy	Trigger Condition	Ideal Session	Purpose
+Range Scalp Buy/Sell	{"price_near": range_edge, "liquidity_zone": true}	Asian	Fade range extremes (2–3R setups)
+VWAP Reversion (Buy/Sell)	VWAP midline reversion	Asian/NY	Mean reversion from stretched VWAP
+Accumulation Range Buy/Sell	Equal highs/lows forming liquidity pool	Pre-London	Early accumulation before expansion
+OB Accumulation Reversal	{"order_block": true} + structure shift	Asian	Institutional entry before breakout
+Low-Volatility Bounce	{"volatility_state": "contracting"} + rejection wick	Asian	Anticipates range compression reversal
+🔥 6️⃣ Hybrid Institutional Setups
+
+✅ High-confluence, multi-condition setups validated by M1 microstructure.
+
+Strategy	Trigger Condition	Ideal Session	Purpose
+Liquidity Sweep + OB Retest	{"liquidity_sweep": true, "order_block": true}	London/Overlap	Smart money fakeout + continuation
+VWAP + BOS Confluence	Price reclaims VWAP + BOS confirmation	NY	Combines structure and flow
+Smart Momentum Scalper	Momentum + OB + VWAP alignment	Overlap	Institutional-quality short-term scalp
+CHOCH + OB Combo	Structure shift + institutional block	London	Early trend reversals with precision
+Session Flow Hybrid	Session-aware adaptive logic (OB + VWAP)

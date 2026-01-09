@@ -1,0 +1,103 @@
+{
+  "XAUUSD": {
+    "primary_sessions": ["LONDON", "NY", "OVERLAP"],
+    "volatility_personality": "HIGH_VOLATILITY",
+    "atr_multiplier_range": [1.0, 1.2],
+    "confluence_minimum": 75,
+    "vwap_stretch_tolerance": 1.5,
+    "preferred_strategies": {
+      "LONDON": ["BREAKOUT", "CHOCH_CONTINUATION"],
+      "NY": ["VWAP_FADE", "PULLBACK_SCALP"],
+      "OVERLAP": ["MOMENTUM_CONTINUATION", "BOS_BREAKOUT"],
+      "ASIAN": ["RANGE_SCALP"],
+      "POST_NY": ["RANGE_SCALP"]
+    },
+    "behavior_traits": [
+      "Sharp liquidity sweeps near PDH/PDL",
+      "Reacts strongly to VWAP and liquidity zones",
+      "Tends to overshoot PDH during NY open"
+    ],
+    "weekend_trading": false
+  },
+  "BTCUSD": {
+    "primary_sessions": ["ASIAN", "LONDON", "NY", "OVERLAP"],
+    "volatility_personality": "VERY_HIGH_VOLATILITY",
+    "atr_multiplier_range": [1.5, 2.0],
+    "confluence_minimum": 85,
+    "vwap_stretch_tolerance": 2.5,
+    "preferred_strategies": {
+      "ASIAN": ["TREND_SCALP"],
+      "LONDON": ["BREAKOUT", "MOMENTUM"],
+      "NY": ["TREND_SCALP"],
+      "OVERLAP": ["MOMENTUM_CONTINUATION"],
+      "POST_NY": ["TREND_SCALP"]
+    },
+    "behavior_traits": [
+      "High volatility, less structured order flow",
+      "Spikes near session transitions",
+      "Weekend drift → low liquidity"
+    ],
+    "weekend_trading": true
+  },
+  "EURUSD": {
+    "primary_sessions": ["LONDON", "NY"],
+    "volatility_personality": "MODERATE_VOLATILITY",
+    "atr_multiplier_range": [0.8, 1.0],
+    "confluence_minimum": 70,
+    "vwap_stretch_tolerance": 1.0,
+    "preferred_strategies": {
+      "LONDON": ["TREND", "BREAKOUT"],
+      "NY": ["FADE", "REVERSAL"],
+      "OVERLAP": ["TREND", "BREAKOUT"],
+      "ASIAN": ["RANGE_SCALP"],
+      "POST_NY": ["RANGE_SCALP"]
+    },
+    "behavior_traits": [
+      "Strong structural confluence with DXY",
+      "Mean reversion efficient during NY close",
+      "Predictable sweeps near PDH/PDL"
+    ],
+    "weekend_trading": false
+  },
+  "GBPUSD": {
+    "primary_sessions": ["LONDON", "NY"],
+    "volatility_personality": "MODERATE_VOLATILITY",
+    "atr_multiplier_range": [0.8, 1.0],
+    "confluence_minimum": 70,
+    "vwap_stretch_tolerance": 1.0,
+    "preferred_strategies": {
+      "LONDON": ["TREND", "BREAKOUT"],
+      "NY": ["FADE", "REVERSAL"],
+      "OVERLAP": ["TREND", "BREAKOUT"],
+      "ASIAN": ["RANGE_SCALP"],
+      "POST_NY": ["RANGE_SCALP"]
+    },
+    "behavior_traits": [
+      "Strong structural confluence with DXY",
+      "Mean reversion efficient during NY close",
+      "Predictable sweeps near PDH/PDL"
+    ],
+    "weekend_trading": false
+  },
+  "USDJPY": {
+    "primary_sessions": ["LONDON", "NY"],
+    "volatility_personality": "MODERATE_VOLATILITY",
+    "atr_multiplier_range": [0.8, 1.0],
+    "confluence_minimum": 70,
+    "vwap_stretch_tolerance": 1.0,
+    "preferred_strategies": {
+      "LONDON": ["TREND", "BREAKOUT"],
+      "NY": ["FADE", "REVERSAL"],
+      "OVERLAP": ["TREND", "BREAKOUT"],
+      "ASIAN": ["RANGE_SCALP"],
+      "POST_NY": ["RANGE_SCALP"]
+    },
+    "behavior_traits": [
+      "Strong structural confluence with DXY",
+      "Mean reversion efficient during NY close",
+      "Predictable sweeps near PDH/PDL"
+    ],
+    "weekend_trading": false
+  }
+}
+

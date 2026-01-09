@@ -1,0 +1,49 @@
+{
+  "early_exit_rules": {
+    "on_range_invalidation": {
+      "enabled": true,
+      "action": "exit_immediately",
+      "priority": "critical"
+    },
+    "quick_move_to_05r": {
+      "enabled": true,
+      "profit_threshold_r": 0.5,
+      "time_threshold_minutes": 30,
+      "action": "move_sl_to_breakeven",
+      "breakeven_buffer_atr": 0.1,
+      "exit_if_retrace_to_be": true
+    },
+    "stagnant_after_1h": {
+      "enabled": true,
+      "time_threshold_minutes": 60,
+      "min_profit_requirement_r": 0.3,
+      "action": "exit_early",
+      "reason": "stagnation_energy_loss"
+    },
+    "strong_divergence": {
+      "enabled": true,
+      "cvd_divergence_threshold": 0.7,
+      "action": "exit_at_current_profit",
+      "min_profit_to_exit_r": 0.1
+    },
+    "opposite_order_flow": {
+      "enabled": true,
+      "tape_pressure_shift_threshold": 0.6,
+      "action": "exit_early",
+      "exit_at_profit_r": 0.6,
+      "exit_if_losing": true
+    }
+  },
+  "breakeven_management": {
+    "enabled": true,
+    "buffer_atr_multiplier": 0.1,
+    "move_on_profit_r": 0.5,
+    "exit_if_hit_breakeven": true
+  },
+  "range_monitoring_during_trade": {
+    "enabled": true,
+    "check_interval_minutes": 5,
+    "invalidation_exit_immediate": true
+  }
+}
+

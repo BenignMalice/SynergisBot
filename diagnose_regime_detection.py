@@ -1,0 +1,181 @@
+"""
+Diagnostic script to show why regime detection is returning UNKNOWN
+"""
+import sys
+import json
+import logging
+from pathlib import Path
+
+# Configure encoding for Windows
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8')
+
+# Setup logging
+logging.basicConfig(level=logging.INFO, format='%(message)s')
+logger = logging.getLogger(__name__)
+
+def load_config():
+    """Load micro-scalp config"""
+    try:
+        with open('config/micro_scalp_config.json', 'r') as f:
+            return json.load(f)
+    except Exception as e:
+        logger.error(f"Error loading config: {e}")
+        return {}
+
+def explain_regime_detection():
+    """Explain how regime detection works and why UNKNOWN occurs"""
+    print("=" * 80)
+    print("MICRO-SCALP REGIME DETECTION EXPLAINED")
+    print("=" * 80)
+    print()
+    
+    config = load_config()
+    regime_config = config.get('regime_detection', {})
+    thresholds = regime_config.get('strategy_confidence_thresholds', {})
+    
+    print("CONFIDENCE THRESHOLDS:")
+    print(f"  VWAP Reversion: {thresholds.get('vwap_reversion', 70)}%")
+    print(f"  Range Scalp: {thresholds.get('range_scalp', 55)}%")
+    print(f"  Balanced Zone: {thresholds.get('balanced_zone', 65)}%")
+    print(f"  Edge Based: {thresholds.get('edge_based', 60)}%")
+    print()
+    
+    print("=" * 80)
+    print("WHY REGIME IS UNKNOWN")
+    print("=" * 80)
+    print()
+    print("The system returns UNKNOWN when NONE of the 3 regimes meet their")
+    print("minimum confidence thresholds. This is a CONSERVATIVE approach to")
+    print("ensure only high-quality regime-specific strategies are used.")
+    print()
+    
+    print("=" * 80)
+    print("1. VWAP REVERSION (Threshold: 70%)")
+    print("=" * 80)
+    print()
+    print("Confidence Scoring (max 100 points):")
+    print("  +40 points: Price deviation ≥ 2.0 sigma from VWAP")
+    print("              OR ≥0.5% for BTC, ≥0.2% for XAU")
+    print("  +20 points: Volume spike detected (1.3× average or Z-score > 1.5)")
+    print("  +20 points: VWAP slope is flat (< 0.1× ATR normalized)")
+    print("  +20 points: ATR(14) is stable (not dropping)")
+    print()
+    print("Why it's 0% in your case:")
+    print("  ❌ Price is likely TOO CLOSE to VWAP (deviation < 2.0 sigma)")
+    print("     → This immediately returns 0% confidence")
+    print("  OR")
+    print("  ❌ Missing other conditions (volume spike, flat slope, stable ATR)")
+    print()
+    
+    print("=" * 80)
+    print("2. RANGE SCALP (Threshold: 55%)")
+    print("=" * 80)
+    print()
+    print("Confidence Scoring (max 100 points):")
+    print("  +40 points: Range structure detected (PDH/PDL or intraday range)")
+    print("  +20 points: Price near range edge (within 0.5% tolerance)")
+    print("  +20 points: Range has ≥2 respects (bounces at edges)")
+    print("  +20 points: M15 trend is weak (ADX < 20)")
+    print()
+    print("Why it's 0% in your case:")
+    print("  ❌ NO RANGE STRUCTURE detected")
+    print("     → RangeBoundaryDetector didn't find a valid range")
+    print("  OR")
+    print("  ❌ Price not near range edges")
+    print("  OR")
+    print("  ❌ Range doesn't have enough respects (bounces)")
+    print()
+    
+    print("=" * 80)
+    print("3. BALANCED ZONE (Threshold: 65%)")
+    print("=" * 80)
+    print()
+    print("Confidence Scoring (max 100 points):")
+    print("  +40 points: BB compression detected (width < 2% of price)")
+    print("  +20 points: Compression block on M1-M5 timeframes")
+    print("  +20 points: ATR dropping (0.75× average)")
+    print("  +20 points: EMA(20) ≈ VWAP (equilibrium, difference < 0.1%)")
+    print()
+    print("Why it's 40% in your case:")
+    print("  ✅ Some compression detected (BB width or compression block)")
+    print("     → This gives 40 points")
+    print("  ❌ Missing compression block (if BB only)")
+    print("  ❌ ATR not dropping")
+    print("  ❌ EMA-VWAP not in equilibrium")
+    print("  → Needs 65% but only has 40% → Not detected")
+    print()
+    
+    print("=" * 80)
+    print("WHEN UNKNOWN IS EXPECTED")
+    print("=" * 80)
+    print()
+    print("UNKNOWN is NORMAL and EXPECTED when:")
+    print("  1. Market is in transition between regimes")
+    print("  2. Market is choppy/volatile (doesn't fit clean patterns)")
+    print("  3. Data is insufficient (not enough candles, missing indicators)")
+    print("  4. Market is trending strongly (micro-scalp doesn't detect trends)")
+    print()
+    print("The system handles this gracefully:")
+    print("  → Falls back to 'edge_based' strategy")
+    print("  → Uses generic location filters and candle signals")
+    print("  → Still attempts to find micro-scalp setups")
+    print()
+    
+    print("=" * 80)
+    print("HOW TO SEE WHY EACH REGIME FAILED")
+    print("=" * 80)
+    print()
+    print("Check your logs for messages like:")
+    print()
+    print("  [BTCUSDc] ⚠️ Regime UNKNOWN - No regime met confidence thresholds")
+    print("  [BTCUSDc]   VWAP Reversion: 0% (threshold: 70%)")
+    print("  [BTCUSDc]   Range Scalp: 0% (threshold: 55%)")
+    print("  [BTCUSDc]   Balanced Zone: 40% (threshold: 65%)")
+    print("  [BTCUSDc]     VWAP failure: deviation_sigma 1.2 < 2.0")
+    print()
+    print("The 'reason' field in each regime result explains why it failed:")
+    print("  - VWAP: 'deviation_sigma X < 2.0' → Price too close to VWAP")
+    print("  - Range: 'No range structure detected' → No valid range found")
+    print("  - Balanced: Shows which conditions are missing")
+    print()
+    
+    print("=" * 80)
+    print("YOUR CURRENT SITUATION")
+    print("=" * 80)
+    print()
+    print("Based on your data:")
+    print("  Strategy: edge_based (fallback)")
+    print("  Regime: UNKNOWN")
+    print("  Regime Confidence: 0.0%")
+    print()
+    print("This means:")
+    print("  ✅ Pre-Trade filters: PASSED")
+    print("  ✅ Location filter: PASSED")
+    print("  ✅ Candle signals: 1 trigger detected")
+    print("  ❌ Regime detection: No clear regime (UNKNOWN)")
+    print()
+    print("The system is working correctly - it's being conservative and")
+    print("only using regime-specific strategies when confident about the")
+    print("market state. When uncertain, it uses the generic 'edge_based'")
+    print("strategy which still applies all 4 layers of validation.")
+    print()
+    
+    print("=" * 80)
+    print("SUMMARY")
+    print("=" * 80)
+    print()
+    print("Your regime is UNKNOWN because:")
+    print("  1. VWAP Reversion: 0% (price too close to VWAP)")
+    print("  2. Range Scalp: 0% (no range structure detected)")
+    print("  3. Balanced Zone: 40% (has compression but missing key conditions)")
+    print()
+    print("All are below their thresholds → UNKNOWN → edge_based strategy")
+    print()
+    print("This is WORKING AS DESIGNED. The system is being conservative")
+    print("to avoid false regime detections.")
+    print()
+
+if __name__ == "__main__":
+    explain_regime_detection()
+

@@ -1,0 +1,4 @@
+# file: C:\mt5-gpt\TelegramMoneyBot.v7\infra\structure_validation.py
+# hypothesis_version: 6.142.1
+
+[0.0, 0.001, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.4, 0.6, 0.7, 0.75, 0.8, 0.9, 0.999, 1.0, 1.001, 2.0, 300, 1000, 3600, 7200, '\nRecommendations:', 'BTCUSDc', 'H1', '__main__', 'accuracy_level', 'accuracy_metrics', 'bos', 'channel', 'choch', 'close', 'confidence_accuracy', 'conflicted', 'detected_confidence', 'detected_strength', 'downtrend', 'excellent', 'expired', 'fair', 'flag', 'good', 'high', 'invalid', 'invalid_structures', 'lookback_periods', 'low', 'meets_target', 'open', 'overall_accuracy', 'pending', 'pending_structures', 'pennant', 'poor', 'price_accuracy', 'price_range', 'recommendations', 'resistance', 'sideways', 'support', 'symbol_accuracy', 'time_accuracy', 'timeframe_accuracy', 'timestamp', 'total_structures', 'total_validations', 'touches', 'trend_change', 'trend_line', 'triangle', 'uptrend', 'valid', 'valid_structures', 'volume']

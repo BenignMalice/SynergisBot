@@ -1,0 +1,48 @@
+{
+  "symbol": "XAUUSDc",
+  "asset_type": "commodity",
+  "binance_symbol": null,
+  "pip_value": 0.1,
+  "min_lot_size": 0.01,
+  "max_lot_size": 0.5,
+  "lot_step": 0.01,
+  "vwap": {
+    "session_anchor": "london",
+    "sigma_window_minutes": 120,
+    "min_volume_threshold": 0.01,
+    "price_precision": 2
+  },
+  "atr": {
+    "m1_period": 14,
+    "m5_period": 14,
+    "ratio_multiplier": 1.2,
+    "high_volatility_threshold": 2.5
+  },
+  "delta": {
+    "spike_threshold": 1.5,
+    "min_volume": 0.01,
+    "lookback_periods": 20
+  },
+  "micro_bos": {
+    "bar_lookback": 5,
+    "min_atr_displacement": 0.3,
+    "cooldown_period_ms": 300000
+  },
+  "spread_filter": {
+    "normal_spread_threshold": 1.0,
+    "elevated_spread_threshold": 2.0,
+    "high_spread_threshold": 4.0,
+    "extreme_spread_threshold": 8.0,
+    "window_size": 20,
+    "outlier_z_score": 2.0
+  },
+  "risk": {
+    "max_lot_size": 0.05,
+    "daily_lot_limit": 0.5,
+    "hourly_lot_limit": 0.25,
+    "max_drawdown_pct": 3.0,
+    "circuit_breaker_threshold": 0.015
+  },
+  "enabled": true,
+  "priority": 1
+}

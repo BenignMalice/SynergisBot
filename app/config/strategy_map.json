@@ -1,0 +1,541 @@
+{
+  "version": 2,
+
+  "regime": {
+    "rr_floor": 1.35,
+    "session_overrides": {
+      "ASIA": { "rr_floor": 1.25 },
+      "LONDON": { "rr_floor": 1.4 },
+      "NEWYORK": { "rr_floor": 1.45 },
+      "WEEKEND": { "rr_floor": 1.3 },
+      "CRYPTO": { "rr_floor": 1.3 }
+    }
+  },
+
+  "strategies": {
+    "trend_pullback_ema": {
+      "allow_regimes": ["TREND"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "adx_min": 25, "ema200_align": true },
+      "sl_tp": {
+        "sl": { "mode": "swing_or_atr", "atr_mult": 1.2 },
+        "tp": { "mode": "atr", "atr_mult": 1.8 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.0 } } },
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.6 } } }
+      },
+      "rr_floor": 1.4,
+      "risk_base_pct": 0.45,
+      "session_overrides": {
+        "NEWYORK": { "rr_floor": 1.5 },
+        "LONDON": { "rr_floor": 1.45 },
+        "ASIA": { "rr_floor": 1.3 },
+        "WEEKEND": { "rr_floor": 1.3 },
+        "CRYPTO": { "rr_floor": 1.3 }
+      },
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 1.8 } },
+          "filters": { "adx_min": 25 }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.3 }, "tp": { "atr_mult": 2.0 } },
+          "filters": { "adx_min": 22 }
+        }
+      }
+    },
+
+    "range_fade_sr": {
+      "allow_regimes": ["RANGE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "bb_squeeze_max": 0.0135, "near_sr": true },
+      "sl_tp": {
+        "sl": { "mode": "beyond_edge_or_wick", "atr_mult": 1.0 },
+        "tp": { "mode": "atr", "atr_mult": 1.0 }
+      },
+      "regime_overrides": {
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.1 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.35,
+      "session_overrides": { "ASIA": { "rr_floor": 1.25 } },
+      "symbol_overrides": {
+        "XAUUSD": {
+          "filters": { "bb_squeeze_max": 0.012 },
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 1.2 } }
+        },
+        "BTCUSD": {
+          "filters": { "bb_squeeze_max": 0.016 },
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 1.4 } }
+        }
+      }
+    },
+
+    "opening_range_breakout": {
+      "allow_regimes": ["VOLATILE", "TREND"],
+      "allow_sessions": ["LONDON", "NEWYORK", "CRYPTO"],
+      "filters": {
+        "session_in": ["LONDON", "NEWYORK"],
+        "open_range_minutes": 45
+      },
+      "entry": { "ttl_min": 90 },
+      "sl_tp": {
+        "sl": { "mode": "inside_range" },
+        "tp": { "mode": "range_height_mult", "mult": 1.5 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "mult": 1.6 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "mult": 1.8 } } }
+      },
+      "rr_floor": 1.4,
+      "risk_base_pct": 0.5,
+      "session_overrides": { "CRYPTO": { "rr_floor": 1.35 } },
+      "symbol_overrides": {
+        "BTCUSD": {
+          "filters": {
+            "session_in": ["LONDON", "NEWYORK", "CRYPTO"],
+            "open_range_minutes": 60
+          },
+          "entry": { "ttl_min": 120 }
+        },
+        "XAUUSD": {
+          "filters": {
+            "session_in": ["LONDON", "NEWYORK"],
+            "open_range_minutes": 45
+          },
+          "entry": { "ttl_min": 90 }
+        }
+      }
+    },
+
+    "liquidity_sweep_reversal": {
+      "allow_regimes": ["RANGE", "VOLATILE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "sweep_of_level": true, "engulfing_after_sweep": true },
+      "sl_tp": {
+        "sl": { "mode": "beyond_wick", "atr_mult": 1.0 },
+        "tp": { "mode": "atr", "atr_mult": 1.5 }
+      },
+      "regime_overrides": {
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.3 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "atr_mult": 1.7 } } }
+      },
+      "rr_floor": 1.4,
+      "risk_base_pct": 0.35,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 1.6 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 1.8 } }
+        }
+      }
+    },
+
+    "pattern_breakout_retest": {
+      "allow_regimes": ["VOLATILE", "TREND"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "patterns_any": ["triangle", "wedge", "rectangle"],
+      "sl_tp": {
+        "sl": { "mode": "beyond_pattern", "atr_mult": 1.2 },
+        "tp": { "mode": "atr", "atr_mult": 2.0 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.2 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "atr_mult": 1.8 } } }
+      },
+      "rr_floor": 1.5,
+      "risk_base_pct": 0.45,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 2.0 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.3 }, "tp": { "atr_mult": 2.2 } }
+        }
+      }
+    },
+
+    "hs_or_double_reversal": {
+      "allow_regimes": ["RANGE", "VOLATILE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "patterns_any": ["head_shoulders", "double_top", "double_bottom"],
+      "sl_tp": {
+        "sl": { "mode": "beyond_shoulder_or_swing", "atr_mult": 1.2 },
+        "tp": { "mode": "atr", "atr_mult": 2.0 }
+      },
+      "regime_overrides": {
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.8 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "atr_mult": 2.2 } } }
+      },
+      "rr_floor": 1.5,
+      "risk_base_pct": 0.4,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 2.0 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.3 }, "tp": { "atr_mult": 2.2 } }
+        }
+      }
+    },
+
+    "bos_continuation": {
+      "allow_regimes": ["TREND", "VOLATILE"],
+      "filters": { "adx_min": 25, "ema200_align": true },
+      "sl_tp": {
+        "sl": { "mode": "structure", "buffer_pts": 10 },
+        "tp": { "mode": "atr", "atr_mult": 2.0 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.2 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "atr_mult": 1.8 } } }
+      },
+      "rr_floor": 1.5,
+      "risk_base_pct": 0.5
+    },
+
+    "ema200_bounce": {
+      "allow_regimes": ["TREND"],
+      "filters": { "ema200_bounce": true },
+      "sl_tp": {
+        "sl": { "mode": "wick_or_atr", "atr_mult": 1.2 },
+        "tp": { "mode": "atr", "atr_mult": 1.8 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.0 } } }
+      },
+      "rr_floor": 1.4,
+      "risk_base_pct": 0.4,
+      "symbol_overrides": {
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.3 }, "tp": { "atr_mult": 2.0 } }
+        }
+      }
+    },
+
+    "vwap_mean_reversion": {
+      "allow_regimes": ["RANGE", "VOLATILE"],
+      "filters": { "stretch_atr_mult_min": 1.8, "vwap_distance": true },
+      "sl_tp": {
+        "sl": { "mode": "stretch_extreme" },
+        "tp": { "mode": "vwap_or_mid" }
+      },
+      "regime_overrides": {
+        "RANGE": { "sl_tp": { "tp": { "mode": "vwap_or_mid" } } },
+        "VOLATILE": {
+          "sl_tp": { "tp": { "mode": "vwap_or_mid", "tighten": true } }
+        }
+      },
+      "rr_floor": 1.2,
+      "risk_base_pct": 0.3,
+      "symbol_overrides": {
+        "BTCUSD": { "filters": { "stretch_atr_mult_min": 2.0 } }
+      }
+    },
+
+    "pivot_bounce": {
+      "allow_regimes": ["RANGE", "VOLATILE"],
+      "filters": { "near_pivot": true },
+      "sl_tp": {
+        "sl": { "mode": "beyond_pivot" },
+        "tp": { "mode": "mid_or_next_pivot" }
+      },
+      "regime_overrides": {
+        "RANGE": {
+          "sl_tp": { "tp": { "mode": "mid_or_next_pivot", "prefer": "next" } }
+        },
+        "VOLATILE": {
+          "sl_tp": { "tp": { "mode": "mid_or_next_pivot", "prefer": "mid" } }
+        }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.3
+    },
+
+    "inside_bar_breakout": {
+      "allow_regimes": ["VOLATILE", "TREND"],
+      "filters": { "mother_bar": true },
+      "entry": { "ttl_min": 60 },
+      "sl_tp": {
+        "sl": { "mode": "other_side_mother" },
+        "tp": { "mode": "atr", "atr_mult": 1.8 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.0 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "atr_mult": 1.6 } } }
+      },
+      "rr_floor": 1.4,
+      "risk_base_pct": 0.4
+    },
+
+    "marubozu_continuation": {
+      "allow_regimes": ["VOLATILE", "TREND"],
+      "filters": { "marubozu": true },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 1.0 },
+        "tp": { "mode": "atr", "atr_mult": 1.6 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 1.8 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "atr_mult": 1.5 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.35
+    },
+
+    "order_block_rejection": {
+      "allow_regimes": ["TREND", "RANGE", "VOLATILE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "ob_strength_min": 0.5 },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 1.0 },
+        "tp": { "mode": "atr", "atr_mult": 1.5 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.0 } } },
+        "RANGE": { "sl_tp": { "sl": { "atr_mult": 0.8 }, "tp": { "atr_mult": 1.2 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.45,
+      "session_overrides": {
+        "LONDON": { "rr_floor": 1.4 },
+        "NEWYORK": { "rr_floor": 1.45 },
+        "ASIA": { "rr_floor": 1.25 }
+      },
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 1.6 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 1.8 } }
+        }
+      }
+    },
+
+    "breaker_block": {
+      "allow_regimes": ["TREND", "RANGE", "VOLATILE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "ob_broken": true, "price_retesting_breaker": true },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 1.0 },
+        "tp": { "mode": "atr", "atr_mult": 2.0 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.2 } } },
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.8 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.5,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 2.0 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 2.2 } }
+        }
+      }
+    },
+
+    "market_structure_shift": {
+      "allow_regimes": ["TREND", "VOLATILE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "pullback_to_mss": true },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 1.2 },
+        "tp": { "mode": "atr", "atr_mult": 2.5 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.7 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "atr_mult": 2.3 } } }
+      },
+      "rr_floor": 1.5,
+      "risk_base_pct": 0.5,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 2.5 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.3 }, "tp": { "atr_mult": 2.7 } }
+        }
+      }
+    },
+
+    "fvg_retracement": {
+      "allow_regimes": ["TREND", "RANGE", "VOLATILE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "fvg_fill_min": 0.5, "fvg_fill_max": 0.75 },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 0.8 },
+        "tp": { "mode": "atr", "atr_mult": 1.5 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 1.8 } } },
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.3 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.4,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 0.8 }, "tp": { "atr_mult": 1.6 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 1.8 } }
+        }
+      }
+    },
+
+    "mitigation_block": {
+      "allow_regimes": ["TREND", "RANGE", "VOLATILE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "structure_broken": true },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 1.0 },
+        "tp": { "mode": "atr", "atr_mult": 1.8 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.0 } } },
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.6 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.4,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 1.8 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 2.0 } }
+        }
+      }
+    },
+
+    "inducement_reversal": {
+      "allow_regimes": ["TREND", "RANGE", "VOLATILE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "rejection_detected": true, "require_confluence": true },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 1.0 },
+        "tp": { "mode": "atr", "atr_mult": 1.8 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.0 } } },
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.6 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.4,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 1.8 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 2.0 } }
+        }
+      }
+    },
+
+    "premium_discount_array": {
+      "allow_regimes": ["RANGE"],
+      "allow_sessions": ["ASIA", "LONDON", "NEWYORK", "WEEKEND", "CRYPTO"],
+      "filters": { "adx_min": 15 },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 0.9 },
+        "tp": { "mode": "atr", "atr_mult": 1.8 }
+      },
+      "regime_overrides": {
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.6 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.35,
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 0.9 }, "tp": { "atr_mult": 1.8 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 2.0 } }
+        }
+      }
+    },
+
+    "kill_zone": {
+      "allow_regimes": ["TREND", "VOLATILE"],
+      "allow_sessions": ["LONDON", "NEWYORK"],
+      "filters": { "volatility_spike_required": true },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 0.9 },
+        "tp": { "mode": "atr", "atr_mult": 1.8 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.0 } } },
+        "VOLATILE": { "sl_tp": { "tp": { "atr_mult": 1.6 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.4,
+      "session_overrides": {
+        "LONDON": { "rr_floor": 1.4 },
+        "NEWYORK": { "rr_floor": 1.45 }
+      },
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 0.9 }, "tp": { "atr_mult": 1.8 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 2.0 } }
+        }
+      }
+    },
+
+    "session_liquidity_run": {
+      "allow_regimes": ["TREND", "RANGE", "VOLATILE"],
+      "allow_sessions": ["LONDON", "NEWYORK"],
+      "filters": { "sweep_detected": true, "reversal_structure": true },
+      "sl_tp": {
+        "sl": { "mode": "atr", "atr_mult": 1.0 },
+        "tp": { "mode": "atr", "atr_mult": 1.8 }
+      },
+      "regime_overrides": {
+        "TREND": { "sl_tp": { "tp": { "atr_mult": 2.0 } } },
+        "RANGE": { "sl_tp": { "tp": { "atr_mult": 1.6 } } }
+      },
+      "rr_floor": 1.3,
+      "risk_base_pct": 0.4,
+      "session_overrides": {
+        "LONDON": { "rr_floor": 1.4 },
+        "NEWYORK": { "rr_floor": 1.45 }
+      },
+      "symbol_overrides": {
+        "XAUUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.0 }, "tp": { "atr_mult": 1.8 } }
+        },
+        "BTCUSD": {
+          "sl_tp": { "sl": { "atr_mult": 1.2 }, "tp": { "atr_mult": 2.0 } }
+        }
+      }
+    }
+  },
+
+  "generic_pending": {
+    "base_risk_pct": 0.50,
+    "session_overrides": {
+      "ASIA":   { "enabled": true,  "rr_floor_mult": 1.15, "rr_floor_add": 0.0, "risk_pct_mult": 0.85, "prefer_breakout": false },
+      "LONDON": { "enabled": true,  "rr_floor_mult": 0.95, "rr_floor_add": 0.0, "risk_pct_mult": 1.00, "prefer_breakout": true  },
+      "NY":     { "enabled": true,  "rr_floor_mult": 0.95, "rr_floor_add": 0.0, "risk_pct_mult": 1.00, "prefer_breakout": true  }
+    }
+  },
+
+  "breakout_momo": {
+    "base_risk_pct": 0.60,
+    "session_overrides": {
+      "ASIA":   { "enabled": true,  "rr_floor_mult": 1.20, "risk_pct_mult": 0.80, "prefer_breakout": false },
+      "LONDON": { "enabled": true,  "rr_floor_mult": 0.90, "risk_pct_mult": 1.10, "prefer_breakout": true  },
+      "NY":     { "enabled": true,  "rr_floor_mult": 0.90, "risk_pct_mult": 1.10, "prefer_breakout": true  }
+    }
+  },
+
+  "risk_overrides": {
+    "minutes_to_high_impact_news_lt": [30, -0.15],
+    "spread_atr_pct_gt": [0.25, -0.2],
+    "adx_boost": [35, 0.1],
+    "win_streak_boost": [2, 0.05]
+  }
+}
